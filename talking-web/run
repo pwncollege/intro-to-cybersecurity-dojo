@@ -1,0 +1,218 @@
+#!/opt/pwn.college/python
+
+import sys
+import subprocess
+import random
+import pathlib
+import shutil
+import hashlib
+import time
+
+import psutil
+from flask import Flask, request, make_response, redirect, session
+
+
+app = Flask(__name__)
+flag = open("/flag").read()
+config = (pathlib.Path(__file__).parent / ".config").read_text()
+challenge_name, client_name = config.split()
+
+
+def value(n):
+    return "".join(random.choice("0123456789abcdef") for _ in range(n))
+
+
+def validate(name, value, correct):
+    assertion_message = f"Incorrect {name}: value `{value}`, should be `{correct}`\n"
+    assert value == correct, assertion_message
+
+
+def validate_client(name):
+    PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    correct_path = pathlib.Path(shutil.which(name, path=PATH)).resolve()
+
+    server_connection = next(
+        connection
+        for connection in psutil.Process().connections()
+        if connection.fd == request.input_stream.fileno()
+    )
+    client_connection = next(
+        connection
+        for connection in psutil.net_connections()
+        if connection.raddr == server_connection.laddr
+        and connection.laddr == server_connection.raddr
+    )
+    client_process = psutil.Process(client_connection.pid)
+    client_path = pathlib.Path(client_process.exe())
+
+    validate("client", client_path, correct_path)
+
+
+def challenge_none():
+    return flag
+
+
+def challenge_host():
+    validate("host", request.host, value(32))
+    return flag
+
+
+def challenge_path():
+    validate("path", request.path, f"/{value(32)}")
+    return flag
+
+
+def challenge_path_encoded():
+    validate("path", request.path, f"/{value(8)} {value(8)}/{value(8)} {value(8)}")
+    return flag
+
+
+def challenge_arg():
+    validate("arg `a`", request.args.get("a"), value(32))
+    return flag
+
+
+def challenge_arg_multi():
+    validate("arg `a`", request.args.get("a"), value(32))
+    validate("arg `b`", request.args.get("b"), f"{value(8)} {value(8)}&{value(8)}#{value(8)}")
+    return flag
+
+
+def challenge_form():
+    validate("form `a`", request.form.get("a"), value(32))
+    return flag
+
+
+def challenge_form_multi():
+    validate("form `a`", request.form.get("a"), value(32))
+    validate("form `b`", request.form.get("b"), f"{value(8)} {value(8)}&{value(8)}#{value(8)}")
+    return flag
+
+
+def challenge_json():
+    validate("Content-Type", request.content_type, "application/json")
+    validate("json `a`", request.json.get("a"), value(32))
+    return flag
+
+
+def challenge_json_multi():
+    validate("Content-Type", request.content_type, "application/json")
+    validate("json `a`", request.json.get("a"), value(32))
+    validate("json `b`", request.json.get("b"), {
+        "c": value(8),
+        "d": [value(8), f"{value(8)} {value(8)}&{value(8)}#{value(8)}"],
+    })
+    return flag
+
+
+def challenge_redirect():
+    redirect_path = f"/{value(32)}"
+    if request.path != redirect_path:
+        return redirect(redirect_path)
+    return flag
+
+
+def challenge_cookie():
+    cookie = value(32)
+    if request.cookies.get("cookie") != cookie:
+        response = make_response(redirect(request.path))
+        response.set_cookie("cookie", cookie)
+        return response
+    return flag
+
+
+def challenge_state():
+    state = session.get("state", 0) + 1
+    session["state"] = state
+    if state <= 3:
+        response = make_response(redirect(request.path))
+        response.set_data(f"state: {state}\n")
+        return response
+    return flag
+
+
+@app.route("/", methods=["GET", "POST"])
+@app.route("/<path:path>", methods=["GET", "POST"])
+def catch_all(path=""):
+    random.seed(flag)
+    challenge = globals()[f"challenge_{challenge_name}"]
+    if client_name:
+        validate_client(client_name)
+    return challenge()
+
+
+@app.after_request
+def after_request(response):
+    response.headers["Server"] = "pwn.college"
+    del response.headers["Content-Type"]
+    return response
+
+
+@app.errorhandler(AssertionError)
+def assertion_handler(error):
+    return str(error), 400
+
+
+@app.errorhandler(Exception)
+def exception_handler(error):
+    import traceback
+    return traceback.format_exc(), 500
+
+
+def start_daemon(target):
+    challenge_run_dir = pathlib.Path("/run/challenge")
+    challenge_run_dir.mkdir(exist_ok=True)
+
+    challenge_run_pid_path = challenge_run_dir / "challenge.pid"
+    challenge_run_log_path = challenge_run_dir / "challenge.log"
+
+    stdout_path = pathlib.Path("/proc/self/fd/1").resolve()
+    dev_null_path = pathlib.Path("/dev/null")
+
+    if stdout_path == challenge_run_log_path:
+        return target()
+
+    argv = [
+        "/usr/sbin/start-stop-daemon",
+        "--start",
+        "--pidfile", str(challenge_run_pid_path),
+        "--make-pidfile",
+        "--background",
+        "--no-close",
+        "--quiet",
+        "--oknodo",
+        "--startas", sys.argv[0],
+        "--",
+        *sys.argv[1:],
+    ]
+
+    subprocess.run(argv,
+                   stdin=subprocess.DEVNULL,
+                   stdout=open(challenge_run_log_path, "a"),
+                   stderr=subprocess.STDOUT,
+                   check=True)
+
+    if stdout_path != dev_null_path:
+        argv = [
+            "/usr/bin/tail",
+            "-F",
+            "-n+1",
+            str(challenge_run_log_path),
+        ]
+
+        while True:
+            subprocess.run(argv,
+                           stdin=subprocess.DEVNULL,
+                           stderr=subprocess.DEVNULL)
+            time.sleep(0.1)
+
+
+if __name__ == "__main__":
+    def target():
+        app.secret_key = flag
+        app.run("127.0.0.1", 80)
+
+    try:
+        start_daemon(target)
+    except KeyboardInterrupt:
+        pass
