@@ -128,37 +128,32 @@ modules:
   resources:
   - name: "Talking Web: Introduction"
     type: lecture
-    data:
-      video: UW13N0CV-4s
-      playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
-      slides: 1Wdd3z3qSiknvYsETmosSiIFQtnNmeanFeWJz6SMazY8
+    video: UW13N0CV-4s
+    playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
+    slides: 1Wdd3z3qSiknvYsETmosSiIFQtnNmeanFeWJz6SMazY8
   - name: "Talking Web: The Internet"
     type: lecture
-    data:
-      video: v64j2WFiJpc
-      playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
-      slides: 1HrAXQq6CvxOFfEUhuZTQbqEYOYA-FgLE9pL6ji9BcvI
+    video: v64j2WFiJpc
+    playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
+    slides: 1HrAXQq6CvxOFfEUhuZTQbqEYOYA-FgLE9pL6ji9BcvI
   - name: "Talking Web: RFC 1945"
     type: lecture
-    data:
-      video: bPaY78xpRhQ
-      playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
-      slides: 1VWNFfmzbeVzQ-J887ngynb-1YdLGJEd4ype69MUWtkI
+    video: bPaY78xpRhQ
+    playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
+    slides: 1VWNFfmzbeVzQ-J887ngynb-1YdLGJEd4ype69MUWtkI
   - name: "Talking Web: URLs and Encoding"
     type: lecture
-    data:
-      video: yM9VM2DSkBU
-      playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
-      slides: 1twvI9r1RPZAuka_cABnvwhOnourhbOgu5C1f_NgZx9s
+    video: yM9VM2DSkBU
+    playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
+    slides: 1twvI9r1RPZAuka_cABnvwhOnourhbOgu5C1f_NgZx9s
   - name: "Talking Web: State"
     type: lecture
-    data:
-      video: 2TeudjfK-tQ
-      playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
-      slides: 1O8ff6AdaTQ1eA8lhUo3GjIbtxicpQnKseIc-TSNW5hE
+    video: 2TeudjfK-tQ
+    playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
+    slides: 1O8ff6AdaTQ1eA8lhUo3GjIbtxicpQnKseIc-TSNW5hE
   - name: Further Reading
     type: markdown
-    data: |
+    content: |
       Some other useful resources:
 
       - How to use the `curl` command:
@@ -244,55 +239,47 @@ modules:
   resources:
   - name: "Assembly Crash Course: Computer Architecture"
     type: lecture
-    data:
-      video: o_kSgUPJk4c
-      playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-      slides: 1sVyPL92gbzg_it9aIeC-CjXtF2tpvAmZTKjWc-SlU0c
+    video: o_kSgUPJk4c
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1sVyPL92gbzg_it9aIeC-CjXtF2tpvAmZTKjWc-SlU0c
   - name: "Assembly Crash Course: Assembly"
     type: lecture
-    data:
-      video: TdTOH1GfrWg
-      playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-      slides: 1sBB34ZUVjT3MDjYvGiZU3z6CTLGvO1hHEdHliPUJ0iw
+    video: TdTOH1GfrWg
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1sBB34ZUVjT3MDjYvGiZU3z6CTLGvO1hHEdHliPUJ0iw
   - name: "Assembly Crash Course: Data"
     type: lecture
-    data:
-      video: 21MvbpgssU8
-      playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-      slides: 1SeyZbM_qCDz4t03KDZ8Q0qi1GzsSSSJAkO-KeVlAL7w
+    video: 21MvbpgssU8
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1SeyZbM_qCDz4t03KDZ8Q0qi1GzsSSSJAkO-KeVlAL7w
   - name: "Assembly Crash Course: Registers"
     type: lecture
-    data:
-      video: IWbIZerH930
-      playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-      slides: 1U8Rsz7FNTmy-3wGtPB-YCyanIIbox1J90adze9-1cfo
+    video: IWbIZerH930
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1U8Rsz7FNTmy-3wGtPB-YCyanIIbox1J90adze9-1cfo
   - name: "Assembly Crash Course: Memory"
     type: lecture
-    data:
-      video: HahXfnOsSUU
-      playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-      slides: 1lbPbd-jLj7VS7M-ntGhpv4_8WqSfqzLBNWG68_BIRL0
+    video: HahXfnOsSUU
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1lbPbd-jLj7VS7M-ntGhpv4_8WqSfqzLBNWG68_BIRL0
   - name: "Assembly Crash Course: Control Flow"
     type: lecture
-    data:
-      video: 0a8NlF7z7Ro
-      playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-      slides: 1wX5TH6DQjXw4GJo_T6I9GF7bhC689T52HSHaMUCmj1E
+    video: 0a8NlF7z7Ro
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1wX5TH6DQjXw4GJo_T6I9GF7bhC689T52HSHaMUCmj1E
   - name: "Assembly Crash Course: System Calls"
     type: lecture
-    data:
-      video: vspq0u2tvhU
-      playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-      slides: 1vEuZ1PW8Wvm88INmWbjoKY8srEKSkv2g4o-V42BsN9Y
+    video: vspq0u2tvhU
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1vEuZ1PW8Wvm88INmWbjoKY8srEKSkv2g4o-V42BsN9Y
   - name: "Assembly Crash Course: Building Programs"
     type: lecture
-    data:
-      video: IITocH-WGH4
-      playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-      slides: 1Y35BuIvvG8k3txjcsMXjygzsP7rDaNpbDHz3TMO91Fo
+    video: IITocH-WGH4
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1Y35BuIvvG8k3txjcsMXjygzsP7rDaNpbDHz3TMO91Fo
   - name: Further Reading
     type: markdown
-    data: |
+    content: |
       - An awesome intro series that covers some of the fundamentals from [LiveOverflow](https://www.youtube.com/watch?v=iyAyN3GFM7A&list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&index=1).
       - A [`Ike: The Systems Hacking Handbook](https://ike.mahaloz.re/1_introduction/introduction.html), an excellent guide to Computer Organization.
       - A [comprehensive assembly tutorial](https://github.com/mytechnotalent/Reverse-Engineering-Tutorial) for several architectures (amd64 is the relevant one here).
@@ -337,31 +324,26 @@ modules:
   resources:
   - name: "Building a Web Server: Introduction"
     type: lecture
-    data:
-      video: 4S78xEhxh7k
-      playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
-      slides: 1U33Vcbv2nVoufatHhmIK4XKRzyXZCujR45paGABblnk
+    video: 4S78xEhxh7k
+    playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
+    slides: 1U33Vcbv2nVoufatHhmIK4XKRzyXZCujR45paGABblnk
   - name: "Building a Web Server: Linux Processes"
     type: lecture
-    data:
-      video: nEJiM1ryJQw
-      playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
-      slides: 1l0VHGTYtAk2FzWY4c-m5e8yTS1hCnGit2ve7y7BAlyg
+    video: nEJiM1ryJQw
+    playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
+    slides: 1l0VHGTYtAk2FzWY4c-m5e8yTS1hCnGit2ve7y7BAlyg
   - name: "Building a Web Server: Network System Calls"
     type: lecture
-    data:
-      video: Q1SvbIBCx1E
-      playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
-      slides: 1MxT1qcwZZHSkaaeYIKKp7Qg0IaespmlrqhZDnWkwxFo
+    video: Q1SvbIBCx1E
+    playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
+    slides: 1MxT1qcwZZHSkaaeYIKKp7Qg0IaespmlrqhZDnWkwxFo
   - name: "Building a Web Server: HTTP"
     type: lecture
-    data:
-      video: 0G0aL8KTeB4
-      playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
-      slides: 1_-CxrxPUf9D_6tsueggaaOt27pQ-I7hVe4YIMz1PWA8
+    video: 0G0aL8KTeB4
+    playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
+    slides: 1_-CxrxPUf9D_6tsueggaaOt27pQ-I7hVe4YIMz1PWA8
   - name: "Building a Web Server: Multiprocessing"
     type: lecture
-    data:
-      video: 9jH2Le-MWuI
-      playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
-      slides: 1tycdciuY8aMmBGj98qUMq0-ubClkqeT10QNIT0hE9kU
+    video: 9jH2Le-MWuI
+    playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
+    slides: 1tycdciuY8aMmBGj98qUMq0-ubClkqeT10QNIT0hE9kU
