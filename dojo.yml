@@ -2,15 +2,17 @@ id: introduction-to-cybersecurity
 name: Introduction to Cybersecurity
 description: |
   Newcomers enter the dojo with zero security knowledge and earn their white belts by learning (and doing) basic security concepts.
-  At ASU, this is done in CSE 365 (Introduction to Cybersecurity), but worldwide learners don't have to be enrolled to participate.
+  The white belt material requires knowledge of C programming and some Linux proficiency to begin.
+
 modules:
+
 - id: talking-web
   name: Talking Web
   description: TODO
   challenges:
   - id: level-1
     name: level1
-    description: Send an HTTP web server using curl
+    description: Send an HTTP request using curl
   - id: level-2
     name: level2
     description: Send an HTTP request using nc
@@ -151,139 +153,11 @@ modules:
     video: 2TeudjfK-tQ
     playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
     slides: 1O8ff6AdaTQ1eA8lhUo3GjIbtxicpQnKseIc-TSNW5hE
-  - name: Further Reading
-    type: markdown
-    content: |
-      Some other useful resources:
+  - name: Connor's Q&A (2022.09.01)
+    type: lecture
+    video: c9EKi8sysZ4
+    playlist: PL-ymxv0nOtqqW1sDfN6UGUfJTcYqYH9CM
 
-      - How to use the `curl` command:
-        - [https://linux.die.net/man/1/curl](https://linux.die.net/man/1/curl)
-        - [https://everything.curl.dev/http](https://everything.curl.dev/http)
-      - How to use the `nc` command:
-        - [https://linux.die.net/man/1/nc](https://linux.die.net/man/1/nc)
-      - How to use `python requests`
-        - [https://requests.readthedocs.io/en/latest/](https://requests.readthedocs.io/en/latest/)
-- id: assembly-crash-course
-  name: Assembly Crash Course
-  description: TODO
-  challenges:
-  - id: level-1
-    name: level1
-    description: Set a register
-  - id: level-2
-    name: level2
-    description: Addition
-  - id: level-3
-    name: level3
-    description: Multiplication
-  - id: level-4
-    name: level4
-    description: Division
-  - id: level-5
-    name: level5
-    description: Modulus
-  - id: level-6
-    name: level6
-    description: Register sizes
-  - id: level-7
-    name: level7
-    description: Bitwise shift
-  - id: level-8
-    name: level8
-    description: Bitwise and
-  - id: level-9
-    name: level9
-    description: Bitwise logic
-  - id: level-10
-    name: level10
-    description: Memory reads and writes
-  - id: level-11
-    name: level11
-    description: Data sizes
-  - id: level-12
-    name: level12
-    description: Dynamic address memory writes
-  - id: level-13
-    name: level13
-    description: Consecutive memory reads
-  - id: level-14
-    name: level14
-    description: The stack
-  - id: level-15
-    name: level15
-    description: Swap register values with the stack
-  - id: level-16
-    name: level16
-    description: Memory reads and writes with the stack
-  - id: level-17
-    name: level17
-    description: Control flow
-  - id: level-18
-    name: level18
-    description: Conditional branches
-  - id: level-19
-    name: level19
-    description: Jump tables
-  - id: level-20
-    name: level20
-    description: Computing averages
-  - id: level-21
-    name: level21
-    description: Implementing strlen
-  - id: level-22
-    name: level22
-    description: Using library functions
-  - id: level-23
-    name: level23
-    description: Compute the most common byte
-  resources:
-  - name: "Assembly Crash Course: Computer Architecture"
-    type: lecture
-    video: o_kSgUPJk4c
-    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-    slides: 1sVyPL92gbzg_it9aIeC-CjXtF2tpvAmZTKjWc-SlU0c
-  - name: "Assembly Crash Course: Assembly"
-    type: lecture
-    video: TdTOH1GfrWg
-    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-    slides: 1sBB34ZUVjT3MDjYvGiZU3z6CTLGvO1hHEdHliPUJ0iw
-  - name: "Assembly Crash Course: Data"
-    type: lecture
-    video: 21MvbpgssU8
-    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-    slides: 1SeyZbM_qCDz4t03KDZ8Q0qi1GzsSSSJAkO-KeVlAL7w
-  - name: "Assembly Crash Course: Registers"
-    type: lecture
-    video: IWbIZerH930
-    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-    slides: 1U8Rsz7FNTmy-3wGtPB-YCyanIIbox1J90adze9-1cfo
-  - name: "Assembly Crash Course: Memory"
-    type: lecture
-    video: HahXfnOsSUU
-    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-    slides: 1lbPbd-jLj7VS7M-ntGhpv4_8WqSfqzLBNWG68_BIRL0
-  - name: "Assembly Crash Course: Control Flow"
-    type: lecture
-    video: 0a8NlF7z7Ro
-    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-    slides: 1wX5TH6DQjXw4GJo_T6I9GF7bhC689T52HSHaMUCmj1E
-  - name: "Assembly Crash Course: System Calls"
-    type: lecture
-    video: vspq0u2tvhU
-    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-    slides: 1vEuZ1PW8Wvm88INmWbjoKY8srEKSkv2g4o-V42BsN9Y
-  - name: "Assembly Crash Course: Building Programs"
-    type: lecture
-    video: IITocH-WGH4
-    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
-    slides: 1Y35BuIvvG8k3txjcsMXjygzsP7rDaNpbDHz3TMO91Fo
-  - name: Further Reading
-    type: markdown
-    content: |
-      - An awesome intro series that covers some of the fundamentals from [LiveOverflow](https://www.youtube.com/watch?v=iyAyN3GFM7A&list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&index=1).
-      - A [`Ike: The Systems Hacking Handbook](https://ike.mahaloz.re/1_introduction/introduction.html), an excellent guide to Computer Organization.
-      - A [comprehensive assembly tutorial](https://github.com/mytechnotalent/Reverse-Engineering-Tutorial) for several architectures (amd64 is the relevant one here).
-      - The course ["Architecture 1001: x86-64 Assembly"](https://p.ost2.fyi/courses/course-v1:OpenSecurityTraining2+Arch1001_x86-64_Asm+2021_v1/course/) from OpenSecurityTraining2.
 - id: building-a-web-server
   name: Building a Web Server
   description: TODO
@@ -347,3 +221,225 @@ modules:
     video: 9jH2Le-MWuI
     playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
     slides: 1tycdciuY8aMmBGj98qUMq0-ubClkqeT10QNIT0hE9kU
+
+- id: intercepting-communication
+  name: Intercepting Communication
+  description: TODO
+  challenges:
+  - id: level-1
+    name: level1
+    description: TODO
+  - id: level-2
+    name: level2
+    description: TODO
+  - id: level-3
+    name: level3
+    description: TODO
+  - id: level-4
+    name: level4
+    description: TODO
+  - id: level-5
+    name: level5
+    description: TODO
+  - id: level-6
+    name: level6
+    description: TODO
+  - id: level-7
+    name: level7
+    description: TODO
+  - id: level-8
+    name: level8
+    description: TODO
+  - id: level-9
+    name: level9
+    description: TODO
+  - id: level-10
+    name: level10
+    description: TODO
+  - id: level-11
+    name: level11
+    description: TODO
+  - id: level-12
+    name: level12
+    description: TODO
+  - id: level-13
+    name: level13
+    description: TODO
+  - id: level-14
+    name: level14
+    description: TODO
+  resources:
+  - name: "Intercepting Communication: Introduction"
+    type: lecture
+    video: TLJHimgblCM
+    playlist: PL-ymxv0nOtqrrjUFj5DL7jby9xA4sPFq-
+    slides: 1fj5anIxRY3haHl81dFWwwCMQhJCUEY-NrTClwYH9_iE
+  - name: "Intercepting Communication: Ethernet"
+    type: lecture
+    video: TaPsmkBNJ64
+    playlist: PL-ymxv0nOtqrrjUFj5DL7jby9xA4sPFq-
+    slides: 1OFdRsadX7HaLVtrVC5rV8837W8FY83Qzca5OIhhade0
+  - name: "Intercepting Communication: Internet Protocol"
+    type: lecture
+    video: _3F7lRUoIXM
+    playlist: PL-ymxv0nOtqrrjUFj5DL7jby9xA4sPFq-
+    slides: 1fiTAFWX-ASikEFD1QRmgangaUzLvE2Ym7UlSjVnx4Oc
+  - name: "Intercepting Communication: Transmission Control Protocol"
+    type: lecture
+    video: v3m9F9nEpCA
+    playlist: PL-ymxv0nOtqrrjUFj5DL7jby9xA4sPFq-
+    slides: 1ALXCLKkbGgzOJ0qrCGD-UekGOGjzH74tLAaZLw4CvWc
+  - name: "Intercepting Communication: Address Resolution Protocol"
+    type: lecture
+    video: 9p2OU4r4aGs
+    playlist: PL-ymxv0nOtqrrjUFj5DL7jby9xA4sPFq-
+    slides: 1VoEUlgjCNZuNIdh8KSxF6bTXPr1ylaeokwFDOLk7F94
+
+- id: cryptography
+  name: Cryptography
+  description: TODO
+  challenges:
+  - id: level-1
+    name: level1
+    description: TODO
+  - id: level-2
+    name: level2
+    description: TODO
+  - id: level-3
+    name: level3
+    description: TODO
+  - id: level-4
+    name: level4
+    description: TODO
+  - id: level-5
+    name: level5
+    description: TODO
+  - id: level-6
+    name: level6
+    description: TODO
+  - id: level-7
+    name: level7
+    description: TODO
+  - id: level-8
+    name: level8
+    description: TODO
+  - id: level-9
+    name: level9
+    description: TODO
+  - id: level-10
+    name: level10
+    description: TODO
+  - id: level-11
+    name: level11
+    description: TODO
+  - id: level-12
+    name: level12
+    description: TODO
+  - id: level-13
+    name: level13
+    description: TODO
+  - id: level-14
+    name: level14
+    description: TODO
+  resources:
+  - name: "Cryptography: Introduction"
+    type: lecture
+    video: YBdzIxeseuE
+    playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+    slides: 16lg_XvODz-gebGMTsUDF4u2ueQwwGM6r6-hDfz1lW_E
+  - name: "Cryptography: Symmetric Encryption"
+    type: lecture
+    video: CJrCzOR2qhk
+    playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+    slides: 1RzVGK4JXM4Iia5IA8N_Hu0Rshd1VedOvo-0a54qkceU
+  - name: "Cryptography: Key Exchange"
+    type: lecture
+    video: YSipKal5SKM
+    playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+    slides: 1BSCUh-Y8FyMthjngBTrMCBdvfwkkn8KfxgYun2328kI
+  - name: "Cryptography: Asymmetric Encryption"
+    type: lecture
+    video: 661MFqOp0WA
+    playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+    slides: 1oOF6fWzLX-g4CpMQ2VpPOD4k3TYtAxVvVuY8BPZF2oI
+  - name: "Cryptography: Hashing"
+    type: lecture
+    video: BY5qBsmWEa8
+    playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+    slides: 1_DJHHllHplxalW8DCgR-BPF9D_PJxoozxbLzrVYCe18
+  - name: "Cryptography: Trust"
+    type: lecture
+    video: -QLq_8ZbUzw
+    playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+    slides: 1OER4qdFD4JjxaAhMr9axcIUk4-oNskl7LwRC7LXtqnU
+
+- id: web-security
+  name: Web Security
+  description: TODO
+  challenges:
+  - id: level-1
+    name: level1
+    description: TODO
+  - id: level-2
+    name: level2
+    description: TODO
+  - id: level-3
+    name: level3
+    description: TODO
+  - id: level-4
+    name: level4
+    description: TODO
+  - id: level-5
+    name: level5
+    description: TODO
+  - id: level-6
+    name: level6
+    description: TODO
+  - id: level-7
+    name: level7
+    description: TODO
+  - id: level-8
+    name: level8
+    description: TODO
+  - id: level-9
+    name: level9
+    description: TODO
+  - id: level-10
+    name: level10
+    description: TODO
+  - id: level-11
+    name: level11
+    description: TODO
+  - id: level-12
+    name: level12
+    description: TODO
+  - id: level-13
+    name: level13
+    description: TODO
+  - id: level-14
+    name: level14
+    description: TODO
+  - id: level-15
+    name: level15
+    description: TODO
+  resources:
+  - name: "Web Security: Introduction"
+    type: lecture
+    video: AKTYVWCi6ss
+    playlist: PL-ymxv0nOtqrvXLSALV5SQ5v3oyKY4DWg
+    slides: 1ATO_U0aUlk2LRhlnIwdqTkDfu-lWRb5xoLDv0NQLPs8
+  - name: "Web Security: Structured Query Language"
+    type: lecture
+    video: 433mRGcpHeA
+    playlist: PL-ymxv0nOtqrvXLSALV5SQ5v3oyKY4DWg
+    slides: 1KpvjoFnlC9HcUJbkg-_VASf2JETMwEZjpzO0uGSoCo4
+  - name: "Web Security: Injection"
+    type: lecture
+    video: sdStLx3_Q0M
+    playlist: PL-ymxv0nOtqrvXLSALV5SQ5v3oyKY4DWg
+    slides: 1rP8IIc_6B8Z7KpqBGxkneIzAjURRQ-YlkJV-_4dF-SM
+  - name: "Web Security: Same-Origin Policy"
+    type: lecture
+    video: b1NOCHm4t_s
+    playlist: PL-ymxv0nOtqrvXLSALV5SQ5v3oyKY4DWg
+    slides: 1KkiR8B_9xQilW_yq6W9FZ6xBN78V0S1aH1XvQfufYIk
