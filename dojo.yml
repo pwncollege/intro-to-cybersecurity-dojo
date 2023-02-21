@@ -3,6 +3,8 @@ name: Introduction to Cybersecurity
 description: |
   TODO: say something cool about introduction to cybersecurity.
 
+type: topic
+
 modules:
 
 - id: talking-web
