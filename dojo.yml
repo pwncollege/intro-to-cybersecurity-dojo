@@ -152,10 +152,6 @@ modules:
     video: 2TeudjfK-tQ
     playlist: PL-ymxv0nOtqpbL9yW55RfoyUDjwotW9gR
     slides: 1O8ff6AdaTQ1eA8lhUo3GjIbtxicpQnKseIc-TSNW5hE
-  - name: Connor's Q&A (2022.09.01)
-    type: lecture
-    video: c9EKi8sysZ4
-    playlist: PL-ymxv0nOtqqW1sDfN6UGUfJTcYqYH9CM
 
 - id: building-a-web-server
   name: Building a Web Server
