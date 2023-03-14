@@ -225,46 +225,46 @@ modules:
   challenges:
   - id: level-1
     name: level1
-    description: TODO
+    description: Connect to a remote host
   - id: level-2
     name: level2
-    description: TODO
+    description: Listen for a connection from a remote host
   - id: level-3
     name: level3
-    description: TODO
+    description: Find and connect to a remote host
   - id: level-4
     name: level4
-    description: TODO
+    description: Find and connect to a remote host on a large network
   - id: level-5
     name: level5
-    description: TODO
+    description: Monitor traffic from a remote host
   - id: level-6
     name: level6
-    description: TODO
+    description: Monitor slow traffic from a remote host
   - id: level-7
     name: level7
-    description: TODO
+    description: Hijack traffic from a remote host by configuring your network interface
   - id: level-8
     name: level8
-    description: TODO
+    description: Manually send an Ethernet packet
   - id: level-9
     name: level9
-    description: TODO
+    description: Manually send an Internet Protocol packet
   - id: level-10
     name: level10
-    description: TODO
+    description: Manually send a Transmission Control Protocol packet
   - id: level-11
     name: level11
-    description: TODO
+    description: Manually perform a Transmission Control Protocol handshake
   - id: level-12
     name: level12
-    description: TODO
+    description: Manually send an Address Resolution Protocol packet
   - id: level-13
     name: level13
-    description: TODO
+    description: Hijack traffic from a remote host using ARP
   - id: level-14
     name: level14
-    description: TODO
+    description: Man-in-the-middle traffic between two remote hosts and inject extra traffic
   resources:
   - name: "Intercepting Communication: Introduction"
     type: lecture

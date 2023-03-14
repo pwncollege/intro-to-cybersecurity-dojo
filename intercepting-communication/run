@@ -12,7 +12,6 @@ import signal
 import ctypes
 import pathlib
 
-
 import scapy.all as scapy
 
 
@@ -690,13 +689,13 @@ def challenge():
         4: "find and connect to a remote host.\nThe remote host is somewhere on the `10.0.0.0/16` subnetwork, listening on port `31337`.",
         5: "monitor traffic from a remote host.\nYour host is already receiving traffic on port `31337`.",
         6: "monitor slow traffic from a remote host.\nYour host is already receiving traffic on port `31337`.",
-        7: "hijack traffic from a remote host.\nThe remote host at `10.0.0.4` is communicating with the remote host at `10.0.0.2` on port `31337`.",
+        7: "hijack traffic from a remote host by configuring your network interface.\nThe remote host at `10.0.0.4` is communicating with the remote host at `10.0.0.2` on port `31337`.",
         8: "manually send an Ethernet packet.\nThe packet should have `Ether type=0xFFFF`.\nThe packet should be sent to the remote host at `10.0.0.3`.",
         9: "manually send an Internet Protocol packet.\nThe packet should have `IP proto=0xFF`.\nThe packet should be sent to the remote host at `10.0.0.3`.",
         10: "manually send a Transmission Control Protocol packet.\nThe packet should have `TCP sport=31337, dport=31337, seq=31337, ack=31337, flags=APRSF`.\nThe packet should be sent to the remote host at `10.0.0.3`.",
         11: "manually perform a Transmission Control Protocol handshake.\nThe initial packet should have `TCP sport=31337, dport=31337, seq=31337`.\nThe handshake should occur with the remote host at `10.0.0.3`.",
         12: "manually send an Address Resolution Protocol packet.\nThe packet should have `ARP op=is-at` and correctly inform the remote host of where the sender can be found.\nThe packet should be sent to the remote host at `10.0.0.3`.",
-        13: "hijack traffic from a remote host.\nYou do not have the capabilities of a NET ADMIN.\nThe remote host at `10.0.0.4` is communicating with the remote host at `10.0.0.2` on port `31337`.",
+        13: "hijack traffic from a remote host using ARP.\nYou do not have the capabilities of a NET ADMIN.\nThe remote host at `10.0.0.4` is communicating with the remote host at `10.0.0.2` on port `31337`.",
         14: "man in the middle traffic between two remote hosts and inject extra traffic.\nThe remote host at `10.0.0.4` is communicating with the remote host at `10.0.0.3` on port `31337`.",
     }[level]
     description = f"In this challenge you will {description}"
