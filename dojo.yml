@@ -291,6 +291,15 @@ modules:
     video: 9p2OU4r4aGs
     playlist: PL-ymxv0nOtqrrjUFj5DL7jby9xA4sPFq-
     slides: 1VoEUlgjCNZuNIdh8KSxF6bTXPr1ylaeokwFDOLk7F94
+  - name: "Tooling Documentation"
+    type: markdown
+    content: |
+      - [man page: `nc`](https://linux.die.net/man/1/nc)
+      - [man page: `ip`](https://linux.die.net/man/8/ip)
+      - [man page: `tcpdump`](https://linux.die.net/man/8/tcpdump)
+      - [Cheat Sheet For `ip` Command](https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf)
+      - [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/)
+      - [Scapy's Documentation](https://scapy.readthedocs.io/en/latest/)
 
 - id: cryptography
   name: Cryptography
