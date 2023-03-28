@@ -303,50 +303,50 @@ modules:
 
 - id: cryptography
   name: Cryptography
-  description: TODO
+  description: Solve various cryptography challenges ranging from decoding base64 data to performing a simplified TLS handshake.
   challenges:
   - id: level-1
     name: level1
-    description: TODO
+    description: Decode base64-encoded data to reveal its original content.
   - id: level-2
     name: level2
-    description: TODO
+    description: Decrypt a secret encrypted with a one-time pad, assuming a securely transferred key.
   - id: level-3
     name: level3
-    description: TODO
+    description: Decrypt a secret encrypted with a one-time pad, where the key is reused for arbitrary data.
   - id: level-4
     name: level4
-    description: TODO
+    description: Decrypt a secret encrypted with AES using the ECB mode of operation.
   - id: level-5
     name: level5
-    description: TODO
+    description: Decrypt a secret encrypted with AES-ECB, where arbitrary data is appended to the secret and the key is reused.
   - id: level-6
     name: level6
-    description: TODO
+    description: Perform a Diffie-Hellman key exchange to establish a shared secret.
   - id: level-7
     name: level7
-    description: TODO
+    description: Decrypt an RSA-encrypted secret using provided public and private keys.
   - id: level-8
     name: level8
-    description: TODO
+    description: Decrypt an RSA-encrypted secret using the provided prime factors of n.
   - id: level-9
     name: level9
-    description: TODO
+    description: Find a small hash collision using SHA256, considering only the first 2 bytes.
   - id: level-10
     name: level10
-    description: TODO
+    description: Compute a small proof-of-work by appending response data to the challenge data, resulting in a SHA256 hash with 2 null-bytes.
   - id: level-11
     name: level11
-    description: TODO
+    description: Complete an RSA challenge-response using provided public and private keys.
   - id: level-12
     name: level12
-    description: TODO
+    description: Complete an RSA challenge-response by providing the public key.
   - id: level-13
     name: level13
-    description: TODO
+    description: Sign a user certificate using a provided self-signed root certificate and root private key.
   - id: level-14
     name: level14
-    description: TODO
+    description: Perform a simplified TLS handshake as the server, completing a Diffie-Hellman key exchange and establishing an encrypted channel to provide a user certificate and prove private key ownership.
   resources:
   - name: "Cryptography: Introduction"
     type: lecture
