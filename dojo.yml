@@ -384,7 +384,7 @@ modules:
 
 - id: web-security
   name: Web Security
-  description: TODO
+  description: Exploit various web security vulnerabilities.
   challenges:
   - id: level-1
     name: level1
@@ -415,22 +415,22 @@ modules:
     description: Exploit a cross site scripting vulnerability with more complicated context
   - id: level-10
     name: level10
-    description: TODO
+    description: Exploit a cross site scripting vulnerability to cause a user action
   - id: level-11
     name: level11
-    description: TODO
+    description: Exploit a cross site request forgery vulnerability
   - id: level-12
     name: level12
-    description: TODO
+    description: Exploit a cross site request forgery vulnerability where the request must POST
   - id: level-13
     name: level13
-    description: TODO
+    description: Exploit a cross site scripting vulnerability to exfilitrate user session data 
   - id: level-14
     name: level14
-    description: TODO
+    description: Exploit a cross site scripting vulnerability to exfilitrate user data
   - id: level-15
     name: level15
-    description: TODO
+    description: Exploit a (memory corruption) stack injection vulnerability
   resources:
   - name: "Web Security: Introduction"
     type: lecture
