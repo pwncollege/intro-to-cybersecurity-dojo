@@ -388,31 +388,31 @@ modules:
   challenges:
   - id: level-1
     name: level1
-    description: TODO
+    description: Exploit a path traversal vulnerability
   - id: level-2
     name: level2
-    description: TODO
+    description: Exploit a command injection vulnerability
   - id: level-3
     name: level3
-    description: TODO
+    description: Exploit an authentication bypass vulnerability 
   - id: level-4
     name: level4
-    description: TODO
+    description: Exploit a structured query language injection vulnerability to login
   - id: level-5
     name: level5
-    description: TODO
+    description: Exploit a structured query language injection vulnerability to leak data
   - id: level-6
     name: level6
-    description: TODO
+    description: Exploit a structured query language injection vulnerability with an unknown database structure
   - id: level-7
     name: level7
-    description: TODO
+    description: Exploit a structured query language injection vulnerability to blindly leak data
   - id: level-8
     name: level8
-    description: TODO
+    description: Exploit a cross site scripting vulnerability
   - id: level-9
     name: level9
-    description: TODO
+    description: Exploit a cross site scripting vulnerability with more complicated context
   - id: level-10
     name: level10
     description: TODO
