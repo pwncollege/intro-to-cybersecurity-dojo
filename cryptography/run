@@ -240,7 +240,7 @@ def level11():
     show_hex("d", key.d)
     show_hex("n", key.n)
 
-    challenge = int.from_bytes(get_random_bytes(256), "little")
+    challenge = int.from_bytes(get_random_bytes(256), "little") % key.n
     show_hex("challenge", challenge)
 
     response = input_hex("response")
