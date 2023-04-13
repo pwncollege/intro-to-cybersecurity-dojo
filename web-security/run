@@ -6,6 +6,7 @@ import tempfile
 import contextlib
 import urllib
 import subprocess
+import time
 import sqlite3
 import ctypes
 
@@ -295,6 +296,7 @@ def level10():
             WebDriverWait(browser, 10).until(EC.staleness_of(submit_field))
 
             browser.get(url)
+            time.sleep(1)
 
         return "Visited\n"
 
@@ -366,6 +368,7 @@ def level11():
             WebDriverWait(browser, 10).until(EC.staleness_of(submit_field))
 
             browser.get(url)
+            time.sleep(1)
 
         return "Visited\n"
 
@@ -432,6 +435,7 @@ def level12():
             WebDriverWait(browser, 10).until(EC.staleness_of(submit_field))
 
             browser.get(url)
+            time.sleep(1)
 
         return "Visited\n"
 
@@ -496,6 +500,7 @@ def level13():
             WebDriverWait(browser, 10).until(EC.staleness_of(submit_field))
 
             browser.get(url)
+            time.sleep(1)
 
         return "Visited\n"
 
@@ -563,6 +568,7 @@ def level14():
             WebDriverWait(browser, 10).until(EC.staleness_of(submit_field))
 
             browser.get(url)
+            time.sleep(1)
 
         return "Visited\n"
 
