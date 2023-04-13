@@ -452,3 +452,8 @@ modules:
     video: b1NOCHm4t_s
     playlist: PL-ymxv0nOtqrvXLSALV5SQ5v3oyKY4DWg
     slides: 1KkiR8B_9xQilW_yq6W9FZ6xBN78V0S1aH1XvQfufYIk
+  - name: "Tooling Documentation"
+    type: markdown
+    content: |
+      - [python -m http.server](https://docs.python.org/library/http.server.html)
+      - [JavaScript Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
