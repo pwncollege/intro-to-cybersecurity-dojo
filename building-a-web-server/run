@@ -35,7 +35,7 @@ strace_expected_parent = r"""
 7..8    read(5, <read_file>, <read_file_count>) = <read_file_result>
 7..8    close(5) = 0
 6..8    write(4, "HTTP/1.0 200 OK\r\n\r\n", 19) = 19
-7..8    write(4, <write_file>, <write_file_count> = <write_file_result>
+7..8    write(4, <write_file>, <write_file_count>) = <write_file_result>
 9..10   fork() = <fork_result>
 6..10   close(4) = 0
 8..10   accept(3, NULL, NULL) = ?
@@ -48,10 +48,10 @@ strace_expected_child = r"""
 9..9    open("<open_path>", O_RDONLY) = 3
 9..9    read(3, <read_file>, <read_file_count>) = <read_file_result>
 10..10  open("<open_path>", O_WRONLY|O_CREAT, 0777) = 3
-10..10  write(3, <write_file>, <write_file_count> = <write_file_result>
+10..10  write(3, <write_file>, <write_file_count>) = <write_file_result>
 9..10   close(3) = 0
 9..10   write(4, "HTTP/1.0 200 OK\r\n\r\n", 19) = 19
-9..9    write(4, <write_file>, <write_file_count> = <write_file_result>
+9..9    write(4, <write_file>, <write_file_count>) = <write_file_result>
 9..10   exit(0) = ?
 """
 
