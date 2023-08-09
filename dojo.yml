@@ -12,7 +12,45 @@ modules:
 
 - id: talking-web
   name: Talking Web
-  description: Master the art of crafting and decoding HTTP requests and responses using various tools and programming languages, working with headers, paths, arguments, form data, JSON, cookies, and redirects.
+  description: |
+    In the vast expanse of the digital realm, HTTP (Hypertext Transfer Protocol) stands as the lingua franca, the common tongue through which web applications, servers, and clients converse.
+    This module, **Talking Web**, delves deep into the intricate dance of crafting, decoding, and manipulating HTTP requests and responses.
+    
+    Both novice web developers and cybersecurity aficionados will come to realize that to truly grasp the heartbeat of the web, one must not only understand but master the nuances of HTTP communication.
+    Mastery, however, is more than just absorbing theory; it’s about rolling up your sleeves and getting hands-on.
+    By the end of this journey, you won't be solely reliant on your web browser to make HTTP requests on your behalf. You'll possess the skills to converse directly with web servers, thus opening a new world of versatility and power.
+    
+    To aid you in this journey, this module arms you with formidable tools: `curl`, `netcat`, and `python requests`, setting the stage for dialogues with web servers, specifically on `localhost` at `port 80`.
+    
+    As you venture into the detailed intricacies of:
+    - **Headers**: Metadata fields that carry vital information about the request or response.
+    - **Paths**: The specific locations or resources you're aiming to access.
+    - **Arguments**: Data points that can alter or dictate the behavior of your request.
+    - **Form Data**: Data transferred from web forms.
+    - **JSON**: A popular data interchange format that's lightweight and human-readable.
+    - **Cookies**: Small data fragments stored on the user's computer, crucial for session management and tracking.
+    - **Redirects**: Methods web services use to direct your browser from one location to another.
+    
+    As you sail through these challenges, you won't be navigating blind:
+    ```sh
+    hacker@talking-web-level-1:~$ /challenge/run
+     * Serving Flask app 'run'
+     * Debug mode: off
+    WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+     * Running on http://127.0.0.1:80
+    Press CTRL+C to quit
+    ```
+    
+    This real-time feedback loop, made available through `$ /challenge/run`, serves as your personal compass, directing your gaze into the heartbeat of the web server's activities.
+    While navigating, take note: the server's responses are not mere acknowledgments. They often whisper hints, nudging you towards the right path when you stumble.
+    
+    Yet, as with any craft, your tools are only as effective as your knowledge of them.
+    Should you ever find yourself at a crossroads, uncertain of how to harness these tools, remember that knowledge is just a click away:
+    - For `curl`, should its versatility bewilder you, the [man page for curl](https://linux.die.net/man/1/curl) is a treasure trove of wisdom.
+    - If `netcat` seems enigmatic, allow [netcat's documentation](https://linux.die.net/man/1/nc) to shed light on its mysteries.
+    - And, when the intricacies of the `python requests` library beckon, dive into its [comprehensive guide](https://requests.readthedocs.io/en/latest/).
+    
+    To truly initiate this journey, why not start by reaching out to the server in its native tongue? Let's put theory into practice. Go on, and use `curl` to speak with `localhost`.
   challenges:
   - id: level-1
     name: level1
