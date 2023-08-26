@@ -168,7 +168,7 @@ def challenge_json_multi():
     return flag
 
 def instructions_json_multi():
-    return f""""{instructions_none()}.
+    return f"""{instructions_none()}.
     The HTTP request must specify a content type HTTP header of 'application/json'
     Must send an HTTP POST with the body as a JSON object that has:
     \ta pair with name of `a` and a value of {requested_json_multi_a}
