@@ -80,7 +80,7 @@ def challenge_host():
 
 
 def instructions_host():
-    return f"{instructions_none()}.\n The Host HTTP header must be {requested_host_test}"
+    return f"{instructions_none()}.\nThe Host HTTP header must be {requested_host_test}"
 
 
 requested_path = f"/{rand_32_value}"
@@ -90,7 +90,7 @@ def challenge_path():
 
 
 def instructions_path():
-    return f"{instructions_none()}.\n The path of the HTTP request must be {requested_path}"
+    return f"{instructions_none()}.\nThe path of the HTTP request must be {requested_path}"
 
 
 requested_path_encoded = f"/{rand_8_values[0]} {rand_8_values[1]}/{rand_8_values[2]} {rand_8_values[3]}"
@@ -99,7 +99,7 @@ def challenge_path_encoded():
     return flag
 
 def instructions_path_encoded():
-    return f"{instructions_none()}.\n The path of the HTTP request must be {requested_path_encoded}"
+    return f"{instructions_none()}.\nThe path of the HTTP request must be {requested_path_encoded}"
 
 requested_arg = rand_32_value
 def challenge_arg():
