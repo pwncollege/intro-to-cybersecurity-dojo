@@ -310,9 +310,10 @@ def check_instructions():
 
 
 if __name__ == "__main__":
-    check_instructions()
-    output_instructions()
     def target():
+        check_instructions()
+        output_instructions()
+
         app.secret_key = flag
         app.run("127.0.0.1", 80)
 
