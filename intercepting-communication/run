@@ -471,9 +471,15 @@ class RawPacketHost(UnmanagedHost):
 
 
 class EtherPacketHost(RawPacketHost):
+    @property
+    def check_host(self):
+        return self.network.hosts[0]
+
     def check_packet(self, packet):
         return (
             "Ether" in packet and
+            packet["Ether"].src == self.check_host.mac and
+            packet["Ether"].dst == self.mac and
             packet["Ether"].type == 0xFFFF
         )
 
