@@ -485,9 +485,16 @@ class EtherPacketHost(RawPacketHost):
 
 
 class IPPacketHost(RawPacketHost):
+    @property
+    def check_host(self):
+        return self.network.hosts[0]
+
     def check_packet(self, packet):
         return (
-            "IP" in packet and
+            "Ether" in packet and "IP" in packet and
+            packet["Ether"].src == self.check_host.mac and
+            packet["Ether"].dst == self.mac and
+            packet["IP"].src == self.check_host.ip and
             packet["IP"].dst == self.ip and
             packet["IP"].proto == 0xFF
         )
