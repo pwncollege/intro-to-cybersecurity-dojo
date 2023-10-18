@@ -501,9 +501,17 @@ class IPPacketHost(RawPacketHost):
 
 
 class TCPPacketHost(RawPacketHost):
+    @property
+    def check_host(self):
+        return self.network.hosts[0]
+
     def check_packet(self, packet):
         return (
-            "TCP" in packet and
+            "Ether" in packet and "IP" in packet and "TCP" in packet and
+            packet["Ether"].src == self.check_host.mac and
+            packet["Ether"].dst == self.mac and
+            packet["IP"].src == self.check_host.ip and
+            packet["IP"].dst == self.ip and
             packet["TCP"].sport == 31337 and
             packet["TCP"].dport == 31337 and
             packet["TCP"].seq == 31337 and
@@ -513,12 +521,19 @@ class TCPPacketHost(RawPacketHost):
 
 
 class TCPHandshakeHost(RawPacketHost):
+    @property
+    def check_host(self):
+        return self.network.hosts[0]
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.seq = None
 
     def check_packet(self, packet):
-        if ("IP" in packet and "TCP" in packet["IP"] and len(packet["IP"].layers()) == 2 and
+        if ("Ether" in packet and "IP" in packet and "TCP" in packet and len(packet["IP"].layers()) == 2 and
+            packet["Ether"].src == self.check_host.mac and
+            packet["Ether"].dst == self.mac and
+            packet["IP"].src == self.check_host.ip and
             packet["IP"].dst == self.ip and
             packet["TCP"].sport == 31337 and
             packet["TCP"].dport == 31337 and
@@ -549,7 +564,10 @@ class TCPHandshakeHost(RawPacketHost):
 
             self.seq = (self.seq + 1) & (2**32 - 1)
 
-        if ("IP" in packet and "TCP" in packet["IP"] and len(packet["IP"].layers()) == 2 and
+        if ("Ether" in packet and "IP" in packet and "TCP" in packet and len(packet["IP"].layers()) == 2 and
+            packet["Ether"].src == self.check_host.mac and
+            packet["Ether"].dst == self.mac and
+            packet["IP"].src == self.check_host.ip and
             packet["IP"].dst == self.ip and
             packet["TCP"].sport == 31337 and
             packet["TCP"].dport == 31337 and
