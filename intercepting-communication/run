@@ -567,19 +567,16 @@ class TCPHandshakeHost(RawPacketHost):
 
 
 class ARPHost(RawPacketHost):
-    @property
-    def check_host(self):
-        return self.network.hosts[0]
-
     def check_packet(self, packet):
+        user_host = self.network.hosts[0]
         WHO_HAS = 1
         IS_AT = 2
         return (
             "Ether" in packet and "ARP" in packet["Ether"] and len(packet["Ether"].layers()) == 2 and
-            packet["Ether"].src == self.check_host.mac and
+            packet["Ether"].src == user_host.mac and
             packet["ARP"].op == IS_AT and
-            packet["ARP"].hwsrc == self.check_host.mac and
-            packet["ARP"].psrc == self.check_host.ip
+            packet["ARP"].hwsrc == user_host.mac and
+            packet["ARP"].psrc == user_host.ip
         )
 
 
