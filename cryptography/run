@@ -29,6 +29,15 @@ def show(name, value, *, b64=True):
 def show_b64(name, value):
     show(f"{name} (b64)", base64.b64encode(value).decode())
 
+def show_hex_block(name, value, byte_block_size=16):
+    value_to_show = ""
+
+    for i in range(len(value)):
+        value_to_show += f"{hex(value[i])[2:]}"
+        if i != 0 and i % byte_block_size == 0:
+            value_to_show += " "
+    show(f"{name} (hex)", value_to_show)
+
 
 def show_hex(name, value):
     show(name, hex(value))
@@ -122,11 +131,13 @@ def level5():
 
     ciphertext = cipher.encrypt(pad(flag, cipher.block_size))
     show_b64("secret ciphertext", ciphertext)
+    show_hex_block("secret ciphertext", ciphertext)
 
     while True:
         plaintext_prefix = input_b64("plaintext prefix")
         ciphertext = cipher.encrypt(pad(plaintext_prefix + flag, cipher.block_size))
         show_b64("ciphertext", ciphertext)
+        show_hex_block("ciphertext", ciphertext)
 
 
 def level6():
