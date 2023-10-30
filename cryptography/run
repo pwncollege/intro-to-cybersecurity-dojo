@@ -128,7 +128,6 @@ def level5():
     key = get_random_bytes(16)
     cipher = AES.new(key=key, mode=AES.MODE_ECB)
 
-    print(f"{pad(flag, cipher.block_size)}")
     ciphertext = cipher.encrypt(pad(flag, cipher.block_size))
     show_b64("secret ciphertext", ciphertext)
     show_hex_block("secret ciphertext", ciphertext)
@@ -136,7 +135,6 @@ def level5():
     while True:
         plaintext_prefix = input_b64("plaintext prefix")
         ciphertext = cipher.encrypt(pad(plaintext_prefix + flag, cipher.block_size))
-        print(f"{pad(plaintext_prefix + flag, cipher.block_size)}")
         show_b64("ciphertext", ciphertext)
         show_hex_block("ciphertext", ciphertext)
 
