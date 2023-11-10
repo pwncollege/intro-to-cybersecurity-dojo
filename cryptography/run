@@ -308,7 +308,6 @@ def level13():
     show_b64("root certificate signature", root_certificate_signature)
 
     user_certificate_data = input_b64("user certificate")
-    user_certificate_signature = input_b64("user certificate signature")
 
     try:
         user_certificate = json.loads(user_certificate_data)
@@ -338,6 +337,8 @@ def level13():
     if user_signer not in root_trusted_certificates:
         print(f"Untrusted user certificate signer: `{user_signer}`", file=sys.stderr)
         exit(1)
+
+    user_certificate_signature = input_b64("user certificate signature")
 
     user_signer_key = root_trusted_certificates[user_signer]["key"]
     user_certificate_hash = SHA256Hash(user_certificate_data).digest()
