@@ -438,8 +438,6 @@ def level14():
             exit(1)
 
     user_certificate_data = decrypt_input_b64("user certificate")
-    user_certificate_signature = decrypt_input_b64("user certificate signature")
-    user_signature = decrypt_input_b64("user signature")
 
     try:
         user_certificate = json.loads(user_certificate_data)
@@ -470,6 +468,8 @@ def level14():
         print(f"Untrusted user certificate signer: `{user_signer}`", file=sys.stderr)
         exit(1)
 
+    user_certificate_signature = decrypt_input_b64("user certificate signature")
+
     user_signer_key = root_trusted_certificates[user_signer]["key"]
     user_certificate_hash = SHA256Hash(user_certificate_data).digest()
     user_certificate_check = pow(
@@ -481,6 +481,8 @@ def level14():
     if user_certificate_check != user_certificate_hash:
         print("Untrusted user certificate: invalid signature", file=sys.stderr)
         exit(1)
+
+    user_signature = decrypt_input_b64("user signature")
 
     user_signature_data = (
         name.encode().ljust(256, b"\0") +
