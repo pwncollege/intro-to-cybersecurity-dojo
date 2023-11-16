@@ -430,7 +430,7 @@ def level14():
 
     B = input_hex("B")
     if not (B > 2**1024):
-        print("Invalid B value (B > 2**1024)", file=sys.stderr)
+        print("Invalid B value (B <= 2**1024)", file=sys.stderr)
         exit(1)
 
     s = pow(B, a, p)
