@@ -1,14 +1,15 @@
 #!/opt/pwn.college/python
 
+import contextlib
+import ctypes
+import inspect
 import os
 import pathlib
-import tempfile
-import contextlib
-import urllib
-import subprocess
-import time
 import sqlite3
-import ctypes
+import subprocess
+import tempfile
+import time
+import urllib
 
 from flask import Flask, request, session, redirect
 from selenium import webdriver
@@ -696,6 +697,24 @@ def challenge():
     os.setuid(os.geteuid())
 
     app.secret_key = flag
+
+    challenge = globals()[f"level{level}"]
+    challenge_code = inspect.getsource(challenge)
+
+    print("===== Welcome to Web Security! =====")
+    print("In this series of challenges, you will be working to break web applications!")
+    print("Read the code for the level, find the security vulnerability, and develop an exploit to get the flag.")
+    print("Note that the web application is running Python and using the Flask library, so see the Flask documentation as necessary.")
+    print("")
+    print("Here's the source code of this level:")
+    print(challenge_code)
+
+
+    print("")
+    print("Note: you will need to use another terminal or browser to interact with this web server.")
+    print("")
+    print("Now running the web server:")
+    print("")
     app.run(challenge_host, 80)
 
 
