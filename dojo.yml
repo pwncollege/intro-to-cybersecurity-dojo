@@ -1,5 +1,9 @@
 id: intro-to-cybersecurity
 name: Intro to Cybersecurity
+
+award:
+  belt: orange
+
 description: |
   Can you feel it?
   The sun is beginning to rise on your journey of cybersecurity.
