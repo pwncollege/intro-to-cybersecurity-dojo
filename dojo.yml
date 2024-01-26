@@ -364,7 +364,7 @@ modules:
     description: Decrypt a secret encrypted with AES using the ECB mode of operation
   - id: level-5
     name: level5
-    description: Decrypt a secret encrypted with AES-ECB, where arbitrary data is appended to the secret and the key is reused. This level is quite a step up in difficulty (and future levels currently do not build on this. Check out [this lecture video](https://youtu.be/YO5bgKjqW00?t=1901) on how to approach level 5.
+    description: Decrypt a secret encrypted with AES-ECB, where arbitrary data is appended to the secret and the key is reused. This level is quite a step up in difficulty (and future levels currently do not build on this level), so if you are completely stuck feel free to move ahead. Check out [this lecture video](https://youtu.be/YO5bgKjqW00?t=1901) on how to approach level 5.
   - id: level-6
     name: level6
     description: Perform a Diffie-Hellman key exchange to establish a shared secret
