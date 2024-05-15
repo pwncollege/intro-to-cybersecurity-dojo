@@ -466,10 +466,10 @@ modules:
     description: Exploit a cross site request forgery vulnerability where the request must POST
   - id: level-13
     name: level13
-    description: Exploit a cross site scripting vulnerability to exfilitrate user session data 
+    description: Exploit a cross site scripting vulnerability to exfiltrate user session data
   - id: level-14
     name: level14
-    description: Exploit a cross site scripting vulnerability to exfilitrate user data
+    description: Exploit a cross site scripting vulnerability to exfiltrate user data
   - id: level-15
     name: level15
     description: Exploit a (memory corruption) stack injection vulnerability
