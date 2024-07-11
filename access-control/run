@@ -77,7 +77,7 @@ def category_set_to_str(set_: int, categories: List[Category]) -> str:
 
 def is_subset_equal(a: int, b: int) -> bool:
     return (b | a) == b
-        
+
 LEVELS = [Level("TS", 4),
         Level("S", 3),
         Level("C", 2),
@@ -133,7 +133,7 @@ def mac_challenge(num_questions, timeout_sec, num_levels=None, num_categories=No
     for i in range(num_questions):
         subject_index = random.randint(0, num_levels - 1)
         subject_set = random.randint(0, max_category_set - 1)
-        subject_set_str = category_set_to_str(subject_set, categories)        
+        subject_set_str = category_set_to_str(subject_set, categories)
 
         object_index = random.randint(0, num_levels - 1)
         object_set = random.randint(0, max_category_set - 1)
@@ -174,12 +174,8 @@ def mac_challenge(num_questions, timeout_sec, num_levels=None, num_categories=No
         else:
             print("Incorrect!")
             exit(-1)
- 
+
     success()
-    
-    
-    
-    
 
 def level1():
     """
@@ -190,10 +186,10 @@ def level1():
 
     print("Before:")
     os.system(f"/bin/ls -la {flag_file}")
-    
+
     shutil.chown(flag_file, user=user)
     os.chmod(flag_file, 0o400)
-    
+
     print("After:")
     os.system(f"/bin/ls -la {flag_file}")
 
@@ -206,10 +202,10 @@ def level2():
 
     print("Before:")
     os.system(f"/bin/ls -la {flag_file}")
-    
+
     shutil.chown(flag_file, group=user)
     os.chmod(flag_file, 0o040)
-    
+
     print("After:")
     os.system(f"/bin/ls -la {flag_file}")
 
@@ -223,10 +219,10 @@ def level3():
 
     print("Before:")
     os.system(f"/bin/ls -la {flag_file}")
-    
+
     shutil.chown(flag_file, user=user)
     os.chmod(flag_file, 0o000)
-    
+
     print("After:")
     os.system(f"/bin/ls -la {flag_file}")
 
@@ -240,8 +236,11 @@ def level4():
     print("Before:")
     os.system(f"/bin/ls -la /bin/cat")
 
+    # create a symlink
     os.chmod("/bin/cat", 0o4755)
-    
+    os.mkdir("/challenge/bin")
+    os.symlink("/bin/cat", "/challenge/bin/cat")
+
     print("After:")
     os.system(f"/bin/ls -la /bin/cat")
 
@@ -260,7 +259,9 @@ def level5():
     os.system(f"/bin/ls -la /bin/cp")
 
     os.chmod("/bin/cp", 0o4755)
-    
+    os.mkdir("/challenge/bin")
+    os.symlink("/bin/cp", "/challenge/bin/cp")
+
     print("After:")
     os.system(f"/bin/ls -la /bin/cp")
 
@@ -270,7 +271,7 @@ def level6():
 
     The flag file is owned by root and a new group.
 
-    Hint: Search for how to join a group with a password. 
+    Hint: Search for how to join a group with a password.
     """
 
     print("Before:")
@@ -281,10 +282,10 @@ def level6():
 
     # create group with password
     os.system(f"/usr/sbin/groupadd -p $(/usr/bin/openssl passwd -1 {new_password}) {new_group}")
-    
+
     shutil.chown(flag_file, group=new_group)
     os.chmod(flag_file, 0o040)
-    
+
     print("After:")
     os.system(f"/bin/ls -la {flag_file}")
 
@@ -438,7 +439,7 @@ def level13():
     """
     In this challenge you'll be answering questions about the standard Bell–LaPadula model of Mandatory Access Control.
 
-    Answer the question about the model to get the flag. 
+    Answer the question about the model to get the flag.
     """
     mac_challenge(1, 120, num_categories=0)
 
@@ -446,7 +447,7 @@ def level14():
     """
     In this challenge you'll be answering questions about the standard Bell–LaPadula model of Mandatory Access Control.
 
-    Answer the questions about the model to get the flag. 
+    Answer the questions about the model to get the flag.
     """
     mac_challenge(5, 120, num_categories=0)
 
@@ -454,7 +455,7 @@ def level15():
     """
     In this challenge you'll be answering questions about the category-based Bell–LaPadula model of Mandatory Access Control.
 
-    Answer the question about the model to get the flag. 
+    Answer the question about the model to get the flag.
     """
     mac_challenge(1, 120)
 
@@ -462,7 +463,7 @@ def level16():
     """
     In this challenge you'll be answering questions about the category-based Bell–LaPadula model of Mandatory Access Control.
 
-    Answer the questions about the model to get the flag. 
+    Answer the questions about the model to get the flag.
     """
     mac_challenge(5, 120)
 
@@ -512,7 +513,6 @@ def level19():
 
     mac_challenge(128, 1, custom_levels=levels, custom_categories=categories, use_flag_seed=False)
 
-
 def challenge():
     challenge_level = globals()[f"level{level}"]
     description = textwrap.dedent(challenge_level.__doc__)
@@ -525,6 +525,5 @@ def challenge():
     print()
 
     challenge_level()
-
 
 challenge()
