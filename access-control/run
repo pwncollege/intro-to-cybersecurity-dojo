@@ -236,10 +236,7 @@ def level4():
     print("Before:")
     os.system(f"/bin/ls -la /bin/cat")
 
-    # create a symlink
     os.chmod("/bin/cat", 0o4755)
-    os.mkdir("/challenge/bin")
-    os.symlink("/bin/cat", "/challenge/bin/cat")
 
     print("After:")
     os.system(f"/bin/ls -la /bin/cat")
@@ -259,8 +256,6 @@ def level5():
     os.system(f"/bin/ls -la /bin/cp")
 
     os.chmod("/bin/cp", 0o4755)
-    os.mkdir("/challenge/bin")
-    os.symlink("/bin/cp", "/challenge/bin/cp")
 
     print("After:")
     os.system(f"/bin/ls -la /bin/cp")
