@@ -1,5 +1,6 @@
 #!/opt/pwn.college/python
 
+import os
 import sys
 import subprocess
 import random
@@ -28,9 +29,8 @@ def validate(name, value, correct):
 
 
 def validate_client(name):
-    PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-    correct_path = pathlib.Path(shutil.which(name, path=PATH)).resolve()
-
+    correct_path = pathlib.Path(shutil.which(name, path=os.getenv("PATH", ""))).resolve()
+    
     server_connection = next(
         connection
         for connection in psutil.Process().connections()
@@ -44,8 +44,17 @@ def validate_client(name):
     )
     client_process = psutil.Process(client_connection.pid)
     client_path = pathlib.Path(client_process.exe())
-
-    validate("client", client_path, correct_path)
+    
+    assert client_path.owner() == "root", f"Client `{client_path}` is not owned by root; use `{correct_path}`\n"
+    
+    mounts = pathlib.Path("/proc/mounts").read_text()
+    for mount in reversed(mounts.splitlines()):
+        mount_path = pathlib.Path(mount.split()[1])
+        mount_options = mount.split()[3].split(',')
+        if mount_path not in client_path.parents:
+            continue
+        
+        assert "nosuid" not in mount_options, f"Client `{client_path}` is on a nosuid mount; use `{correct_path}`\n"
 
 
 def instructions_client_nc():
