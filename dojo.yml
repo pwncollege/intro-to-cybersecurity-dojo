@@ -154,7 +154,11 @@ modules:
     description: Follow an HTTP redirect from HTTP response using nc
   - id: level-33
     name: level33
-    description: Follow an HTTP redirect from HTTP response using python
+    description: |
+      Follow an HTTP redirect from HTTP response using python
+
+      If you think this level is too easy: that's intended!
+      You are achieving the same behavior as the previous level, but now with python-requests, a very friendly user-agent.
   - id: level-34
     name: level34
     description: Include a cookie from HTTP response using curl
@@ -163,7 +167,11 @@ modules:
     description: Include a cookie from HTTP response using nc
   - id: level-36
     name: level36
-    description: Include a cookie from HTTP response using python
+    description: |
+      Include a cookie from HTTP response using python
+
+      If you think this level is too easy: that's intended!
+      You are achieving the same behavior as the previous level, but now with python-requests, a very friendly user-agent.
   - id: level-37
     name: level37
     description: Make multiple requests in response to stateful HTTP responses using curl
@@ -172,7 +180,11 @@ modules:
     description: Make multiple requests in response to stateful HTTP responses using nc
   - id: level-39
     name: level39
-    description: Make multiple requests in response to stateful HTTP responses using python
+    description: |
+      Make multiple requests in response to stateful HTTP responses using python
+
+      If you think this level is too easy: that's intended!
+      You are achieving the same behavior as the previous level, but now with python-requests, a very friendly user-agent.
   resources:
   - name: "Talking Web: Introduction"
     type: lecture
