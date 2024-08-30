@@ -55,6 +55,8 @@ def validate_client(name):
             continue
         
         assert "nosuid" not in mount_options, f"Client `{client_path}` is on a nosuid mount; use `{correct_path}`\n"
+        
+    assert name in client_path.name, f"Incorrect client `{client_path}`; use `{correct_path}`\n"
 
 
 def instructions_client_nc():
