@@ -25,7 +25,7 @@ def challenge():
         <b>Output of: ls -l {directory}</b><br>
         <pre>{listing.replace("\n", "<br>")}</pre>
         </body></html>
-        """
+        """.format(directory=directory, listing=listing.replace("\n", "<br>"))
 
 app.secret_key = open("/flag").read().strip()
 app.run("challenge.localhost", int(os.environ.get("HTTP_PORT", 80)))
