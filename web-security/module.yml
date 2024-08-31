@@ -4,7 +4,7 @@ challenges:
   name: Path Traversal 1
 - id: path-traversal-2
   name: Path Traversal 2
-- id: cmdi-ls-1
+- id: cmdi-ls-semicolon
   name: CMDi 1
 - id: cmdi-ls-pipe
   name: CMDi 2
