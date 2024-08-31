@@ -174,7 +174,8 @@ def level7():
         user = db.execute(f'SELECT rowid, * FROM users WHERE username = "{username}" AND password = "{password}"').fetchone()
         assert user, "Invalid `username` or `password`"
 
-        session["user"] = int(user["rowid"])
+        assert isinstance(user["rowid"], int), "rowid is not an int type"
+        session["user"] = user["rowid"]
         return redirect(request.path)
 
     if session.get("user"):
