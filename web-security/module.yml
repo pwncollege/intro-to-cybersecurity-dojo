@@ -12,6 +12,8 @@ challenges:
   name: CMDi 3
 - id: level-2
   name: CMDi 4
+- id: cmdi-touch-blind
+  name: CMDi 5
 - id: level-3
   name: Authentication Bypass
   description: Exploit an authentication bypass vulnerability 
