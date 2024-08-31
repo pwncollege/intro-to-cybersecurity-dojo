@@ -1,0 +1,42 @@
+#!/opt/pwn.college/python
+
+import subprocess
+import flask
+import os
+
+app = flask.Flask(__name__)
+
+@app.route("/", methods=["GET", "POST"])
+def challenge():
+    directory = (
+        flask.request.args.get("directory", "/challenge")
+        .replace(";", "")
+        .replace("&", "")
+        .replace("|", "")
+        .replace(">", "")
+        .replace("<", "")
+        .replace("(", "")
+        .replace(")", "")
+        .replace("`", "")
+        .replace("$", "")
+    )
+    listing = subprocess.run(
+        f"ls -l {directory}",       # the command to run
+        shell=True,                 # use the shell to run this command
+        stdout=subprocess.PIPE,     # capture the standard output
+        stderr=subprocess.STDOUT,   # 2>&1
+        encoding="latin"            # capture the resulting output as text
+    ).stdout
+
+    return f"""
+        <html><body>
+        Welcome to the dirlister service! Please choose a directory to list the files of:
+        <form><input type=text name=directory><input type=submit value=Submit></form>
+        <hr>
+        <b>Output of: ls -l {directory}</b><br>
+        <pre>{listing}</pre>
+        </body></html>
+        """
+
+app.secret_key = open("/flag").read().strip()
+app.run("challenge.localhost", int(os.environ.get("HTTP_PORT", 80)))
