@@ -1,0 +1,74 @@
+name: Web Security
+challenges:
+- id: level-1
+  name: Path Traversal 1
+- id: path-traversal-2
+  name: Path Traversal 2
+- id: level-2
+  name: CMDi
+  description: Exploit a command injection vulnerability
+- id: level-3
+  name: Authentication Bypass
+  description: Exploit an authentication bypass vulnerability 
+- id: level-4
+  name: SQLi 1
+  description: Exploit a structured query language injection vulnerability to login
+- id: level-5
+  name: SQLi 2
+  description: Exploit a structured query language injection vulnerability to leak data
+- id: level-6
+  name: SQLi 3
+  description: Exploit a structured query language injection vulnerability with an unknown database structure
+- id: level-7
+  name: SQLi 4
+  description: Exploit a structured query language injection vulnerability to blindly leak data
+- id: level-8
+  name: XSS 1
+  description: Exploit a cross site scripting vulnerability
+- id: level-9
+  name: XSS 2
+  description: Exploit a cross site scripting vulnerability with more complicated context
+- id: level-10
+  name: XSS 3
+  description: Exploit a cross site scripting vulnerability to cause a user action
+- id: level-11
+  name: SSRF 1
+  description: Exploit a cross site request forgery vulnerability
+- id: level-12
+  name: SSRF 2
+  description: Exploit a cross site request forgery vulnerability where the request must POST
+- id: level-13
+  name: SSRF 3
+  description: Exploit a cross site scripting vulnerability to exfiltrate user session data
+- id: level-14
+  name: SSRF 4
+  description: Exploit a cross site scripting vulnerability to exfiltrate user data
+- id: level-15
+  name: Web Pwn
+  description: Exploit a (memory corruption) stack injection vulnerability
+resources:
+- name: "Web Security: Introduction"
+  type: lecture
+  video: AKTYVWCi6ss
+  playlist: PL-ymxv0nOtqrvXLSALV5SQ5v3oyKY4DWg
+  slides: 1ATO_U0aUlk2LRhlnIwdqTkDfu-lWRb5xoLDv0NQLPs8
+- name: "Web Security: Structured Query Language"
+  type: lecture
+  video: 433mRGcpHeA
+  playlist: PL-ymxv0nOtqrvXLSALV5SQ5v3oyKY4DWg
+  slides: 1KpvjoFnlC9HcUJbkg-_VASf2JETMwEZjpzO0uGSoCo4
+- name: "Web Security: Injection"
+  type: lecture
+  video: sdStLx3_Q0M
+  playlist: PL-ymxv0nOtqrvXLSALV5SQ5v3oyKY4DWg
+  slides: 1rP8IIc_6B8Z7KpqBGxkneIzAjURRQ-YlkJV-_4dF-SM
+- name: "Web Security: Same-Origin Policy"
+  type: lecture
+  video: b1NOCHm4t_s
+  playlist: PL-ymxv0nOtqrvXLSALV5SQ5v3oyKY4DWg
+  slides: 1KkiR8B_9xQilW_yq6W9FZ6xBN78V0S1aH1XvQfufYIk
+- name: "Tooling Documentation"
+  type: markdown
+  content: |
+    - [python -m http.server](https://docs.python.org/library/http.server.html)
+    - [JavaScript Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)

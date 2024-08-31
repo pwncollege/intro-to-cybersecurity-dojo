@@ -1,0 +1,24 @@
+#!/opt/pwn.college/python
+
+import flask
+import os
+
+app = flask.Flask(__name__)
+
+@app.route("/", methods=["GET", "POST"])
+@app.route("/<path:path>", methods=["GET", "POST"])
+def challenge(path="index.html"):
+    requested_path = app.root_path + "/files/" + path
+    real_path = os.path.realpath(requested_path)
+
+    try:
+        return open(requested_path).read()
+    except PermissionError:
+        flask.abort(403, real_path)
+    except FileNotFoundError:
+        flask.abort(404, real_path)
+    except Exception as e:
+        flask.abort(500, real_path + ":" + str(e))
+
+app.secret_key = open("/flag").read().strip()
+app.run("challenge.localhost", int(os.environ.get("HTTP_PORT", 80)))
