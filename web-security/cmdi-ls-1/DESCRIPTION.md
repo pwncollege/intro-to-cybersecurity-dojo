@@ -22,7 +22,7 @@ os.system(f"echo Hello {word}")
 
 The developer clearly intends the user to send something like `Hackers`, and the result to be something like the command `echo Hello Hackers`.
 But the hacker might send _anything_ the code doesn't explicitly block.
-Recall what you learned [Chaining](/linux-luminarium/chaining) module of the [Linux Luminarium](/linux-luminarium): what if the hacker sends something containing a `;`?
+Recall what you learned in the [Chaining](/linux-luminarium/chaining) module of the [Linux Luminarium](/linux-luminarium): what if the hacker sends something containing a `;`?
 
 In this level, we will explore this exact concept.
 See if you can trick the level and leak the flag!

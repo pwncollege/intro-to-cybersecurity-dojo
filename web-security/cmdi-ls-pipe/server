@@ -8,7 +8,7 @@ app = flask.Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def challenge():
-    directory = flask.request.args.get("directory", "/challenge")
+    directory = flask.request.args.get("directory", "/challenge").replace(";", "")
     listing = subprocess.run(
         f"ls -l {directory}",       # the command to run
         shell=True,                 # use the shell to run this command
