@@ -23,7 +23,7 @@ def challenge():
         <form><input type=text name=timezone><input type=submit value=Submit></form>
         <hr>
         <b>Output of: TZ={timezone} date</b><br>
-        <pre>{result.stdout.replace("\n", "<br>")}</pre>
+        <pre>{result.stdout}</pre>
         </body></html>
         """
 

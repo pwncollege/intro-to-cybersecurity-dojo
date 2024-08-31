@@ -23,7 +23,7 @@ def challenge():
         <form><input type=text name=directory><input type=submit value=Submit></form>
         <hr>
         <b>Output of: ls -l '{directory}'</b><br>
-        <pre>{listing.replace("\n", "<br>")}</pre>
+        <pre>{listing}</pre>
         </body></html>
         """
 
