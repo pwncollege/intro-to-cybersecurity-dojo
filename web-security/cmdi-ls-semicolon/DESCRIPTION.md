@@ -1,11 +1,5 @@
-The previous levels' path traversals happened because of a disconnect between at least two of the following:
-
-1. A lack of developer awareness of the true range of potential input that an attacker might send to their application (e.g., the concept of an attacker sending characters that have special meaning in paths).
-2. The developer's understanding of how paths work in Linux (e.g., that `..` can occur anywhere, not just in the beginning).
-3. A gap in the flow of a semantic understanding of developer intent between the server (where the implementation makes it clear that we only expect files under the `/challenge/files` directory to be served) and the filesystem (where `..` wreaks havok).
-
-Now, all this happened just with paths in the mix.
-Imagine getting more crazy: interactions between the web server and the whole Linux shell!
+Now, imagine getting more crazy than these security issues between the web server and the file system.
+What about interactions between the web server and the whole Linux shell?
 
 Depressingly often, developers rely on the command line shell to help with complex operations.
 In these cases, a web server will execute a Linux command and use the command's results in its operation (a frequent usecase of this, for example, is the `Imagemagick` suite of commands that facilitate image processing).
