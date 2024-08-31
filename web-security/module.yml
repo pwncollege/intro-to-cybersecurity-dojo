@@ -4,8 +4,10 @@ challenges:
   name: Path Traversal 1
 - id: path-traversal-2
   name: Path Traversal 2
+- id: cmdi-ls-1
+  name: CMDi 1
 - id: level-2
-  name: CMDi
+  name: CMDi 2
   description: Exploit a command injection vulnerability
 - id: level-3
   name: Authentication Bypass
