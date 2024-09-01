@@ -15,8 +15,9 @@ challenges:
 - id: cmdi-touch-blind
   name: CMDi 5
 - id: level-3
-  name: Authentication Bypass
-  description: Exploit an authentication bypass vulnerability 
+  name: Authentication Bypass 1
+- id: auth-bypass-cookie
+  name: Authentication Bypass 2
 - id: level-4
   name: SQLi 1
   description: Exploit a structured query language injection vulnerability to login
