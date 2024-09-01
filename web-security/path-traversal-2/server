@@ -19,5 +19,5 @@ def challenge(path="index.html"):
     except Exception as e:
         flask.abort(500, requested_path + ":" + str(e))
 
-app.secret_key = open("/flag").read().strip()
+app.secret_key = os.urandom(8)
 app.run("challenge.localhost", int(os.environ.get("HTTP_PORT", 80)))
