@@ -22,7 +22,7 @@ class TemporaryDB:
 
 db = TemporaryDB()
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE IF NOT EXISTS users AS SELECT "admin" AS username, ? as pin""", [random.randint(1, 2**64)])
+db.execute("""CREATE TABLE IF NOT EXISTS users AS SELECT "admin" AS username, ? as pin""", [random.randrange(2**32, 2**63)])
 # https://www.sqlite.org/lang_insert.html
 db.execute("""INSERT INTO users SELECT "guest" as username, 1337 as pin""")
 
