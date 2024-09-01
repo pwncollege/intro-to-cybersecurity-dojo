@@ -2,7 +2,6 @@
 
 import tempfile
 import sqlite3
-import random
 import flask
 import os
 
@@ -49,9 +48,8 @@ def challenge_post():
 
 @app.route("/", methods=["GET"])
 def challenge_get():
-    page = "<html><body>"
     if not (username := flask.session.get("user", None)):
-        page += "Welcome to the login service! Please log in as admin to get the flag."
+        page = "<html><body>Welcome to the login service! Please log in as admin to get the flag."
     else:
         page = f"<html><body>Hello, {username}!"
         if username == "admin":

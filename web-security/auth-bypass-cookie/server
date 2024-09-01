@@ -21,7 +21,7 @@ class TemporaryDB:
 
 db = TemporaryDB()
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE IF NOT EXISTS users AS SELECT "admin" AS username, ? as password""", [os.urandom(8).decode('latin1')])
+db.execute("""CREATE TABLE IF NOT EXISTS users AS SELECT "admin" AS username, ? as password""", [os.urandom(8)])
 # https://www.sqlite.org/lang_insert.html
 db.execute("""INSERT INTO users SELECT "guest" as username, "password" as password""")
 
@@ -44,11 +44,10 @@ def challenge_post():
 
 @app.route("/", methods=["GET"])
 def challenge_get():
-    page = "<html><body>"
     if not (username := flask.request.cookies.get("session_user", None)):
-        page += "Welcome to the login service! Please log in as admin to get the flag."
+        page = "<html><body>Welcome to the login service! Please log in as admin to get the flag."
     else:
-        page = f"Hello, {username}!"
+        page = f"<html><body>Hello, {username}!"
         if username == "admin":
             page += "<br>Here is your flag: " + open("/flag").read()
 
