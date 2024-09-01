@@ -38,5 +38,6 @@ def challenge():
         </body></html>
         """
 
+os.setuid(os.geteuid())
 app.secret_key = open("/flag").read().strip()
 app.run("challenge.localhost", int(os.environ.get("HTTP_PORT", 80)))
