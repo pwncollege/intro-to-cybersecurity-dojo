@@ -1,0 +1,71 @@
+#!/opt/pwn.college/python
+
+import tempfile
+import sqlite3
+import flask
+import os
+
+app = flask.Flask(__name__)
+
+class TemporaryDB:
+    def __init__(self):
+        self.db_file = tempfile.NamedTemporaryFile("x", suffix=".db")
+
+    def execute(self, sql, parameters=()):
+        connection = sqlite3.connect(self.db_file.name)
+        connection.row_factory = sqlite3.Row
+        cursor = connection.cursor()
+        result = cursor.execute(sql, parameters)
+        connection.commit()
+        return result
+
+db = TemporaryDB()
+# https://www.sqlite.org/lang_createtable.html
+db.execute("""CREATE TABLE IF NOT EXISTS users AS SELECT "admin" AS username, ? as password""", [os.urandom(8).decode('latin1')])
+# https://www.sqlite.org/lang_insert.html
+db.execute("""INSERT INTO users SELECT "guest" as username, "password" as password""")
+
+@app.route("/", methods=["POST"])
+def challenge_post():
+    username = flask.request.form.get("username")
+    password = flask.request.form.get("password")
+    if not username:
+        flask.abort(400, "Missing `username` form parameter")
+    if not password:
+        flask.abort(400, "Missing `password` form parameter")
+
+    user = db.execute("SELECT rowid, * FROM users WHERE username = ? AND password = ?", (username, password)).fetchone()
+    if not user:
+        flask.abort(403, "Invalid username or password")
+
+    return flask.redirect(f"""{flask.request.path}?session_user_id={int(user["rowid"])}""")
+
+
+@app.route("/", methods=["GET"])
+def challenge_get():
+    if "session_user_id" not in flask.request.args:
+        return """
+            <html><body>
+            Welcome to the login service! Please log in as admin to get the flag.
+            <form method=post>
+            User:<input type=text name=username>Pass:<input type=text name=password><input type=submit value=Submit>
+            </form>
+            </body></html>
+        """
+
+    user_id = int(flask.request.args["session_user_id"])
+    user = db.execute("SELECT * FROM users WHERE rowid = ?", (user_id,)).fetchone()
+    if not user:
+        flask.abort(403, "No such user")
+
+    username = user["username"]
+    page = f"<html><body>Hello, {username}!"
+    if username == "admin":
+        page += "<br>Here is your flag: " + open("/flag").read()
+    page += "</body></html>"
+    return page
+
+
+os.setuid(os.geteuid())
+app.secret_key = os.urandom(8)
+app.run("challenge.localhost", int(os.environ.get("HTTP_PORT", 80)))
