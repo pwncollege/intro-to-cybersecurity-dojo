@@ -36,9 +36,10 @@ def challenge_post():
         flask.abort(400, "Missing `pin` form parameter")
 
     try:
-        user = db.execute(f'SELECT rowid, * FROM users WHERE username = "{username}" AND pin = {pin}').fetchone()
+        query = f'SELECT rowid, * FROM users WHERE username = "{username}" AND pin = {pin}'
+        user = db.execute(query).fetchone()
     except sqlite3.Error as e:
-        flask.abort(500, f"SQL error: {e}")
+        flask.abort(500, f"Query: {query}\nError: {e}")
 
     if not user:
         flask.abort(403, "Invalid username or pin")
