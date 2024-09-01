@@ -38,7 +38,6 @@ challenges:
   name: XSS 3
 - id: level-9
   name: XSS 4
-  description: Exploit a cross site scripting vulnerability with more complicated context
 - id: level-10
   name: XSS 5
   description: Exploit a cross site scripting vulnerability to cause a user action
