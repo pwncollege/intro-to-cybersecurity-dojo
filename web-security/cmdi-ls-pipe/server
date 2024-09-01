@@ -28,5 +28,6 @@ def challenge():
         """
 
 os.setuid(os.geteuid())
+os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 app.secret_key = os.urandom(8)
 app.run("challenge.localhost", 8080 if os.geteuid() else 80)
