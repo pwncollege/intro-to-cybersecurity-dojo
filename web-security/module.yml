@@ -24,7 +24,6 @@ challenges:
   name: SQLi 1
 - id: level-4
   name: SQLi 2
-  description: Exploit a structured query language injection vulnerability to login
 - id: level-5
   name: SQLi 3
   description: Exploit a structured query language injection vulnerability to leak data
