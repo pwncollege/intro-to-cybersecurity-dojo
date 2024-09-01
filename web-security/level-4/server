@@ -35,6 +35,7 @@ def challenge_post():
         flask.abort(400, "Missing `password` form parameter")
 
     try:
+        # https://www.sqlite.org/lang_select.html
         query = f'SELECT rowid, * FROM users WHERE username = "{username}" AND password = "{password}"'
         user = db.execute(query).fetchone()
     except sqlite3.Error as e:
