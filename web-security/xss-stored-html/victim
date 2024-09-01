@@ -1,0 +1,32 @@
+#!/opt/pwn.college/python
+
+import requests
+import urllib
+import sys
+import re
+
+url = sys.argv[1]
+url_parsed = urllib.parse.urlparse(url)
+try:
+    assert url_parsed.hostname == "challenge.localhost", "hostname should be 'challenge.localhost'"
+    assert url_parsed.port in {None, 80, 8080}, "port should be 80 or 8080"
+except AssertionError as e:
+    print(f"Invalid URL: {e}")
+    sys.exit(2)
+
+if len(sys.argv) <= 1:
+    print(f"Usage: {sys.argv[0]} URL")
+    sys.exit(1)
+
+print("Visiting the URL...")
+try:
+    num_inputs = len(re.findall(r"<input[^<]*>", requests.get(url, timeout=1).text))
+    if num_inputs <= 1:
+        print("You did not inject an <input> textbox...")
+    elif url_parsed.port == 8080:
+        print("You got it! Now do it for real (on port 80).")
+    else:
+        print("You got it! Here is your flag:")
+        print(open("/flag").read())
+except requests.exceptions.ConnectionError:
+    print("Connection error... Is the service running?")
