@@ -21,7 +21,7 @@ if len(sys.argv) <= 1:
 print("Visiting the URL...")
 try:
     num_inputs = len(re.findall(r"<input[^<]*>", requests.get(url, timeout=1).text))
-    if num_inputs <= 1:
+    if num_inputs <= 2:
         print("You did not inject an <input> textbox...")
     elif url_parsed.port == 8080:
         print("You got it! Now do it for real (on port 80).")
