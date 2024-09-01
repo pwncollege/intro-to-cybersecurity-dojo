@@ -61,4 +61,4 @@ def challenge_get():
     """
 
 app.secret_key = os.urandom(8)
-app.run("challenge.localhost", int(os.environ.get("HTTP_PORT", 80)))
+app.run("challenge.localhost", 8080 if os.geteuid() else 80)
