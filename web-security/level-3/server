@@ -38,33 +38,26 @@ def challenge_post():
     if not user:
         flask.abort(403, "Invalid username or password")
 
-    return flask.redirect(f"""{flask.request.path}?session_user_id={int(user["rowid"])}""")
+    return flask.redirect(f"""{flask.request.path}?session_user={username}""")
 
 
 @app.route("/", methods=["GET"])
 def challenge_get():
-    if "session_user_id" not in flask.request.args:
-        return """
-            <html><body>
-            Welcome to the login service! Please log in as admin to get the flag.
-            <form method=post>
-            User:<input type=text name=username>Pass:<input type=text name=password><input type=submit value=Submit>
-            </form>
-            </body></html>
-        """
+    page = "<html><body>"
+    if not (username := flask.request.args.get("session_user", None)):
+        page += "Welcome to the login service! Please log in as admin to get the flag."
+    else:
+        page = f"Hello, {username}!"
+        if username == "admin":
+            page += "<br>Here is your flag: " + open("/flag").read()
 
-    user_id = int(flask.request.args["session_user_id"])
-    user = db.execute("SELECT * FROM users WHERE rowid = ?", (user_id,)).fetchone()
-    if not user:
-        flask.abort(403, "No such user")
-
-    username = user["username"]
-    page = f"<html><body>Hello, {username}!"
-    if username == "admin":
-        page += "<br>Here is your flag: " + open("/flag").read()
-    page += "</body></html>"
-    return page
-
+    return page + """
+        <hr>
+        <form method=post>
+        User:<input type=text name=username>Pass:<input type=text name=password><input type=submit value=Submit>
+        </form>
+        </body></html>
+    """
 
 app.secret_key = os.urandom(8)
 app.run("challenge.localhost", int(os.environ.get("HTTP_PORT", 80)))

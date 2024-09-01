@@ -45,11 +45,10 @@ def challenge_post():
 @app.route("/", methods=["GET"])
 def challenge_get():
     page = "<html><body>"
-    if "session_user" not in flask.request.cookies:
+    if not (username := flask.request.cookies.get("session_user", None)):
         page += "Welcome to the login service! Please log in as admin to get the flag."
     else:
-        username = flask.request.cookies["session_user"]
-        page = f"<html><body>Hello, {username}!"
+        page = f"Hello, {username}!"
         if username == "admin":
             page += "<br>Here is your flag: " + open("/flag").read()
 
