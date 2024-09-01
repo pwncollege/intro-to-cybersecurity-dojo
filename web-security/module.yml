@@ -14,6 +14,8 @@ challenges:
   name: CMDi 4
 - id: cmdi-touch-blind
   name: CMDi 5
+- id: cmdi-ls-filter
+  name: CMDi 6
 - id: level-3
   name: Authentication Bypass 1
 - id: auth-bypass-cookie
