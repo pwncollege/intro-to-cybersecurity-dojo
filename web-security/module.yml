@@ -32,14 +32,16 @@ challenges:
   name: SQLi 5
 - id: xss-stored-html
   name: XSS 1
-- id: level-8
+- id: xss-stored-alert
   name: XSS 2
+- id: level-8
+  name: XSS 3
   description: Exploit a cross site scripting vulnerability
 - id: level-9
-  name: XSS 3
+  name: XSS 4
   description: Exploit a cross site scripting vulnerability with more complicated context
 - id: level-10
-  name: XSS 4
+  name: XSS 5
   description: Exploit a cross site scripting vulnerability to cause a user action
 - id: level-11
   name: SSRF 1
