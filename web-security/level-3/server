@@ -24,7 +24,7 @@ class TemporaryDB:
 
 db = TemporaryDB()
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE IF NOT EXISTS users AS SELECT "admin" AS username, ? as password""", [os.urandom(8)])
+db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [os.urandom(8)])
 # https://www.sqlite.org/lang_insert.html
 db.execute("""INSERT INTO users SELECT "guest" as username, "password" as password""")
 
