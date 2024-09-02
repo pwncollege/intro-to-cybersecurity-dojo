@@ -80,6 +80,8 @@ modules:
     playlist: PL-ymxv0nOtqqYlFBiJ_gMff9zHfHMNCtG
     slides: 1tycdciuY8aMmBGj98qUMq0-ubClkqeT10QNIT0hE9kU
 
+- id: web-security
+
 - id: intercepting-communication
   name: Intercepting Communication
   description: Learn various techniques to intercept and manipulate network communication, from connecting to remote hosts to performing man-in-the-middle attacks.
@@ -340,5 +342,3 @@ modules:
     video: -QLq_8ZbUzw
     playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
     slides: 1OER4qdFD4JjxaAhMr9axcIUk4-oNskl7LwRC7LXtqnU
-
-- id: web-security
