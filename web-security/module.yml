@@ -46,7 +46,6 @@ challenges:
   name: XSS 7
 - id: level-11
   name: CSRF 1
-  description: Exploit a cross site request forgery vulnerability
 - id: level-12
   name: CSRF 2
   description: Exploit a cross site request forgery vulnerability where the request must POST

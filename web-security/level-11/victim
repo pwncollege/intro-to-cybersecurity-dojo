@@ -1,0 +1,77 @@
+#!/opt/pwn.college/python
+
+import contextlib
+import urllib
+import time
+import sys
+import os
+
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from selenium.webdriver.common.by import By   
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, WebDriverException
+
+os.setuid(os.geteuid())
+os.environ.clear()
+os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+@contextlib.contextmanager
+def run_browser():
+    options = FirefoxOptions()
+    options.add_argument("--headless")
+
+    # workaround for ubuntu
+    if os.path.exists("/snap/bin/geckodriver"):
+        service = FirefoxService(executable_path="/snap/bin/geckodriver", log_path="/dev/null")
+    else:
+        service = FirefoxService(log_path="/dev/null")
+    driver = webdriver.Firefox(service=service, options=options)
+
+    try:
+        yield driver
+    finally:
+        driver.quit()
+
+if len(sys.argv) <= 1:
+    print(f"Usage: {sys.argv[0]} URL")
+    sys.exit(1)
+
+with run_browser() as browser:
+    try:
+        print("First logging in as admin to http://challenge.localhost:80/")
+        try:
+            port = 80
+            browser.get("http://challenge.localhost:80")
+        except WebDriverException as e:
+            if "can%E2%80%99t%20establish%20a%20connection" not in str(e):
+                raise
+            print("Port 80 doesn't seem to be listening. Trying http://challenge.localhost:8080/")
+            port = 8080
+            browser.get("http://challenge.localhost:8080")
+
+        print("pwnpost loaded!")
+        print("Logging in as admin...")
+        login = { "username": "admin", "password": open("/flag").read().strip() if port != 8080 else "pwn.college{fake_flag}" }
+        for name, value in login.items():
+            field = browser.find_element(By.NAME, name)
+            field.send_keys(value)
+        submit_field = browser.find_element(By.NAME, "submit")
+        submit_field.submit()
+        WebDriverWait(browser, 10).until(EC.staleness_of(submit_field))
+        time.sleep(3)
+        print("Logged in!")
+
+        print("Visiting the attacker's website (http://hacker.localhost:1337/)...")
+        browser.get("http://hacker.localhost:1337/")
+        time.sleep(3)
+
+        print("Visited! Go check if the attack worked!")
+    except WebDriverException as e:
+        if "can%E2%80%99t%20establish%20a%20connection" in str(e):
+            print("Connection error! Is the server running?")
+        else:
+            print(f"Failure: {e}...")
+        sys.exit(4)
