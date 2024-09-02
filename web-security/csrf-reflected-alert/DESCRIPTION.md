@@ -1,0 +1,3 @@
+Let's start putting a few things together...
+A CSRF can lead to many things, including other injections!
+Use the CSRF in this level to trigger a XSS and invoke an `alert("PWNED")` somewhere in `http://challenge.localhost`!
