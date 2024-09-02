@@ -5,3 +5,8 @@ Can you trick it into giving you the flag?
 The webserver program is `/challenge/server`.
 You can run it just like any other challenge, then talk to it over HTTP (using a different terminal or a web browser).
 We recommend reading through its code to understand what it is doing and to find the weakness!
+
+----
+**HINT:**
+Make sure what you're trying to query is what is actually being received by the server! 
+`curl -v [url]` can show you the exact bytes that curl is sending over.
