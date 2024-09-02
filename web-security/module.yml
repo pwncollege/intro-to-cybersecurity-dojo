@@ -54,9 +54,6 @@ challenges:
   name: CSRF 4
 - id: level-14
   name: CSRF 5
-- id: level-15
-  name: Web Pwn
-  description: Exploit a (memory corruption) stack injection vulnerability
 resources:
 - name: "Web Security: Introduction"
   type: lecture
