@@ -19,7 +19,7 @@ class TemporaryDB:
         connection.commit()
         return result
 
-flag = open("/flag").read().strip() if os.getuid() == 0 else "pwn.college{fake_flag}"
+flag = open("/flag").read().strip() if os.geteuid() == 0 else "pwn.college{fake_flag}"
 
 db = TemporaryDB()
 # https://www.sqlite.org/lang_createtable.html
