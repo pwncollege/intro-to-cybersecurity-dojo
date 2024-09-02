@@ -1,7 +1,8 @@
 #!/opt/pwn.college/python
 
-import contextlib
+import psutil
 import urllib
+import atexit
 import time
 import sys
 import os
@@ -9,7 +10,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.service import Service as FirefoxService
-from selenium.webdriver.common.by import By   
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, WebDriverException
@@ -18,60 +19,38 @@ os.setuid(os.geteuid())
 os.environ.clear()
 os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
-@contextlib.contextmanager
-def run_browser():
-    options = FirefoxOptions()
-    options.add_argument("--headless")
+options = FirefoxOptions()
+options.add_argument("--headless")
+service = FirefoxService(log_path="/dev/null")
 
-    # workaround for ubuntu
-    if os.path.exists("/snap/bin/geckodriver"):
-        service = FirefoxService(executable_path="/snap/bin/geckodriver", log_path="/dev/null")
-    else:
-        service = FirefoxService(log_path="/dev/null")
-    driver = webdriver.Firefox(service=service, options=options)
+browser = webdriver.Firefox(service=service, options=options)
+atexit.register(browser.quit)
 
-    try:
-        yield driver
-    finally:
-        driver.quit()
-
-if len(sys.argv) <= 1:
-    print(f"Usage: {sys.argv[0]} URL")
+open_ports = { s.laddr.port for s in psutil.net_connections(kind="inet") if s.status == 'LISTEN' }
+if 80 in open_ports:
+    print("Port 80 is open. Will connect to the service there.")
+    challenge_url = "http://challenge.localhost:80/"
+    flag = open("/flag").read().strip()
+elif 8080 in open_ports:
+    print("Port 8080 is open. Will connect to the service there. 8080 is the debug port, so you will earn a fake flag.")
+    challenge_url = "http://challenge.localhost:8080/"
+    flag = "pwn.college{fake_flag}"
+else:
+    print("Services don't seem to be running?")
     sys.exit(1)
 
-with run_browser() as browser:
-    try:
-        print("First logging in as admin to http://challenge.localhost:80/")
-        try:
-            port = 80
-            browser.get("http://challenge.localhost:80")
-        except WebDriverException as e:
-            if "can%E2%80%99t%20establish%20a%20connection" not in str(e):
-                raise
-            print("Port 80 doesn't seem to be listening. Trying http://challenge.localhost:8080/")
-            port = 8080
-            browser.get("http://challenge.localhost:8080")
+print(f"Visiting {challenge_url}")
+browser.get(challenge_url)
 
-        print("pwnpost loaded!")
-        print("Logging in as admin...")
-        login = { "username": "admin", "password": open("/flag").read().strip() if port != 8080 else "pwn.college{fake_flag}" }
-        for name, value in login.items():
-            field = browser.find_element(By.NAME, name)
-            field.send_keys(value)
-        submit_field = browser.find_element(By.NAME, "submit")
-        submit_field.submit()
-        WebDriverWait(browser, 10).until(EC.staleness_of(submit_field))
-        time.sleep(3)
-        print("Logged in!")
+print("Logging in as admin...")
+browser.find_element(By.NAME, "username").send_keys("admin")
+browser.find_element(By.NAME, "password").send_keys(flag)
+browser.find_element(By.NAME, "submit").submit()
+time.sleep(3)
+print("Logged in!")
 
-        print("Visiting the attacker's website (http://hacker.localhost:1337/)...")
-        browser.get("http://hacker.localhost:1337/")
-        time.sleep(3)
+print("Visiting the attacker's website (http://hacker.localhost:1337/)...")
+browser.get("http://hacker.localhost:1337/")
+time.sleep(3)
 
-        print("Visited! Go check if the attack worked!")
-    except WebDriverException as e:
-        if "can%E2%80%99t%20establish%20a%20connection" in str(e):
-            print("Connection error! Is the server running?")
-        else:
-            print(f"Failure: {e}...")
-        sys.exit(4)
+print("Visited! Go check if the attack worked!")

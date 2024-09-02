@@ -1,14 +1,16 @@
 #!/opt/pwn.college/python
 
-import contextlib
+import psutil
 import urllib
+import atexit
+import time
 import sys
 import os
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.service import Service as FirefoxService
-from selenium.webdriver.common.by import By   
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, WebDriverException
@@ -17,50 +19,33 @@ os.setuid(os.geteuid())
 os.environ.clear()
 os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
-@contextlib.contextmanager
-def run_browser():
-    options = FirefoxOptions()
-    options.add_argument("--headless")
-    service = FirefoxService(log_path="/dev/null")
-    driver = webdriver.Firefox(service=service, options=options)
+options = FirefoxOptions()
+options.add_argument("--headless")
+service = FirefoxService(log_path="/dev/null")
 
-    try:
-        yield driver
-    finally:
-        driver.quit()
+browser = webdriver.Firefox(service=service, options=options)
+atexit.register(browser.quit)
 
-if len(sys.argv) <= 1:
-    print(f"Usage: {sys.argv[0]} URL")
+open_ports = { s.laddr.port for s in psutil.net_connections(kind="inet") if s.status == 'LISTEN' }
+if 80 in open_ports:
+    print("Port 80 is open. Will connect to the service there.")
+    challenge_url = "http://challenge.localhost:80/"
+    flag = open("/flag").read().strip()
+elif 8080 in open_ports:
+    print("Port 8080 is open. Will connect to the service there. 8080 is the debug port, so you will earn a fake flag.")
+    challenge_url = "http://challenge.localhost:8080/"
+    flag = "pwn.college{fake_flag}"
+else:
+    print("Services don't seem to be running?")
     sys.exit(1)
 
-url = sys.argv[1]
-url_parsed = urllib.parse.urlparse(url)
+print(f"Visiting {challenge_url}")
+browser.get(challenge_url)
 try:
-    assert url_parsed.hostname == "challenge.localhost", "hostname should be 'challenge.localhost'"
-    assert url_parsed.port in {None, 80, 8080}, "port should be 80 or 8080"
-except AssertionError as e:
-    print(f"Invalid URL: {e}")
-    sys.exit(2)
-
-
-print("Visiting the URL!")
-with run_browser() as browser:
-    try:
-        browser.get(url)
-        print("URL loaded...")
-        WebDriverWait(browser, 1).until(EC.alert_is_present())
-    except TimeoutException:
-        print("Failure: JavaScript alert did not trigger...")
-        sys.exit(3)
-    except WebDriverException as e:
-        if "can%E2%80%99t%20establish%20a%20connection" in str(e):
-            print("Connection error! Is the service running?")
-        else:
-            print(f"Failure: {e}...")
-        sys.exit(4)
-    else:
-        if url_parsed.port != 8080:
-            print("Alert triggered! Your flag:")
-            print(open("/flag").read())
-        else:
-            print("Alert triggered! Now do it on the real service (port 80)!")
+    WebDriverWait(browser, 1).until(EC.alert_is_present())
+except TimeoutException:
+    print("Failure: JavaScript alert did not trigger...")
+    sys.exit(3)
+else:
+    print("Alert triggered! Your reward:")
+    print(flag)

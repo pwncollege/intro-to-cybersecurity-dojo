@@ -30,18 +30,21 @@ open_ports = { s.laddr.port for s in psutil.net_connections(kind="inet") if s.st
 if 80 in open_ports:
     print("Port 80 is open. Will connect to the service there.")
     challenge_url = "http://challenge.localhost:80/"
-    password = open("/flag").read().strip()
+    flag = open("/flag").read().strip()
 elif 8080 in open_ports:
-    print("Port 8080 is open. Will connect to the service there.")
+    print("Port 8080 is open. Will connect to the service there. 8080 is the debug port, so you will earn a fake flag.")
     challenge_url = "http://challenge.localhost:8080/"
-    password = "pwn.college{fake_flag}"
+    flag = "pwn.college{fake_flag}"
+else:
+    print("Services don't seem to be running?")
+    sys.exit(1)
 
-print("Visiting http://challenge.localhost/")
-browser.get("http://challenge.localhost")
+print(f"Visiting {challenge_url}")
+browser.get(challenge_url)
 
 print("Logging in as admin...")
 browser.find_element(By.NAME, "username").send_keys("admin")
-browser.find_element(By.NAME, "password").send_keys(password)
+browser.find_element(By.NAME, "password").send_keys(flag)
 browser.find_element(By.NAME, "submit").submit()
 
 time.sleep(5)

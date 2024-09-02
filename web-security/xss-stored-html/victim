@@ -1,32 +1,30 @@
 #!/opt/pwn.college/python
 
 import requests
-import urllib
+import psutil
 import sys
 import re
 
-url = sys.argv[1]
-url_parsed = urllib.parse.urlparse(url)
-try:
-    assert url_parsed.hostname == "challenge.localhost", "hostname should be 'challenge.localhost'"
-    assert url_parsed.port in {None, 80, 8080}, "port should be 80 or 8080"
-except AssertionError as e:
-    print(f"Invalid URL: {e}")
-    sys.exit(2)
-
-if len(sys.argv) <= 1:
-    print(f"Usage: {sys.argv[0]} URL")
+open_ports = { s.laddr.port for s in psutil.net_connections(kind="inet") if s.status == 'LISTEN' }
+if 80 in open_ports:
+    print("Port 80 is open. Will connect to the service there.")
+    challenge_url = "http://challenge.localhost:80/"
+    flag = open("/flag").read().strip()
+elif 8080 in open_ports:
+    print("Port 8080 is open. Will connect to the service there.")
+    challenge_url = "http://challenge.localhost:8080/"
+    flag = "pwn.college{fake_flag}"
+else:
+    print("Services don't seem to be running?")
     sys.exit(1)
 
-print("Visiting the URL...")
+print(f"Visiting {challenge_url}...")
 try:
-    num_inputs = len(re.findall(r"<input[^<]*>", requests.get(url, timeout=1).text))
+    num_inputs = len(re.findall(r"<input[^<]*>", requests.get(challenge_url, timeout=1).text))
     if num_inputs <= 2:
         print("You did not inject an <input> textbox...")
-    elif url_parsed.port == 8080:
-        print("You got it! Now do it for real (on port 80).")
     else:
         print("You got it! Here is your flag:")
-        print(open("/flag").read())
+        print(flag)
 except requests.exceptions.ConnectionError:
     print("Connection error... Is the service running?")
