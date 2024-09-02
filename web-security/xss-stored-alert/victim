@@ -19,12 +19,7 @@ os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 def run_browser():
     options = FirefoxOptions()
     options.add_argument("--headless")
-
-    # workaround for ubuntu
-    if os.path.exists("/snap/bin/geckodriver"):
-        service = FirefoxService(executable_path="/snap/bin/geckodriver", log_path="/dev/null")
-    else:
-        service = FirefoxService(log_path="/dev/null")
+    service = FirefoxService(log_path="/dev/null")
     driver = webdriver.Firefox(service=service, options=options)
 
     try:
