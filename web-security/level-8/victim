@@ -13,6 +13,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, WebDriverException
 
+os.setuid(os.geteuid())
+os.environ.clear()
 os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 @contextlib.contextmanager
@@ -37,13 +39,14 @@ if len(sys.argv) <= 1:
     sys.exit(1)
 
 url = sys.argv[1]
-url_arg_parsed = urllib.parse.urlparse(url)
+url_parsed = urllib.parse.urlparse(url)
 try:
-    assert url_arg_parsed.hostname == "challenge.localhost", "hostname should be 'challenge.localhost'"
-    assert url_arg_parsed.port in {None, 80, 8080}, "port should be 80 or 8080"
+    assert url_parsed.hostname == "challenge.localhost", "hostname should be 'challenge.localhost'"
+    assert url_parsed.port in {None, 80, 8080}, "port should be 80 or 8080"
 except AssertionError as e:
     print(f"Invalid URL: {e}")
     sys.exit(2)
+
 
 print("Visiting the URL!")
 with run_browser() as browser:
@@ -61,7 +64,7 @@ with run_browser() as browser:
             print(f"Failure: {e}...")
         sys.exit(4)
     else:
-        if url_arg_parsed.port is None or url_arg_parsed.port == 80:
+        if url_parsed.port != 8080:
             print("Alert triggered! Your flag:")
             print(open("/flag").read())
         else:
