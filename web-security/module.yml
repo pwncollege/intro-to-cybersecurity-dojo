@@ -40,7 +40,6 @@ challenges:
   name: XSS 4
 - id: level-10
   name: XSS 5
-  description: Exploit a cross site scripting vulnerability to cause a user action
 - id: level-11
   name: SSRF 1
   description: Exploit a cross site request forgery vulnerability
