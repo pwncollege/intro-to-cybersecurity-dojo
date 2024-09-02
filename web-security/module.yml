@@ -52,10 +52,8 @@ challenges:
   name: CSRF 3
 - id: level-13
   name: CSRF 4
-  description: Exploit a cross site scripting vulnerability to exfiltrate user session data
 - id: level-14
   name: CSRF 5
-  description: Exploit a cross site scripting vulnerability to exfiltrate user data
 - id: level-15
   name: Web Pwn
   description: Exploit a (memory corruption) stack injection vulnerability
