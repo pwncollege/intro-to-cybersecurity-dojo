@@ -42,6 +42,8 @@ challenges:
   name: XSS 5
 - id: xss-rf-post
   name: XSS 6
+- id: xss-exfil-cookie
+  name: XSS 7
 - id: level-11
   name: CSRF 1
   description: Exploit a cross site request forgery vulnerability
