@@ -41,16 +41,16 @@ challenges:
 - id: level-10
   name: XSS 5
 - id: level-11
-  name: SSRF 1
+  name: CSRF 1
   description: Exploit a cross site request forgery vulnerability
 - id: level-12
-  name: SSRF 2
+  name: CSRF 2
   description: Exploit a cross site request forgery vulnerability where the request must POST
 - id: level-13
-  name: SSRF 3
+  name: CSRF 3
   description: Exploit a cross site scripting vulnerability to exfiltrate user session data
 - id: level-14
-  name: SSRF 4
+  name: CSRF 4
   description: Exploit a cross site scripting vulnerability to exfiltrate user data
 - id: level-15
   name: Web Pwn
