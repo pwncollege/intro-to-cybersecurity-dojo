@@ -48,7 +48,6 @@ challenges:
   name: CSRF 1
 - id: level-12
   name: CSRF 2
-  description: Exploit a cross site request forgery vulnerability where the request must POST
 - id: level-13
   name: CSRF 3
   description: Exploit a cross site scripting vulnerability to exfiltrate user session data
