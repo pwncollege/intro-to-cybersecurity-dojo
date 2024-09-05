@@ -7,4 +7,5 @@ To carry out such an attack, an attacker typically needs to trick the victim int
 This is unlike a Stored XSS, where an attacker might be able to simply make a post in a vulnerable forum and wait for victims to stumble onto it.
 
 Anyways, this level is a Reflected XSS vulnerability.
+The `/challenge/victim` of this challenge takes a URL argument on the commandline, and it will visit that URL.
 Fool the `/challenge/victim` into making a JavaScript `alert("PWNED")`, and you'll get the flag!
