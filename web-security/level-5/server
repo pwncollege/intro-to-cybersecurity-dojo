@@ -32,6 +32,7 @@ def challenge():
     try:
         # https://www.sqlite.org/lang_select.html
         sql = f'SELECT username FROM users WHERE username LIKE "{query}"'
+        print(f"DEBUG: {query=}")
         results = "\n".join(user["username"] for user in db.execute(sql).fetchall())
     except sqlite3.Error as e:
         results = f"SQL error: {e}"

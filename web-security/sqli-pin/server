@@ -38,6 +38,7 @@ def challenge_post():
     try:
         # https://www.sqlite.org/lang_select.html
         query = f'SELECT rowid, * FROM users WHERE username = "{username}" AND pin = {pin}'
+        print(f"DEBUG: {query=}")
         user = db.execute(query).fetchone()
     except sqlite3.Error as e:
         flask.abort(500, f"Query: {query}\nError: {e}")
