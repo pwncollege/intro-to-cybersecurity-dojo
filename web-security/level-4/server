@@ -36,7 +36,7 @@ def challenge_post():
 
     try:
         # https://www.sqlite.org/lang_select.html
-        query = f'SELECT rowid, * FROM users WHERE username = "{username}" AND password = "{password}"'
+        query = f"SELECT rowid, * FROM users WHERE username = '{username}' AND password = '{password}'"
         print(f"DEBUG: {query=}")
         user = db.execute(query).fetchone()
     except sqlite3.Error as e:
