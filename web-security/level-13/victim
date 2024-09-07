@@ -43,7 +43,7 @@ browser.get(challenge_url)
 
 print("Logging in as admin...")
 browser.find_element(By.NAME, "username").send_keys("admin")
-browser.find_element(By.NAME, "password").send_keys(flag[-10:])
+browser.find_element(By.NAME, "password").send_keys(flag[-20:])
 browser.find_element(By.NAME, "submit").submit()
 time.sleep(3)
 print("Logged in!")

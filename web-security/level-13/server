@@ -24,7 +24,7 @@ flag = open("/flag").read().strip() if os.geteuid() == 0 else "pwn.college{fake_
 db = TemporaryDB()
 # https://www.sqlite.org/lang_createtable.html
 db.execute("""CREATE TABLE posts AS SELECT ? AS content, "admin" AS author, FALSE AS published""", [flag])
-db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [flag[-10:]])
+db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [flag[-20:]])
 # https://www.sqlite.org/lang_insert.html
 db.execute("""INSERT INTO users SELECT "guest" as username, "password" as password""")
 db.execute("""INSERT INTO users SELECT "hacker" as username, "1337" as password""")
