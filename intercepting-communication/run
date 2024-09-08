@@ -205,7 +205,6 @@ class Host:
             ip_run("link set lo up")
             ip_run(f"link set veth{self.id}-child name eth0")
             self.mac = scapy.get_if_hwaddr("eth0")
-            self.manage_ip()
             subprocess.run(["/usr/sbin/ethtool",
                             "-K", "eth0",
                             "rx", "off",
@@ -216,6 +215,8 @@ class Host:
                            capture_output=True,
                            check=True)
             ip_run("link set eth0 up")
+            scapy.conf.ifaces.reload()
+            self.manage_ip()
             sem_ready_child.release()
 
             self._ready.acquire()
