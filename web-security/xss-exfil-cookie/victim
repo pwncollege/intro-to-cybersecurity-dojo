@@ -30,6 +30,11 @@ if 80 in open_ports:
     print("Port 80 is open. Will connect to the service there.")
     challenge_url = "http://challenge.localhost:80/"
     flag = open("/flag").read().strip()
+    if psutil.Process(next(
+        n for n in psutil.net_connections()
+        if n.status == "LISTEN" and n.laddr.port == 80 and n.family.value == 2
+    )).uids().effective:
+        print("Service on port 80 is not owned by root... Aborting!")
 elif 8080 in open_ports:
     print("Port 8080 is open. Will connect to the service there. 8080 is the debug port, so you will earn a fake flag.")
     challenge_url = "http://challenge.localhost:8080/"
