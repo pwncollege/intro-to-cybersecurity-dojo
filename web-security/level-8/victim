@@ -39,11 +39,6 @@ if url_parsed.port == 8080:
     reward = "pwn.college{fake_flag}"
 elif url_parsed.port in {None, 80}:
     reward = open("/flag").read()
-    if psutil.Process(next(
-        n for n in psutil.net_connections()
-        if n.status == "LISTEN" and n.laddr.port == 80 and n.family.value == 2
-    )).uids().effective:
-        print("Service on port 80 is not owned by root... Aborting!")
 else:
     print("Port should be 80 (real service) or 8080 (debug port).")
     sys.exit(3)
