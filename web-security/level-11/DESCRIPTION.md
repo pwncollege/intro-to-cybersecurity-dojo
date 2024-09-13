@@ -12,11 +12,11 @@ This style of _forging_ requests _across_ sites is called _Cross Site Request Fo
 Note that I said _almost_ nothing prevents this.
 The [Same-origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) was created in the 1990s, when the web was still young, to (try to) mitigate this problem.
 SOP prevents a site at one Origin (say, `http://www.hacker.com` or, in our case, `http://hacker.localhost:1337`) from interacting in certain security-critical ways with sites at other Origins (say, `http://www.asu.edu` or, in our case, `http://challenge.localhost/`).
-SOP prevents some common CSRF vectors (e.g., when using JavaScript to make a requests across Origins, cookies will not be sent!), but there are plenty of SOP-avoiding ways to, e.g., make `GET` requests with cookies intact (e.g., `<img>`s, `<iframe>`s, or even just full-on redirects).
+SOP prevents some common CSRF vectors (e.g., when using JavaScript to make a requests across Origins, cookies will not be sent!), but there are plenty of SOP-avoiding ways to, e.g., make `GET` requests with cookies intact (such as full-on redirects).
 
 In this level, pwnpost has fixed its XSS issues (at least for the `admin` user).
 You'll need to use CSRF to publish the flag post!
 The `/challenge/victim` of this level will log into pwnpost (`http://challenge.localhost/`) and will then visit an evil site that you can set up (`http://hacker.localhost:1337/`).
 `hacker.localhost` points to your local workspace, but you will need to set up a web server to serve an HTTP request on port 1337 yourself.
-Again, this can be done with `nc`.
+Again, this can be done with `nc` or with a python server (check out http.server!).
 Because these sites will have different Origins, SOP protections will apply, so be careful about how you forge the request!
