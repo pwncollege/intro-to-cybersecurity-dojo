@@ -34,6 +34,9 @@ def challenge_post():
         flask.abort(400, "Missing `username` form parameter")
     if not pin:
         flask.abort(400, "Missing `pin` form parameter")
+    
+    if pin[0] not in "0123456789":
+        flask.abort(400, "Invalid pin")
 
     try:
         # https://www.sqlite.org/lang_select.html
