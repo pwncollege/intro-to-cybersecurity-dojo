@@ -35,10 +35,8 @@ def challenge_post():
     if not pin:
         flask.abort(400, "Missing `pin` form parameter")
     
-    try:
-        first_num = int(pin[0])
-    except ValueError as e:
-        flask.abort(500, f"Error: {e}")
+    if pin[0] not in "0123456789":
+        flast.abort(400, "Invalid pin")
 
     try:
         # https://www.sqlite.org/lang_select.html
