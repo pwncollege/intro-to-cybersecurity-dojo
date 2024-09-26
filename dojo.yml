@@ -164,6 +164,8 @@ modules:
       - [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/)
       - [Scapy's Documentation](https://scapy.readthedocs.io/en/latest/)
 
+- id: cryptography
+
 - id: access-control
   name: Access Control
   description: Exploit various access control issues for the POSIX/UNIX Discretionary Access Control model and answer questions about Mandatory Access Control models.
