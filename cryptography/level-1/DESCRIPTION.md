@@ -25,8 +25,9 @@ hacker@dojo:~$
 
 As you can see, 3 bytes (`3*8 == 24` bits) encode precisely into 4 base64 characters (`4*6 == 24` bits).
 
-base64 is a popular encoding because it can represent any data without using "tricky" characters such as newlines, spaces, quotes, semicolons, and so on.
+base64 is a popular encoding because it can represent any data without using "tricky" characters such as newlines, spaces, quotes, semicolons, unprintable special characters, and so on.
 You might recall that such characters can cause trouble in certain scenarios, and base64-encoding the data avoids this nicely.
+For the purposes of this module, base64 will be used to give you random and encrypted data, all of which is terribly unprintable and much easier to input and output as base64.
 
 Conceptually, base64 is an analogue to an encoding you might already know: ASCII.
 ASCII represents each group of 8 bytes as a character, and is an encoding meant for human consumption.
