@@ -6,8 +6,7 @@ challenges:
 - id: level-2
   name: One Time Pad
 - id: level-3
-  name: level3
-  description: Decrypt a secret encrypted with a one-time pad, where the key is reused for arbitrary data
+  name: Many Time Pad
 - id: level-4
   name: level4
   description: Decrypt a secret encrypted with AES using the ECB mode of operation
