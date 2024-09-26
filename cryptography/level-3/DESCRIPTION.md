@@ -6,3 +6,5 @@ Can you decrypt the flag?
 
 ----
 **Hint:** think deeply about how XOR works, and consider that it is a distributative, commutative, and associative operation...
+
+**Hint:** we recommend writing your solution in Python and using the `strxor` function that we use in the challenge! It makes life much simpler.
