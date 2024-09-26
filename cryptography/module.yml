@@ -4,12 +4,11 @@ challenges:
 - id: level-1
   name: base64
 - id: level-2
-  name: One Time Pad
+  name: One-time Pad
 - id: level-3
-  name: Many Time Pad
+  name: Many-time Pad
 - id: level-4
-  name: level4
-  description: Decrypt a secret encrypted with AES using the ECB mode of operation
+  name: AES
 - id: level-5
   name: level5
   description: Decrypt a secret encrypted with AES-ECB, where arbitrary data is appended to the secret and the key is reused. This level is quite a step up in difficulty (and future levels currently do not build on this level), so if you are completely stuck feel free to move ahead. Check out [this lecture video](https://youtu.be/YO5bgKjqW00?t=1901) on how to approach level 5.
