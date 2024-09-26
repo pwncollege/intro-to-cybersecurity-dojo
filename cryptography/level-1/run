@@ -1,4 +1,5 @@
 #!/opt/pwn.college/python
 
 import base64
-print(f"The flag in base64: {base64.b64encode(open("/flag", "rb").read()).decode()}")
+flag = base64.b64encode(open("/flag", "rb").read()).decode()
+print(f"The flag in base64: {flag}")
