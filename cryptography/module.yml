@@ -1,0 +1,75 @@
+name: Cryptography
+description: Solve various cryptography challenges ranging from decoding base64 data to performing a simplified TLS handshake.
+challenges:
+- id: level-1
+  name: base64
+- id: level-2
+  name: level2
+  description: Decrypt a secret encrypted with a one-time pad, assuming a securely transferred key
+- id: level-3
+  name: level3
+  description: Decrypt a secret encrypted with a one-time pad, where the key is reused for arbitrary data
+- id: level-4
+  name: level4
+  description: Decrypt a secret encrypted with AES using the ECB mode of operation
+- id: level-5
+  name: level5
+  description: Decrypt a secret encrypted with AES-ECB, where arbitrary data is appended to the secret and the key is reused. This level is quite a step up in difficulty (and future levels currently do not build on this level), so if you are completely stuck feel free to move ahead. Check out [this lecture video](https://youtu.be/YO5bgKjqW00?t=1901) on how to approach level 5.
+- id: level-6
+  name: level6
+  description: Perform a Diffie-Hellman key exchange to establish a shared secret
+- id: level-7
+  name: level7
+  description: Decrypt an RSA-encrypted secret using provided public and private keys
+- id: level-8
+  name: level8
+  description: Decrypt an RSA-encrypted secret using the provided prime factors of n
+- id: level-9
+  name: level9
+  description: Find a small hash collision using SHA256, considering only the first 2 bytes
+- id: level-10
+  name: level10
+  description: Compute a small proof-of-work by appending response data to the challenge data, resulting in a SHA256 hash with 2 null-bytes
+- id: level-11
+  name: level11
+  description: Complete an RSA challenge-response using provided public and private keys
+- id: level-12
+  name: level12
+  description: Complete an RSA challenge-response by providing the public key
+- id: level-13
+  name: level13
+  description: Sign a user certificate using a provided self-signed root certificate and root private key
+- id: level-14
+  name: level14
+  description: Perform a simplified TLS handshake as the server, completing a Diffie-Hellman key exchange and establishing an encrypted channel to provide a user certificate and prove private key ownership
+resources:
+- name: "Cryptography: Introduction"
+  type: lecture
+  video: YBdzIxeseuE
+  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+  slides: 16lg_XvODz-gebGMTsUDF4u2ueQwwGM6r6-hDfz1lW_E
+- name: "Cryptography: Symmetric Encryption"
+  type: lecture
+  video: CJrCzOR2qhk
+  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+  slides: 1RzVGK4JXM4Iia5IA8N_Hu0Rshd1VedOvo-0a54qkceU
+- name: "Cryptography: Key Exchange"
+  type: lecture
+  video: YSipKal5SKM
+  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+  slides: 1BSCUh-Y8FyMthjngBTrMCBdvfwkkn8KfxgYun2328kI
+- name: "Cryptography: Asymmetric Encryption"
+  type: lecture
+  video: 661MFqOp0WA
+  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+  slides: 1oOF6fWzLX-g4CpMQ2VpPOD4k3TYtAxVvVuY8BPZF2oI
+- name: "Cryptography: Hashing"
+  type: lecture
+  video: BY5qBsmWEa8
+  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+  slides: 1_DJHHllHplxalW8DCgR-BPF9D_PJxoozxbLzrVYCe18
+- name: "Cryptography: Trust"
+  type: lecture
+  video: -QLq_8ZbUzw
+  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+  slides: 1OER4qdFD4JjxaAhMr9axcIUk4-oNskl7LwRC7LXtqnU
