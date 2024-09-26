@@ -4,8 +4,7 @@ challenges:
 - id: level-1
   name: base64
 - id: level-2
-  name: level2
-  description: Decrypt a secret encrypted with a one-time pad, assuming a securely transferred key
+  name: One Time Pad
 - id: level-3
   name: level3
   description: Decrypt a secret encrypted with a one-time pad, where the key is reused for arbitrary data
