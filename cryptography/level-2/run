@@ -1,6 +1,6 @@
 #!/opt/pwn.college/python
 
-import base64
+from base64 import b64encode
 from Crypto.Random import get_random_bytes
 from Crypto.Util.strxor import strxor
 
@@ -9,5 +9,5 @@ flag = open("/flag", "rb").read()
 key = get_random_bytes(len(flag))
 ciphertext = strxor(flag, key)
 
-print(f"your one time pad: {base64.b64encode(key).decode()}")
-print(f"secret ciphertext: {base64.b64encode(ciphertext).decode()}")
+print(f"One-Time Pad Key (b64): {b64encode(key).decode()}")
+print(f"Flag Ciphertext (b64): {b64encode(ciphertext).decode()}")
