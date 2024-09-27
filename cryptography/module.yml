@@ -1,8 +1,10 @@
 name: Cryptography
 description: Solve various cryptography challenges ranging from decoding base64 data to performing a simplified TLS handshake.
 challenges:
+- id: xor
+  name: XOR
 - id: level-1
-  name: base64
+  name: Base64
 - id: level-2
   name: One-time Pad
 - id: level-3
