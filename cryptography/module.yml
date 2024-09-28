@@ -3,6 +3,8 @@ description: Solve various cryptography challenges ranging from decoding base64 
 challenges:
 - id: xor
   name: XOR
+- id: hex
+  name: Hex
 - id: ascii
   name: ASCII
 - id: strxor

@@ -1,6 +1,7 @@
 #!/opt/pwn.college/python
 
 import random
+import sys
 
 key = random.randrange(1, 256)
 plain_secret = random.randrange(0, 256)
@@ -13,3 +14,4 @@ if int(input("Decrypted secret? ")) == plain_secret:
 	print(open("/flag").read())
 else:
 	print("INCORRECT!")
+	sys.exit(1)

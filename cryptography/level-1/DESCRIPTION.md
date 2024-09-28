@@ -38,4 +38,9 @@ Anyways, that was a long tangent.
 Go run `/challenge/run` and decode the flag!
 
 ----
-**Hint:** you can use Python's `base64` module (note: the base64 decoding functions in this module consume Python strings and return Python bytes) or the `base64` command line utility to do this!
+**HINT:**
+You can use Python's `base64` module (note: the base64 decoding functions in this module consume Python strings and return Python bytes) or the `base64` command line utility to do this!
+
+**FUN FACT:**
+The flag data in `pwn.college{FLAG}` is actually base64-encoded ciphertext.
+You're well on the way to being able to build something like the dojo!
