@@ -3,6 +3,8 @@ description: Solve various cryptography challenges ranging from decoding base64 
 challenges:
 - id: xor
   name: XOR
+- id: ascii
+  name: ASCII
 - id: level-1
   name: Base64
 - id: level-2
