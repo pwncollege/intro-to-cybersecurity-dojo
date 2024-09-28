@@ -18,9 +18,11 @@ challenges:
 - id: level-4
   name: AES
 - id: cpa
-  name: Chosen-plaintext Attack
+  name: AES-ECB-CPA
 - id: cpa-http
-  name: CPA-over-HTTP
+  name: AES-ECB-CPA-HTTP
+- id: cpa-suffix
+  name: AES-ECB-CPA-Suffix
 - id: level-5
   name: level5
 - id: level-6
