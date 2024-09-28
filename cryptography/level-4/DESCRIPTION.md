@@ -23,4 +23,9 @@ We won't learn about the internals of AES, in terms of how it actually encrypts 
 Instead, we'll learn about different _applications_ of AES, and how they break down in practice.
 If you're interested in learning about AES internals, we can highly recommend [CryptoHack](https://cryptohack.org/courses/), an amazing learning resource that focuses on the nitty gritty details of crypto!
 
-Decrypt the flag and score!
+Now, go decrypt the flag and score!
+
+----
+**HINT:**
+We use the [PyCryptoDome](https://www.pycryptodome.org/) library to implement the encryption in this level.
+You'll want to read its documentation to figure out how to implement your decryption!
