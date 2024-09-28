@@ -37,6 +37,11 @@ def challenge_post():
     db.execute("INSERT INTO posts VALUES (?)", [content])
     return flask.redirect(flask.request.path)
 
+@app.route("/reset", methods=["POST"])
+def challenge_reset():
+    db.execute("DELETE FROM posts WHERE ROWID > 1")
+    return flask.redirect("/")
+
 @app.route("/", methods=["GET"])
 def challenge_get():
     pt = b"|".join(post["content"] for post in db.execute("SELECT content FROM posts ORDER BY ROWID DESC").fetchall())
@@ -45,6 +50,7 @@ def challenge_get():
     return f"""
         <html><body>Welcome to pwn.secret!
         <form method=post>Post a secret:<input type=text name=content><input type=submit value=Submit></form>
+        <form method=post><input type=submit value="Reset Database"></form>
         <hr>
         <b>Encrypted backup:</b><pre>{b64encode(ct).decode()}</pre>
         </body></html>
