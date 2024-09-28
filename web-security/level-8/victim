@@ -34,9 +34,7 @@ url_parsed = urllib.parse.urlparse(challenge_url)
 if url_parsed.hostname != "challenge.localhost":
     print("Hostname should be 'challenge.localhost'.")
     sys.exit(2)
-if url_parsed.port in {None, 80}:
-    reward = open("/flag").read()
-else:
+if url_parsed.port not in {None, 80}:
     print("Port should be 80.")
     sys.exit(3)
 
@@ -49,4 +47,4 @@ except TimeoutException:
     sys.exit(3)
 else:
     print("Alert triggered! Your reward:")
-    print(reward)
+    print(open("/flag").read())
