@@ -39,7 +39,7 @@ Go run `/challenge/run` and decode the flag!
 
 ----
 **HINT:**
-You can use Python's `base64` module (note: the base64 decoding functions in this module consume Python strings and return Python bytes) or the `base64` command line utility to do this!
+You can use Python's `base64` module (note: the base64 decoding functions in this module consume and return Python bytes) or the `base64` command line utility to do this!
 
 **FUN FACT:**
 The flag data in `pwn.college{FLAG}` is actually base64-encoded ciphertext.
