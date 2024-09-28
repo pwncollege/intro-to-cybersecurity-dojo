@@ -17,7 +17,7 @@ for n in range(1, 10):
 	key = ord(pt_chr) ^ ord(ct_chr)
 
 	print(f"- Encrypted Character: {ct_chr}")
-	print(f"- XOR Key: 0x{'%02x'%key}")
+	print(f"- XOR Key: {key:#04x}")
 	answer = input("- Decrypted Character? ").strip()
 	if answer != pt_chr:
 		print("Incorrect!")
