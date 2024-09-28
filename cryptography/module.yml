@@ -31,6 +31,8 @@ challenges:
   name: AES-ECB-CPA-Prefix-Miniboss
 - id: cpa-http-boss
   name: AES-ECB-CPA-Prefix-Boss
+- id: aes-cbc
+  name: AES-CBC
 - id: level-6
   name: DHKE
 - id: level-7
