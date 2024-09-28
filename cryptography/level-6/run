@@ -6,6 +6,7 @@ from Crypto.Random.random import getrandbits
 from Crypto.Util.strxor import strxor
 
 flag = open("/flag", "rb").read()
+assert len(flag) <= 256
 
 # 2048-bit MODP Group from RFC3526
 p = int.from_bytes(bytes.fromhex(
@@ -39,8 +40,6 @@ if not (B > 2**1024):
     exit(1)
 
 s = pow(B, a, p)
-
 key = s.to_bytes(256, "little")
-assert len(flag) <= len(key)
 ciphertext = strxor(flag, key[:len(flag)])
 print(f"Flag Ciphertext (b64): {b64encode(ciphertext).decode()}")
