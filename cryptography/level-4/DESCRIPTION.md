@@ -19,4 +19,8 @@ In ECB, each block is encrypted separately with the same key and simply concaten
 So if you are encrypting something like `AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH`, it will be split into two plaintext blocks (`AAAABBBBCCCCDDDD` and `EEEEFFFFGGGGHHHH`), encrypted separately (resulting, let's imagine, in `UVSDFGIWEHFBFFCA` and `LKXBFVYASLJDEWEU`), then concatenated (resulting the ciphertext `UVSDFGIWEHFBFFCALKXBFVYASLJDEWEU`).
 
 This challenge will give you the AES-encrypted flag and the key used to encrypt it.
+We won't learn about the internals of AES, in terms of how it actually encrypts the raw bytes.
+Instead, we'll learn about different _applications_ of AES, and how they break down in practice.
+If you're interested in learning about AES internals, we can highly recommend [CryptoHack](https://cryptohack.org/courses/), an amazing learning resource that focuses on the nitty gritty details of crypto!
+
 Decrypt the flag and score!
