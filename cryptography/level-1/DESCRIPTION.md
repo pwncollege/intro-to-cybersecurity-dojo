@@ -1,6 +1,6 @@
 In this challenge you will decode base64-encoded data.
 Despite base64 data appearing "mangled", it is not an encryption scheme.
-It is an encoding, much like ASCII, which you might already be familiar with.
+It is an encoding, much like ASCII.
 It is simply a popular way of encoding raw bytes.
 
 The name "base64" comes from the fact that there are 64 characters used in the output.
@@ -28,9 +28,6 @@ As you can see, 3 bytes (`3*8 == 24` bits) encode precisely into 4 base64 charac
 base64 is a popular encoding because it can represent any data without using "tricky" characters such as newlines, spaces, quotes, semicolons, unprintable special characters, and so on.
 You might recall that such characters can cause trouble in certain scenarios, and base64-encoding the data avoids this nicely.
 For the purposes of this module, base64 will be used to give you random and encrypted data, all of which is terribly unprintable and much easier to input and output as base64.
-
-Conceptually, base64 is an analogue to an encoding you might already know: ASCII.
-ASCII represents each group of 8 bytes as a character, and is an encoding meant for human consumption.
 
 Other popular encodings are base2 (typically just `0` and `1`), base10 (typically `0` through `9`), base16 (`0` through `9` and `A` through `F`).
 This last one is especially interesting: a single character in base16 encodes 4 bits, making a single byte of binary data representable using two base16 characters.
