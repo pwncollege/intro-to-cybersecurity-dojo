@@ -50,7 +50,7 @@ def challenge_get():
     return f"""
         <html><body>Welcome to pwn.secret!
         <form method=post>Post a secret:<input type=text name=content><input type=submit value=Submit></form>
-        <form method=post><input type=submit value="Reset Database"></form>
+        <form method=post action=reset><input type=submit value="Reset Database"></form>
         <hr>
         <b>Encrypted backup:</b><pre>{b64encode(ct).decode()}</pre>
         </body></html>
