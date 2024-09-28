@@ -15,8 +15,10 @@ for n in range(10):
 	answer = int(input("Decrypted secret? "), 16)
 	print(f"You entered: {answer:#04x}, decimal {answer}.")
 	if answer == plain_secret:
-		print("CORRECT! Your flag:")
-		print(open("/flag").read())
+		print("Correct! Moving on.")
 	else:
 		print("INCORRECT!")
 		sys.exit(1)
+
+print("CORRECT! Your flag:")
+print(open("/flag").read())
