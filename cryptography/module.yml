@@ -32,23 +32,23 @@ challenges:
 - id: cpa-http-boss
   name: AES-ECB-CPA-Prefix-Boss
 - id: level-6
-  name: level6
+  name: DHKE
 - id: level-7
-  name: level7
+  name: RSA 1
 - id: level-8
-  name: level8
+  name: RSA 2
 - id: level-9
-  name: level9
+  name: SHA 1
 - id: level-10
-  name: level10
+  name: SHA 2
 - id: level-11
-  name: level11
+  name: RSA 3
 - id: level-12
-  name: level12
+  name: RSA 4
 - id: level-13
-  name: level13
+  name: TLS 1
 - id: level-14
-  name: level14
+  name: TLS 2
 resources:
 - name: "Cryptography: Introduction"
   type: lecture
