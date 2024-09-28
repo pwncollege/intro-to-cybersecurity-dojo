@@ -13,7 +13,7 @@ Modern ASCII is pretty simple: every character is one byte (8 bits), uppercase l
 Special characters are sprinkled around the mapping as well: forward slash (`/` is `0x2f`), space is 0x20, and newline is 0x0a.
 You can see the whole ASCII table with `man ascii`!
 
-One cool thing is that, since ASCII (and UTF-8) puts byte values to characters, we can do operations like XOR!
+One cool thing is that, since ASCII puts byte values to characters, we can do operations like XOR!
 This has obvious implications for cryptography.
 
 In this level, we'll explore these implications byte by byte.

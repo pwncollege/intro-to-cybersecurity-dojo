@@ -38,4 +38,4 @@ Anyways, that was a long tangent.
 Go run `/challenge/run` and decode the flag!
 
 ----
-**Hint:** you can use Python's `base64` module or the `base64` command line utility to do this!
+**Hint:** you can use Python's `base64` module (note: the base64 decoding functions in this module consume Python strings and return Python bytes) or the `base64` command line utility to do this!

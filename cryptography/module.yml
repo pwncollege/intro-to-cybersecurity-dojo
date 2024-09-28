@@ -5,6 +5,8 @@ challenges:
   name: XOR
 - id: ascii
   name: ASCII
+- id: strxor
+  name: ASCII Strings
 - id: level-1
   name: Base64
 - id: level-2
