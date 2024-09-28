@@ -28,6 +28,8 @@ challenges:
 - id: cpa-prefix-pad
   name: AES-ECB-CPA-Prefix-2
 - id: level-5
+  name: AES-ECB-CPA-Prefix-Miniboss
+- id: cpa-http-boss
   name: AES-ECB-CPA-Prefix-Boss
 - id: level-6
   name: level6
