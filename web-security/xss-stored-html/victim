@@ -10,10 +10,6 @@ if 80 in open_ports:
     print("Port 80 is open. Will connect to the service there.")
     challenge_url = "http://challenge.localhost:80/"
     flag = open("/flag").read().strip()
-elif 8080 in open_ports:
-    print("Port 8080 is open. Will connect to the service there.")
-    challenge_url = "http://challenge.localhost:8080/"
-    flag = "pwn.college{fake_flag}"
 else:
     print("Services don't seem to be running?")
     sys.exit(1)

@@ -43,6 +43,5 @@ def challenge():
 os.setuid(os.geteuid())
 os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 app.secret_key = os.urandom(8)
-port = 8080 if os.geteuid() else 80
-app.config['SERVER_NAME'] = f"challenge.localhost:{port}"
-app.run("challenge.localhost", port)
+app.config['SERVER_NAME'] = f"challenge.localhost:80"
+app.run("challenge.localhost", 80)
