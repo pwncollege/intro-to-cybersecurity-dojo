@@ -5,19 +5,11 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from Crypto.Random import get_random_bytes
 
-hexdump = lambda data: '\n'.join(f"{i:08x}  {' '.join(f'{b:02x}' for b in data[i:i+16]):<48} {''.join(chr(b) if 32 <= b < 127 else '.' for b in data[i:i+16])}" for i in range(0, len(data), 16))
-
-flag = open("/flag", "rb").read()
-
+flag = open("/flag", "rb").read().strip()
 key = get_random_bytes(16)
 cipher = AES.new(key=key, mode=AES.MODE_ECB)
-ciphertext = cipher.encrypt(pad(flag, cipher.block_size))
-
-print(f"Flag Ciphertext (b64): {b64encode(ciphertext).decode()}")
-print(f"Flag Ciphertext (hexdump):\n{hexdump(ciphertext)}")
 
 while True:
-    plaintext_prefix = b64decode(input("Plaintext Prefix (b64): "))
-    ciphertext = cipher.encrypt(pad(plaintext_prefix + flag, cipher.block_size))
-    print(f"Ciphertext (b64): {b64encode(ciphertext).decode()}")
-    print(f"Ciphertext (hexdump):\n{hexdump(ciphertext)}")
+    pt = input("Data? ").strip().encode() + flag
+    ct = cipher.encrypt(pad(pt, cipher.block_size))
+    print(f"Ciphertext: {b64encode(ct).decode()}")
