@@ -11,3 +11,7 @@ The core attack is the same as before, it just involves more data massaging.
 Keep in mind that a typical pwn.college flag is somewhere upwards of 50 bytes long.
 This is four blocks (three full and one partial), and the length can vary slightly.
 You will need to experiment with how many bytes you must prepend to push even one of the end characters to its own block.
+
+**HINT:**
+Keep in mind that blocks are 16 bytes long!
+After you leak the last 16 bytes, you'll be looking at the second-to-last block, and so on.

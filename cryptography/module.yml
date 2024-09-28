@@ -25,6 +25,8 @@ challenges:
   name: AES-ECB-CPA-Suffix
 - id: cpa-prefix
   name: AES-ECB-CPA-Prefix
+- id: cpa-prefix-pad
+  name: AES-ECB-CPA-Prefix-2
 - id: level-5
   name: level5
 - id: level-6
