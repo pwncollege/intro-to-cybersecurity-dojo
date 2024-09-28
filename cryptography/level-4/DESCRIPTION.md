@@ -14,7 +14,7 @@ AES _must_ operate on complete blocks.
 If the plaintext is _shorter_ than a block (e.g., `AAAABBBB`), it will be _padded_ to the block size, and the padded plaintext will be encrypted.
 
 Different AES "modes" define what to do when the plaintext is longer than one block.
-In this challenge, we are using the simplest mode: "[Electronic CodeBook (ECB)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_(ECB))".
+In this challenge, we are using the simplest mode: "[Electronic Codebook (ECB)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_(ECB))".
 In ECB, each block is encrypted separately with the same key and simply concatenated together.
 So if you are encrypting something like `AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH`, it will be split into two plaintext blocks (`AAAABBBBCCCCDDDD` and `EEEEFFFFGGGGHHHH`), encrypted separately (resulting, let's imagine, in `UVSDFGIWEHFBFFCA` and `LKXBFVYASLJDEWEU`), then concatenated (resulting the ciphertext `UVSDFGIWEHFBFFCALKXBFVYASLJDEWEU`).
 
