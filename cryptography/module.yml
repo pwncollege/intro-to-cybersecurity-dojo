@@ -27,8 +27,8 @@ challenges:
   name: AES-ECB-CPA-Prefix
 - id: cpa-prefix-pad
   name: AES-ECB-CPA-Prefix-2
-- id: AES-ECB-CPA-Prefix-Boss
-  name: level5
+- id: level-5
+  name: AES-ECB-CPA-Prefix-Boss
 - id: level-6
   name: level6
 - id: level-7
