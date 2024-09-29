@@ -35,6 +35,8 @@ challenges:
   name: AES-CBC
 - id: aes-cbc-corrupt
   name: AES-CBC Tampering
+- id: aes-cbc-corrupt-resize
+  name: AES-CBC Resizing
 - id: level-6
   name: DHKE
 - id: level-7
