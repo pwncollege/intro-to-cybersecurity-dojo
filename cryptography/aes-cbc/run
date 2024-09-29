@@ -9,7 +9,7 @@ flag = open("/flag", "rb").read()
 
 key = get_random_bytes(16)
 cipher = AES.new(key=key, mode=AES.MODE_CBC)
-ciphertext = cipher.encrypt(pad(flag, cipher.block_size))
+ciphertext = cipher.iv + cipher.encrypt(pad(flag, cipher.block_size))
 
 print(f"AES Key (b64): {b64encode(key).decode()}")
 print(f"Flag Ciphertext (b64): {b64encode(ciphertext).decode()}")

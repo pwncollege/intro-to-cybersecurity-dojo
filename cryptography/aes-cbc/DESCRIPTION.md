@@ -2,8 +2,9 @@ Okay, hopefully we agree that ECB is a bad block cipher mode.
 Let's explore one that isn't _so_ bad: [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)).
 CBC mode encrypts blocks sequentially, and before encrypting plaintext block number N, it XORs it with the previous ciphertext block (number N-1).
 When decrypting, after decrypting ciphertext block N, it XORs the decrypted (but still XORed) result with the previous ciphertext block (number N-1) to recover the original plaintext block N.
-For the very first block, since there is no "previous" block to use, CBC mode XORs it with a block of random data, called the _Initialization Vector_, that it simply prepends to the concatenated ciphertext blocks!
-This means that if you encrypt one block of plaintext in CBC mode, you'll get _two_ blocks of "ciphertext": the IV, and your single block of actual ciphertext.
+For the very first block, since there is no "previous" block to use, CBC cryptosystems generate a random initial block called an [_Initialization Vector_ (IV)](https://en.wikipedia.org/wiki/Initialization_vector).
+The IV is used to XOR the first block of plaintext, and is transmitted along with the message (often prepended to it).
+This means that if you encrypt one block of plaintext in CBC mode, you might get _two_ blocks of "ciphertext": the IV, and your single block of actual ciphertext.
 
 All this means that, when you change any part of the plaintext, those changes will propagate through to all subsequent ciphertext blocks because of the XOR-based chaining, preserving ciphertext indistinguishability for those blocks.
 That will stop you from carrying out the chosen-plaintext prefix attacks from the last few challenges.
