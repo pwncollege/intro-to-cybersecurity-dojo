@@ -38,7 +38,7 @@ challenges:
 - id: aes-cbc-corrupt-resize
   name: AES-CBC Resizing
 - id: aes-cbc-poa
-  name: AES-CBC: Padding Oracle Attack
+  name: "AES-CBC: Padding Oracle Attack"
 - id: level-6
   name: DHKE
 - id: level-7
