@@ -33,6 +33,8 @@ challenges:
   name: AES-ECB-CPA-Prefix-Boss
 - id: aes-cbc
   name: AES-CBC
+- id: aes-cbc-corrupt
+  name: AES-CBC Tampering
 - id: level-6
   name: DHKE
 - id: level-7
