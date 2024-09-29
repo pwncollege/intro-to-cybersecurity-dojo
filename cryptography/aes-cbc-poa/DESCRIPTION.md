@@ -1,7 +1,7 @@
 So you can manipulate the padding...
 If you messed up somewhere along the lines of the previous challenge and created an invalid padding, you might have noticed that the worker _crashed_ with an error about the padding being incorrect!
 
-It turns out that this one crash _completely_ breaks the Confidentiality of the AES-CBC cryptosystem.
+It turns out that this one crash _completely_ breaks the Confidentiality of the AES-CBC cryptosystem, allowing attackers to decrypt messages without having the key.
 Let's dig in...
 
 Recall that PKCS7 padding adds N bytes with the value N, so if 11 bytes of padding were added, they have the value `0x0b`.
