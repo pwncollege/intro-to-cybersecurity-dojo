@@ -2,6 +2,7 @@ As you saw, raw RSA signatures are a bad idea, as they can be forged.
 In practice, what people sign are [_cryptographic hashes_](https://en.wikipedia.org/wiki/Cryptographic_hash_function) of things.
 A hash is a one-way function that takes an arbitrary amount of input (e.g., bytes or gigabytes or more) and outputs a short (e.g., 32 bytes) of output hash.
 Any changes in the input to the hash will _diffuse_ all over the resulting cryptographic hash in a way that is not reversible.
+
 Thus, secure hashes are a good representation for the original data: if Alice signs a hash of a message, that message can be seen as being signed as well.
 Better yet, since hashes are not controllably reversible or modifiable, an attacker being able to modify a hash does not allow them to forge a signature on a new message.
 
