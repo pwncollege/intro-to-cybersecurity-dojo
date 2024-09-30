@@ -12,15 +12,15 @@ Let's take it step by step:
 1. First, Alice and Bob agree on a large prime number `p` to define their Finite Field (e.g., all further operations occur _modulo `p`_: a context where numbers go from `0` to `p-1`, and then loop around), along with a _root_ `g`, and exchange them in the open, content to let Eve see them.
 2. Then, Alice and Bob each generate a _secret_ number (`a` for Alice's and `b` for Bob's).
    These numbers are never shared.
-3. Alice computes `A = (g ** a) % p` (`g` to the `a` power modulo `p`) and Bob computes `B = (g ** b) % p`.
+3. Alice computes `A = (g ** a) mod p` (`g` to the `a` power modulo `p`) and Bob computes `B = (g ** b) mod p`.
    Alice and Bob exchange `A` and `B` in the open.
 4. At this point, Eve will have `p`, `g`, `A`, and `B`, but will be unable to recover `a` or `b`.
    If it wasn't for the finite field, recovering `a` and `b` would be trivial via a logarithm-base-`g`: `log_g(A) == a` and `log_g(B) == b`.
    However, this does not work in a Finite Field under a modulo because, conceptually, we have no efficient way to determine how many times the `g ** a` computation "looped around" from `p-1` to `0`, and this is needed to compute the logarithm.
    This logarithm-in-a-finite-field problem is called the [Discrete Logarithm](https://en.wikipedia.org/wiki/Discrete_logarithm), and there is no efficient way to solve this without using a quantum computer.
    Quantum computers' ability to solve this problem is the most immediate thing that makes them so dangerous to cryptography.
-5. Alice calculates `s = (B ** a) % p`, and since `B` was `(g ** b) % p`, this results in `s = ((g ** b) ** a) % p` or, applying middle school math, `s = (g ** (b*a)) % p`.
-   Bob calculates `s = (A ** b) % p`, and since `A` was `(g ** a) % p`, this results in `s = (g ** (a*b)) % p`. Since `a*b == b*a`, the `s` values computed by both Bob and Alice are equal!
+5. Alice calculates `s = (B ** a) mod p`, and since `B` was `(g ** b) mod p`, this results in `s = ((g ** b) ** a) mod p` or, applying middle school math, `s = (g ** (b*a)) mod p`.
+   Bob calculates `s = (A ** b) mod p`, and since `A` was `(g ** a) mod p`, this results in `s = (g ** (a*b)) mod p`. Since `a*b == b*a`, the `s` values computed by both Bob and Alice are equal!
 6. Eve _cannot_ compute `s` because Eve lacks `a` or `b`.
    Eve could compute `A ** B == g ** a ** g ** b`, which reduces to something like `g ** (a*(g**b))` and doesn't get Eve any closer to `s`!
    Eve could also compute `A * B == (g ** a) * (g ** b) == g ** (a+b)`, but again, this is not the `s == g ** (a*b)` that Bob and Alice arrived at.
