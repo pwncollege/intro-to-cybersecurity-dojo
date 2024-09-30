@@ -49,7 +49,7 @@ challenges:
   name: RSA 1
 - id: level-8
   name: RSA 2
-- id: level-8
+- id: rsa-sig
   name: RSA Signatures
 - id: level-9
   name: SHA 1
