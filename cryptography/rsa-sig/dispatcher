@@ -1,0 +1,20 @@
+#!/opt/pwn.college/python
+
+import sys
+
+from base64 import b64encode
+
+n = int(open("/challenge/key-n").read(), 16)
+d = int(open("/challenge/key-d").read(), 16)
+
+command = sys.argv[1].strip("\0") if len(sys.argv) > 1 else "chill"
+if command == "flag":
+	print("No.")
+	sys.exit(1)
+
+signature = pow(
+	int.from_bytes(command.encode('latin1'), "little"),
+	d,
+	n
+).to_bytes(256, "little")
+print(f"Signed command (b64): {b64encode(signature).decode()}")

@@ -1,0 +1,19 @@
+#!/opt/pwn.college/python
+
+import sys
+
+from base64 import b64decode
+
+n = int(open("/challenge/key-n").read(), 16)
+e = int(open("/challenge/key-e").read(), 16)
+
+ciphertext = b64decode(sys.argv[1])
+plaintext = pow(
+	int.from_bytes(ciphertext, "little"),
+	e, n
+).to_bytes(256, "little").rstrip(b"\x00")
+
+print(f"Received signed command: {plaintext}")
+if plaintext == b"flag":
+	print("You got it!")
+	print(open("/flag").read())
