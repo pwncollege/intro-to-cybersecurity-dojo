@@ -21,8 +21,8 @@ Let's take it step by step:
    Quantum computers' ability to solve this problem is the most immediate thing that makes them so dangerous to cryptography.
 5. Alice calculates `s = (B ** a) % p`, and since `B` was `(g ** b) % p`, this results in `s = ((g ** b) ** a) % p` or, applying middle school math, `s = (g ** (b*a)) % p`.
    Bob calculates `s = (A ** b) % p`, and since `A` was `(g ** a) % p`, this results in `s = (g ** (a*b)) % p`. Since `a*b == b*a`, the `s` values computed by both Bob and Alice are equal!
-6. Eve _cannot_ compute `s` because she lacks `a` or `b`.
-   The best she can do is compute `A ** B == g ** a ** g ** b`, which reduces to something like `g ** (a*(g**b))` and doesn't get Eve any closer to `s`!
+6. Eve _cannot_ compute `s` because Eve lacks `a` or `b`.
+   The best Eve can do is compute `A ** B == g ** a ** g ** b`, which reduces to something like `g ** (a*(g**b))` and doesn't get Eve any closer to `s`!
 
 In this challenge you will perform a Diffie-Hellman key exchange.
 Good luck!
