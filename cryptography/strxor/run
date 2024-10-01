@@ -23,7 +23,7 @@ for n in range(1, 10):
 
 	print(f"- Encrypted String: {ct_str}")
 	print(f"- XOR Key String: {key_str}")
-	answer = input("- Decrypted Character? ").strip()
+	answer = input("- Decrypted String? ").strip()
 	if answer != pt_str:
 		print("Incorrect!")
 		sys.exit(1)
