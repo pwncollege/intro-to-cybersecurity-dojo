@@ -7,13 +7,13 @@ from base64 import b64decode
 n = int(open("/challenge/key-n").read(), 16)
 e = int(open("/challenge/key-e").read(), 16)
 
-ciphertext = b64decode(sys.argv[1])
-plaintext = pow(
-	int.from_bytes(ciphertext, "little"),
-	e, n
-).to_bytes(256, "little").rstrip(b"\x00")
+if len(sys.argv) < 2:
+    print(f"Usage: {sys.argv[0]} [signature-b64]")
+    sys.exit(1)
 
-print(f"Received signed command: {plaintext}")
-if plaintext == b"flag":
-	print("You got it!")
-	print(open("/flag").read())
+signature = b64decode(sys.argv[1])
+command = pow(int.from_bytes(signature, "little"), e, n).to_bytes(256, "little").rstrip(b"\x00")
+
+print(f"Received signed command: {command}")
+if command == b"flag":
+    print(open("/flag").read())
