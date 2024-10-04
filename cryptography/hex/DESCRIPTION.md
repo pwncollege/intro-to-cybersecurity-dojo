@@ -25,7 +25,7 @@ This allows us to have a super simple mapping:
 | `c` | `1100` | `12`    |
 | `d` | `1101` | `13`    |
 | `e` | `1110` | `14`    |
-| `f` | `0001` | `15`    |
+| `f` | `1111` | `15`    |
 
 This mapping from a hex digit to 4 bits is something that's easily memorizable (most important: memorize `1`, `2`, `4`, and `8`, and you can quickly derive the rest).
 Better yet, two hex digits is **8** bits, which is one byte!
