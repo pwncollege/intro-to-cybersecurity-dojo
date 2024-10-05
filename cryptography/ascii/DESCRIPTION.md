@@ -9,7 +9,7 @@ UTF-8 describes how one or more bytes (each byte is 8 bits) corresponds to a cha
 Luckily for our purposes as an English-language educational resource, the encoding of the Latin alphabet in UTF-8 is quite simple, and harkens back to another encoding standard called [_ASCII_](https://en.wikipedia.org/wiki/ASCII).
 
 ASCII is, by computing standards, an ancient encoding, dating back to 1963.
-Modern ASCII is pretty simple: every character is one byte (8 bits), uppercase letters are `0x40+letter_index` (e.g., A is `0x41`, F is `0x46`, and Z is `0x5a`), lowercase letters are `0x60+letter_index` (A is `0x61`, F is `0x66`, and Z is `0x5a`), and numbers (yes, the numeric characters you're seeing are _not_ bytes of those values, they are ASCII-encoded number characters) are `0x30+number`, so 0 is `0x30` and 7 is `0x37`.
+Modern ASCII is pretty simple: every character is one byte (8 bits), uppercase letters are `0x40+letter_index` (e.g., A is `0x41`, F is `0x46`, and Z is `0x5a`), lowercase letters are `0x60+letter_index` (a is `0x61`, f is `0x66`, and z is `0x7a`), and numbers (yes, the numeric characters you're seeing are _not_ bytes of those values, they are ASCII-encoded number characters) are `0x30+number`, so 0 is `0x30` and 7 is `0x37`.
 Special characters are sprinkled around the mapping as well: forward slash (`/` is `0x2f`), space is 0x20, and newline is 0x0a.
 You can see the whole ASCII table with `man ascii`!
 
