@@ -473,16 +473,23 @@ class RawPacketHost(UnmanagedHost):
 
 class EtherPacketHost(RawPacketHost):
     def check_packet(self, packet):
+        user_host = self.network.hosts[0]
         return (
             "Ether" in packet and
+            packet["Ether"].src == user_host.mac and
+            packet["Ether"].dst == self.mac and
             packet["Ether"].type == 0xFFFF
         )
 
 
 class IPPacketHost(RawPacketHost):
     def check_packet(self, packet):
+        user_host = self.network.hosts[0]
         return (
-            "IP" in packet and
+            "Ether" in packet and "IP" in packet and
+            packet["Ether"].src == user_host.mac and
+            packet["Ether"].dst == self.mac and
+            packet["IP"].src == user_host.ip and
             packet["IP"].dst == self.ip and
             packet["IP"].proto == 0xFF
         )
@@ -490,8 +497,13 @@ class IPPacketHost(RawPacketHost):
 
 class TCPPacketHost(RawPacketHost):
     def check_packet(self, packet):
+        user_host = self.network.hosts[0]
         return (
-            "TCP" in packet and
+            "Ether" in packet and "IP" in packet and "TCP" in packet and
+            packet["Ether"].src == user_host.mac and
+            packet["Ether"].dst == self.mac and
+            packet["IP"].src == user_host.ip and
+            packet["IP"].dst == self.ip and
             packet["TCP"].sport == 31337 and
             packet["TCP"].dport == 31337 and
             packet["TCP"].seq == 31337 and
@@ -506,7 +518,11 @@ class TCPHandshakeHost(RawPacketHost):
         self.seq = None
 
     def check_packet(self, packet):
-        if ("IP" in packet and "TCP" in packet["IP"] and len(packet["IP"].layers()) == 2 and
+        user_host = self.network.hosts[0]
+        if ("Ether" in packet and "IP" in packet and "TCP" in packet and len(packet["IP"].layers()) == 2 and
+            packet["Ether"].src == user_host.mac and
+            packet["Ether"].dst == self.mac and
+            packet["IP"].src == user_host.ip and
             packet["IP"].dst == self.ip and
             packet["TCP"].sport == 31337 and
             packet["TCP"].dport == 31337 and
@@ -537,7 +553,10 @@ class TCPHandshakeHost(RawPacketHost):
 
             self.seq = (self.seq + 1) & (2**32 - 1)
 
-        if ("IP" in packet and "TCP" in packet["IP"] and len(packet["IP"].layers()) == 2 and
+        if ("Ether" in packet and "IP" in packet and "TCP" in packet and len(packet["IP"].layers()) == 2 and
+            packet["Ether"].src == user_host.mac and
+            packet["Ether"].dst == self.mac and
+            packet["IP"].src == user_host.ip and
             packet["IP"].dst == self.ip and
             packet["TCP"].sport == 31337 and
             packet["TCP"].dport == 31337 and
@@ -549,19 +568,16 @@ class TCPHandshakeHost(RawPacketHost):
 
 
 class ARPHost(RawPacketHost):
-    @property
-    def check_host(self):
-        return self.network.hosts[0]
-
     def check_packet(self, packet):
+        user_host = self.network.hosts[0]
         WHO_HAS = 1
         IS_AT = 2
         return (
             "Ether" in packet and "ARP" in packet["Ether"] and len(packet["Ether"].layers()) == 2 and
-            packet["Ether"].src == self.check_host.mac and
+            packet["Ether"].src == user_host.mac and
             packet["ARP"].op == IS_AT and
-            packet["ARP"].hwsrc == self.check_host.mac and
-            packet["ARP"].psrc == self.check_host.ip
+            packet["ARP"].hwsrc == user_host.mac and
+            packet["ARP"].psrc == user_host.ip
         )
 
 
