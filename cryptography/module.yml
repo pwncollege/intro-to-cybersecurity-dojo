@@ -94,3 +94,8 @@ resources:
   video: -QLq_8ZbUzw
   playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
   slides: 1OER4qdFD4JjxaAhMr9axcIUk4-oNskl7LwRC7LXtqnU
+- name: "Useful Resources"
+  type: markdown
+  content: |
+    - [A deep dive into Padding Oracle Attacks](https://www.nccgroup.com/us/research-blog/cryptopals-exploiting-cbc-padding-oracles/)
+    - [Byte by byte EBC mode decryption](https://node-security.com/posts/cryptography-byte-by-byte-ecb-decryption/) (albeit in a slightly different context than we explore)
