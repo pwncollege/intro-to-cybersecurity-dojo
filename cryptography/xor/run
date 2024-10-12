@@ -10,8 +10,8 @@ cipher_secret = plain_secret ^ key
 print(f"The key: {key}")
 print(f"Encrypted secret: {cipher_secret}")
 if int(input("Decrypted secret? ")) == plain_secret:
-	print("CORRECT! Your flag:")
-	print(open("/flag").read())
+    print("CORRECT! Your flag:")
+    print(open("/flag").read())
 else:
-	print("INCORRECT!")
-	sys.exit(1)
+    print("INCORRECT!")
+    sys.exit(1)

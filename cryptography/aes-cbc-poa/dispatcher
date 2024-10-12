@@ -10,9 +10,9 @@ key = open("/challenge/.key", "rb").read()
 cipher = AES.new(key=key, mode=AES.MODE_CBC)
 
 if len(sys.argv) > 1 and sys.argv[1] == "flag":
-	plaintext = open("/flag", "rb").read().strip()
+    plaintext = open("/flag", "rb").read().strip()
 else:
-	plaintext = b"sleep"
+    plaintext = b"sleep"
 
 ciphertext = cipher.iv + cipher.encrypt(pad(plaintext, cipher.block_size))
 print(f"TASK: {b64encode(ciphertext).decode()}")
