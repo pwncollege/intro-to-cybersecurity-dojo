@@ -4,6 +4,8 @@ name: Intro to Cybersecurity
 award:
   belt: orange
 
+image: pwncollege/challenge-legacy:latest
+
 description: |
   Can you feel it?
   The sun is beginning to rise on your journey of cybersecurity.
