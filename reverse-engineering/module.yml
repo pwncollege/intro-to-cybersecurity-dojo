@@ -1,6 +1,6 @@
 name: Reverse Engineering
 visibility:
-  start: "2024-10-04T13:00:00-07:00"
+  start: "2024-11-04T13:00:00-07:00"
 resources:
 - name: "Reverse Engineering: Introduction"
   type: lecture
