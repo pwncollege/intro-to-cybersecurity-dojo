@@ -104,7 +104,7 @@ challenges:
   name: Advanced Sprites
 - id: cimg-sprite-load
   name: Accessing Resources
-- id: cimg-sprite-animate-unsafe
+- id: cimg-animate-unsafe
   name: Unsafe Animations
-- id: cimg-sprite-animate
+- id: cimg-animate
   name: Animations

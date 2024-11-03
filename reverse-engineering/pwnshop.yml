@@ -34,7 +34,7 @@ challenges:
   challenge: CIMGSpriteTiled
 - id: cimg-sprite-load
   challenge: CIMGSpriteLoad
-- id: cimg-sprite-animate-unsafe
+- id: cimg-animate-unsafe
   challenge: CIMGAnimateUnsafe
-- id: cimg-sprite-animate
+- id: cimg-animate
   challenge: CIMGAnimate
