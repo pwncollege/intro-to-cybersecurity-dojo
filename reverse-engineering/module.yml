@@ -85,7 +85,7 @@ challenges:
 - id: cimg-ascii
   name: Input Restrictions
 - id: cimg-display
-  name: A Preliminary cIMG
+  name: Behold the cIMG!
 - id: cimg-color
   name: A Basic cIMG
 - id: cimg-framebuffer
@@ -104,5 +104,7 @@ challenges:
   name: Advanced Sprites
 - id: cimg-sprite-load
   name: Accessing Resources
+- id: cimg-sprite-animate-unsafe
+  name: Unsafe Animations
 - id: cimg-sprite-animate
   name: Animations

@@ -1,0 +1,40 @@
+seed: 1337
+variants: 1
+walkthrough: false
+keep_source: false
+binary_name: cimg
+challenges:
+- id: cimg-magic-number
+  challenge: CIMGMagicNumber
+- id: cimg-magic-int
+  challenge: CIMGMagicInt
+- id: cimg-version
+  challenge: CIMGVersion
+- id: cimg-dimensions
+  challenge: CIMGDimensions
+- id: cimg-ascii
+  challenge: CIMGAscii
+- id: cimg-display
+  challenge: CIMGDisplay
+- id: cimg-color
+  challenge: CIMGColor
+- id: cimg-framebuffer
+  challenge: CIMGFramebuffer
+- id: cimg-operations
+  challenge: CIMGOperations
+- id: cimg-patch
+  challenge: CIMGPatch
+- id: cimg-patch1337
+  challenge: CIMGPatch1337
+- id: cimg-sprite
+  challenge: CIMGSprite
+- id: cimg-sprite-parse
+  challenge: CIMGSprite
+- id: cimg-sprite-tiled
+  challenge: CIMGSpriteTiled
+- id: cimg-sprite-load
+  challenge: CIMGSpriteLoad
+- id: cimg-sprite-animate-unsafe
+  challenge: CIMGAnimateUnsafe
+- id: cimg-sprite-animate
+  challenge: CIMGAnimate
