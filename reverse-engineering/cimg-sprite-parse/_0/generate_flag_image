@@ -14,5 +14,5 @@ for c in open("/flag").read().strip():
 	operations += [ struct.pack("<HBBBBBB", 4, sprites[c], 0xff, 0xff, 0xff, 0, 0) ]
 
 img = b"cIMG" + struct.pack("<HBBI", 3, 16, 16, len(operations)) + b"".join(operations)
-with open("/challenge/the_flag.cimg", "wb") as o:
+with open("/challenge/flag.cimg", "wb") as o:
 	o.write(img)

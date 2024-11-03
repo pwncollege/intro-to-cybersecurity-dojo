@@ -22,5 +22,5 @@ for p in flag_pixels:
 	operations += [ struct.pack("<HI", 7, 733_331) ]
 
 img = b"cIMG" + struct.pack("<HBBI", 4, max_line_length, len(flag_lines), len(operations)) + b"".join(operations)
-with open("/challenge/the_flag.cimg", "wb") as o:
+with open("/challenge/flag.cimg", "wb") as o:
 	o.write(img)
