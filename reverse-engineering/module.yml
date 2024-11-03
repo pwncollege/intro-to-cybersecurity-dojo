@@ -73,3 +73,36 @@ resources:
        * angr-management is an open source up-and-coming reversing tool with some advanced functionality.
        * In a pinch, `objdump -d -M intel the_binary` will disassemble the binary you want to look at.
          `-M intel`, in that command, makes objdump give you nice and readable Intel assembly syntax.
+challenges:
+- id: cimg-magic-number
+  name: Road to cIMG: Magic Numbers
+- id: cimg-magic-int
+  name: Endianness Reminder
+- id: cimg-version
+  name: Version Information
+- id: cimg-dimensions
+  name: Embedding Metadata
+- id: cimg-ascii
+  name: Input Restrictions
+- id: cimg-display
+  name: A Preliminary cIMG
+- id: cimg-color
+  name: A Basic cIMG
+- id: cimg-framebuffer
+  name: Math the Image!
+- id: cimg-operations
+  name: Operations
+- id: cimg-patch
+  name: Operation: Patch
+- id: cimg-patch1337
+  name: Optimizing for Space
+- id: cimg-sprite
+  name: Sprites
+- id: cimg-sprite-parse
+  name: Extracting Flags
+- id: cimg-sprite-tiled
+  name: Advanced Sprites
+- id: cimg-sprite-load
+  name: Accessing Resources
+- id: cimg-sprite-animate
+  name: Animations
