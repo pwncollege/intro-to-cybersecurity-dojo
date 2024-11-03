@@ -96,6 +96,8 @@ challenges:
   name: "Operation: Patch"
 - id: cimg-patch1337
   name: Optimizing for Space
+- id: cimg-patch-oneline
+  name: Tweaking Images
 - id: cimg-sprite
   name: Sprites
 - id: cimg-sprite-parse

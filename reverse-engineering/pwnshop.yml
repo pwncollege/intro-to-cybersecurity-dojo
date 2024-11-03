@@ -26,6 +26,8 @@ challenges:
   challenge: CIMGPatch
 - id: cimg-patch1337
   challenge: CIMGPatch1337
+- id: cimg-patch-oneline
+  challenge: CIMGPatchNoWin
 - id: cimg-sprite
   challenge: CIMGSprite
 - id: cimg-sprite-parse
