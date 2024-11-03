@@ -29,7 +29,7 @@ challenges:
 - id: cimg-sprite
   challenge: CIMGSprite
 - id: cimg-sprite-parse
-  challenge: CIMGSprite
+  challenge: CIMGSpriteParse
 - id: cimg-sprite-tiled
   challenge: CIMGSpriteTiled
 - id: cimg-sprite-load
