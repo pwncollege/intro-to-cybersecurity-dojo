@@ -89,7 +89,7 @@ challenges:
 - id: cimg-color
   name: A Basic cIMG
 - id: cimg-framebuffer
-  name: Math the Image!
+  name: Match the Image!
 - id: cimg-operations
   name: Operations
 - id: cimg-patch
