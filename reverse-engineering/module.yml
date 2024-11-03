@@ -75,7 +75,7 @@ resources:
          `-M intel`, in that command, makes objdump give you nice and readable Intel assembly syntax.
 challenges:
 - id: cimg-magic-number
-  name: Road to cIMG: Magic Numbers
+  name: "Road to cIMG: Magic Numbers"
 - id: cimg-magic-int
   name: Endianness Reminder
 - id: cimg-version
@@ -93,7 +93,7 @@ challenges:
 - id: cimg-operations
   name: Operations
 - id: cimg-patch
-  name: Operation: Patch
+  name: "Operation: Patch"
 - id: cimg-patch1337
   name: Optimizing for Space
 - id: cimg-sprite
