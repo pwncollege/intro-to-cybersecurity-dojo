@@ -8,7 +8,8 @@ import string
 import sys
 
 
-class CIMG_OPS_NORMAL:
+class CIMG_NORMAL:
+    MAGIC = b"cIMG"
     RENDER_FRAME =  struct.pack("<H", 1)
     RENDER_PATCH =  struct.pack("<H", 2)
     CREATE_SPRITE = struct.pack("<H", 3)
@@ -17,7 +18,8 @@ class CIMG_OPS_NORMAL:
     FLUSH =         struct.pack("<H", 6)
     SLEEP =         struct.pack("<H", 7)
 
-class CIMG_OPS_1337:
+class CIMG_1337:
+    MAGIC = b"CNNR"
     RENDER_FRAME =  struct.pack("<H", 7)
     RENDER_PATCH =  struct.pack("<H", 6)
     CREATE_SPRITE = struct.pack("<H", 5)
@@ -27,18 +29,19 @@ class CIMG_OPS_1337:
     SLEEP =         struct.pack("<H", 1)
 
 class GraphicsEngine:
-    def __init__(self, width, height, cimg_version=4, cimg_ops=CIMG_OPS_1337):
+    def __init__(self, width, height, cimg_version=4, cimg_ops=CIMG_1337):
         self.num_sprites = 0
+        self.ops = cimg_ops
+        self.width = width
+        self.height = height
+
         sys.stdout.buffer.write(
-            b"cIMG" +
+            self.ops.MAGIC +
             struct.pack("<H", cimg_version) +
             bytes([width, height]) +
             b"\xff\xff\xff\xff"
         )
         sys.stdout.flush()
-        self.ops = cimg_ops
-        self.width = width
-        self.height = height
 
     def render_frame_monochrome(self, lines, r=0xff, g=0xc6, b=0x27):
         sys.stdout.buffer.write(
@@ -122,7 +125,7 @@ def game():
     victory = False
 
     kb = InputEngine()
-    screen = GraphicsEngine(w, h, cimg_ops=CIMG_OPS_NORMAL if "NOFLAG" in sys.argv else CIMG_OPS_1337)
+    screen = GraphicsEngine(w, h, cimg_ops=CIMG_NORMAL if "NOFLAG" in sys.argv else CIMG_1337)
     our_sprite = screen.create_sprite([ b"\\o/", b" ^ "])
 
     screen.render_frame_monochrome([ b"#"*(w) ]*(h), r=255, g=255, b=255)
