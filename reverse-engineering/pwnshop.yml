@@ -40,3 +40,5 @@ challenges:
   challenge: CIMGAnimateUnsafe
 - id: cimg-animate
   challenge: CIMGAnimate
+- id: cimg-quest
+  challenge: CIMGAnimate

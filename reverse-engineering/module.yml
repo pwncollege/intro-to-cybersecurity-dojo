@@ -110,3 +110,5 @@ challenges:
   name: Unsafe Animations
 - id: cimg-animate
   name: Animations
+- id: cimg-quest
+  name: An Epic cIMG Quest
