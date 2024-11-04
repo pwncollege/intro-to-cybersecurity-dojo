@@ -7,6 +7,21 @@ resources:
   video: ClVocVk1c5g
   playlist: PL-ymxv0nOtqrGVyPIpJeostmi7zW5JS5l
   slides: 1hw_STBTJh4xqMv4TZAPRqt2rYIEAXXaCQlaBetxUufU
+- name: "Fundamentals: Binary Files"
+  type: lecture
+  video: nKqFeYJ483U
+  playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
+  slides: 1wrX8tvwaxIEk5hx4OtQmPqps-MScIaDO-9bTKQqr8vI
+- name: "Fundamentals: Linux Process Loading"
+  type: lecture
+  video: kUMCAzSOY-o
+  playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
+  slides: 1TwM5WLWnTqrNkpXjGKkaXYbKZEpatEQYA7ckBVXAOhs
+- name: "Fundamentals: Linux Process Execution"
+  type: lecture
+  video: Vtb5wIlthRg
+  playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
+  slides: 1ezY9Q8I0tzDD-7ZDXMbQM5RQ7z1dvB9-U_nDEhc6qdE
 - name: "Reverse Engineering: Functions and Frames"
   type: lecture
   video: 3IdeyjrMBA4
