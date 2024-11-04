@@ -90,13 +90,13 @@ resources:
          `-M intel`, in that command, makes objdump give you nice and readable Intel assembly syntax.
 challenges:
 - id: cimg-magic-number
-  name: "Road to cIMG: Magic Numbers"
+  name: "File Formats: Magic Numbers"
 - id: cimg-magic-int
-  name: Endianness Reminder
+  name: Reading Endianness
 - id: cimg-version
   name: Version Information
 - id: cimg-dimensions
-  name: Embedding Metadata
+  name: Metadata and Data
 - id: cimg-ascii
   name: Input Restrictions
 - id: cimg-display
@@ -104,19 +104,19 @@ challenges:
 - id: cimg-color
   name: A Basic cIMG
 - id: cimg-framebuffer
-  name: Match the Image!
+  name: Internal State
 - id: cimg-operations
-  name: Operations
+  name: "File Formats: Directives"
 - id: cimg-patch
-  name: "Operation: Patch"
+  name: The Patch Directive
 - id: cimg-patch1337
   name: Optimizing for Space
 - id: cimg-patch-oneline
   name: Tweaking Images
 - id: cimg-sprite
-  name: Sprites
+  name: Storage and Retrieval
 - id: cimg-sprite-parse
-  name: Extracting Flags
+  name: Extracting Knowledge
 - id: cimg-sprite-tiled
   name: Advanced Sprites
 - id: cimg-sprite-load
@@ -126,7 +126,7 @@ challenges:
 - id: cimg-animate
   name: Animations
 - id: cimg-quest-1
-  name: Interoperability: Patching Data
+  name: "Interoperability: Patching Data"
 - id: cimg-quest-2
   name: Patching Code
 - id: cimg-quest-3
