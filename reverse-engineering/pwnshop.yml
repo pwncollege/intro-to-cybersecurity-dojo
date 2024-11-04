@@ -21,7 +21,7 @@ challenges:
 - id: cimg-framebuffer
   challenge: CIMGFramebuffer
 - id: cimg-operations
-  challenge: CIMGOperations
+  challenge: CIMGDirectives
 - id: cimg-patch
   challenge: CIMGPatch
 - id: cimg-patch1337
@@ -40,7 +40,7 @@ challenges:
   challenge: CIMGAnimateUnsafe
 - id: cimg-animate
   challenge: CIMGAnimate
-- id: cimg-quest
+- id: cimg-quest-1
   challenge: CIMGQuestUnpatched
 - id: cimg-quest-2
   challenge: CIMGQuestUnpatched

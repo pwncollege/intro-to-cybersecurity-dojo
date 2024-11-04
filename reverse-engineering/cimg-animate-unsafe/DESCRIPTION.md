@@ -1,4 +1,4 @@
-The extensibility of our cIMG operations list continues to amaze!
+The extensibility of our cIMG directives list continues to amaze!
 
 ----
 **HINT:**

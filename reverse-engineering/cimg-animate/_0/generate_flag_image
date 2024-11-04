@@ -15,12 +15,12 @@ for y,line in enumerate(flag_lines):
 		flag_pixels += [ (x, y, c) ]
 random.shuffle(flag_pixels)
 
-operations = [ ]
+directives = [ ]
 for p in flag_pixels:
-	operations += [ struct.pack("<HBBBBBBBB", 2, p[0], p[1], 1, 1, 0x8c, 0x1d, 0x40, p[2]) ]
-	operations += [ struct.pack("<HB", 6, 1) ]
-	operations += [ struct.pack("<HI", 7, 733_331) ]
+	directives += [ struct.pack("<HBBBBBBBB", 2, p[0], p[1], 1, 1, 0x8c, 0x1d, 0x40, p[2]) ]
+	directives += [ struct.pack("<HB", 6, 1) ]
+	directives += [ struct.pack("<HI", 7, 733_331) ]
 
-img = b"cIMG" + struct.pack("<HBBI", 4, max_line_length, len(flag_lines), len(operations)) + b"".join(operations)
+img = b"cIMG" + struct.pack("<HBBI", 4, max_line_length, len(flag_lines), len(directives)) + b"".join(directives)
 with open("/challenge/flag.cimg", "wb") as o:
 	o.write(img)
