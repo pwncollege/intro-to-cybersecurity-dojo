@@ -125,5 +125,9 @@ challenges:
   name: Unsafe Animations
 - id: cimg-animate
   name: Animations
-- id: cimg-quest
-  name: Interoperability: The cIMG Quest
+- id: cimg-quest-1
+  name: Interoperability: Patching Data
+- id: cimg-quest-2
+  name: Patching Code
+- id: cimg-quest-3
+  name: Patching Control Flow
