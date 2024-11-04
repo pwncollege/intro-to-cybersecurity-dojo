@@ -4,8 +4,8 @@ import termios
 import random
 import struct
 import string
-#import click
 import sys
+import os
 
 
 class CIMG_NORMAL:
@@ -34,62 +34,55 @@ class GraphicsEngine:
         self.ops = cimg_ops
         self.width = width
         self.height = height
+        self.output = os.fdopen(1, 'wb', buffering=0)
 
-        sys.stdout.buffer.write(
+        self.output.write(
             self.ops.MAGIC +
             struct.pack("<H", cimg_version) +
             bytes([width, height]) +
             b"\xff\xff\xff\xff"
         )
-        sys.stdout.flush()
 
     def render_frame_monochrome(self, lines, r=0xff, g=0xc6, b=0x27):
-        sys.stdout.buffer.write(
+        self.output.write(
             self.ops.RENDER_FRAME +
             b"".join(bytes([r, g, b, c]) for c in b"".join(lines))
         )
-        sys.stdout.flush()
 
     def render_patch_monochrome(self, lines, x, y, r=0xff, g=0xc6, b=0x27):
         assert all(b >= 20 and b <= 0x7e for b in b"".join(lines))
-        sys.stdout.buffer.write(
+        self.output.write(
             self.ops.RENDER_PATCH +
             bytes([x, y, len(lines[0]), len(lines)]) +
             b"".join(bytes([r, g, b, c]) for c in b"".join(lines))
         )
-        sys.stdout.flush()
 
     def create_sprite(self, lines, num=None):
         if num is None:
             num = self.num_sprites
             self.num_sprites += 1
 
-        sys.stdout.buffer.write(
+        self.output.write(
             self.ops.CREATE_SPRITE +
             bytes([num, len(lines[0]), len(lines)]) +
             b"".join(lines)
         )
-        sys.stdout.flush()
         return num
 
     def render_sprite(self, num, x, y, tile_x=1, tile_y=1, r=0x8c, g=0x1d, b=0x40, t=" "):
-        sys.stdout.buffer.write(
+        self.output.write(
             self.ops.RENDER_SPRITE + bytes([num, r, g, b, x, y, tile_x, tile_y, ord(t)])
         )
-        sys.stdout.flush()
 
     def flush(self, clear=True):
-        sys.stdout.buffer.write(self.ops.FLUSH + bytes([clear]))
-        sys.stdout.flush()
+        self.output.write(self.ops.FLUSH + bytes([clear]))
 
     def sleep(self, ms):
-        sys.stdout.buffer.write(self.ops.SLEEP + struct.pack("<I", ms))
-        sys.stdout.flush()
+        self.output.write(self.ops.SLEEP + struct.pack("<I", ms))
 
     def blank(self):
         self.render_patch_monochrome([ b" "*self.width ]*self.height, 1, 1)
         self.flush()
-        sys.stdout.flush()
 
     def animate_text(self, text, x, y, r=None, g=None, b=None, interval=20):
         for i,c in enumerate(text):
