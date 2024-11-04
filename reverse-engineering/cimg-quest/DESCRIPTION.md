@@ -9,6 +9,10 @@ You'll need to binary-patch it for compatibility!
 Can you uncover the flag?
 
 ----
+**LEARNING OUTCOMES:**
+Reverse Engineering for interoperability, binary patching.
+
+----
 **NOTE:**
 Note, `/challenge/quest` uses `cimg` as a graphics engine, but it's built for a custom version of `cimg` that you do not have.
 You run it with `/challenge/quest NOFLAG | /challenge/cimg` to run it in "compatibility mode": no flag, but compatible with the standard `cimg`.
