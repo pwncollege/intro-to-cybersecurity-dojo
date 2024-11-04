@@ -5,7 +5,7 @@ import random
 import struct
 import os
 
-raw_flag_lines = subprocess.check_output("/usr/bin/figlet < /flag", shell=True).split(b"\n")
+raw_flag_lines = subprocess.check_output(["/usr/bin/figlet"], input=open("/flag", "rb").read()).split(b"\n")
 max_line_length = max(len(line) for line in raw_flag_lines)
 flag_lines = [ line.ljust(max_line_length) for line in raw_flag_lines ]
 
