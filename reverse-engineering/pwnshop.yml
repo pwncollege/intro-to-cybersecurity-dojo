@@ -41,7 +41,7 @@ challenges:
 - id: cimg-animate
   challenge: CIMGAnimate
 - id: cimg-quest-1
-  challenge: CIMGQuestUnpatched
+  challenge: CIMGQuestUnpatchedSwitch
 - id: cimg-quest-2
   challenge: CIMGQuestUnpatched
 - id: cimg-quest-3
