@@ -150,6 +150,9 @@ def game():
 
     bomb_x = random.randrange(w)
     bomb_y = random.randrange(h)
+    while bomb_x in (x, x+1, x+2) and bomb_y in (y, y+1):
+        bomb_x = random.randrange(w)
+        bomb_y = random.randrange(h)
 
     key = ""
     while True:
@@ -178,8 +181,14 @@ def game():
             ])
             bomb_x = random.randrange(w)
             bomb_y = random.randrange(h)
-            hidden_x = (bomb_x+random.randrange(w-1))%w
-            hidden_y = (bomb_y+random.randrange(h-1))%h
+            while bomb_x in (x, x+1, x+2) and bomb_y in (y, y+1):
+                bomb_x = random.randrange(w)
+                bomb_y = random.randrange(h)
+            prev_hidden_x = hidden_x
+            prev_hidden_y = hidden_y
+            while hidden_x == prev_hidden_x and hidden_y == prev_hidden_y:
+                hidden_x = (bomb_x+random.randrange(w-1))%w
+                hidden_y = (bomb_y+random.randrange(h-1))%h
 
         # render everyone
         screen.blank()
