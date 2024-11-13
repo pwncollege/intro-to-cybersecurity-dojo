@@ -3,6 +3,8 @@ variants: 1
 walkthrough: false
 keep_source: false
 binary_name: cimg
+build_image: pwncollege/challenge-legacy:latest
+verify_image: pwncollege/challenge-legacy:latest
 challenges:
 - id: cimg-magic-number
   challenge: CIMGMagicNumber
