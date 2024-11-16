@@ -47,40 +47,6 @@ resources:
   video: 2pqvHSy11JE
   playlist: PL-ymxv0nOtqrGVyPIpJeostmi7zW5JS5l
   slides: 1HWiy6OzvPO8YhgTPOsALobh9LagZsJ3Jsx7DJFLAKn4
-- name: Writing Binary Data
-  type: markdown
-  content: |
-    You will find that you need to create raw binary files (as in, binary data, not binary executables) for this assignment.
-    You can do this in a number of ways, but one of these ways is Python:
-
-    ```python
-    # the "wb" here tells Python to open the "your-file.cimg" file for writing raw bytes
-    with open("your-file.cimg", "wb") as out_file:
-      # this writes "HELLO WORLD" followed by a null byte to the "your-file.cimg" file
-      out_file.write(b"HELLO \x57\x4f\x52\x4c\x44\x00")
-
-      # this writes a newline right after the above-written "HELLO WORLD\0" into that file
-      out_file.write(b"\n")
-    ```
-
-    To convert between integers and raw bytes, check out the `struct` Python package.
-
-    ```python
-    with open("your-file.cimg", "wb") as out_file:
-      # this packs the integer 1337 (hex 0x539 in hex) into four little-endian bytes
-      out_file.write(struct.pack("<I", 1337))
-
-      # the above is equivalent to
-      out_file.write(b"\x39\x05\x00\x00")
-
-      # this packs the integer 1337 (0x539 in hex) two little-endian bytes
-      out_file.write(struct.pack("<H", 1337))
-
-      # the above is equivalent to
-      out_file.write(b"\x39\x05")
-    ```
-
-    If you are curious, you can look at other format specifiers in [struct's documentation](https://docs.python.org/3/library/struct.html#format-characters).
 - name: Other Resources
   type: markdown
   content: |
