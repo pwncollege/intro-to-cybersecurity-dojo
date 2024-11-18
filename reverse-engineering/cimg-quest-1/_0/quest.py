@@ -203,13 +203,13 @@ def game():
                 r=random.randrange(256), g=random.randrange(256), b=random.randrange(256)
             )
         else:
-            while True:
-                try:
+            try:
+                while True:
                     screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y)
                     screen.animate_text("!!! CONGRATULATIONS, YOU DID IT !!!", 10, hidden_y+1)
                     screen.animate_text(correctBytes, 10, hidden_y+2)
                     screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y+1)
-                except:
+            finally:
                     print(flag)
 
         screen.render_patch_monochrome([ b"B" ], bomb_x, bomb_y)
