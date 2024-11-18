@@ -144,6 +144,7 @@ def game():
         flag = b"ERROR: /flag permission denied"
 
     hidden_bytes = [ bytes([b]) for b in flag ][::-1]
+
     hidden_x = random.randrange(w)
     hidden_y = random.randrange(h)
     revealed_bytes = [ ]
@@ -192,8 +193,10 @@ def game():
 
         # render everyone
         screen.blank()
+        correctBytes= ''
         for rx,ry,r,g,b,c in revealed_bytes:
             screen.render_patch_monochrome([ c ], rx, ry, r=r, g=g, b=b)
+            correctBytes +=str(c.decode())
         if hidden_bytes:
             screen.render_patch_monochrome(
                 [ b"?" ], hidden_x, hidden_y,
@@ -201,10 +204,13 @@ def game():
             )
         else:
             while True:
-                screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y)
-                screen.animate_text("!!! CONGRATULATIONS, YOU DID IT !!!", 10, hidden_y+1)
-                screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y+2)
-                screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y+1)
+                try:
+                    screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y)
+                    screen.animate_text("!!! CONGRATULATIONS, YOU DID IT !!!", 10, hidden_y+1)
+                    screen.animate_text(correctBytes, 10, hidden_y+2)
+                    screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y+1)
+                except:
+                    print(flag)
 
         screen.render_patch_monochrome([ b"B" ], bomb_x, bomb_y)
         screen.render_sprite(our_sprite, x, y)
