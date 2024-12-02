@@ -60,7 +60,7 @@ void send_file(int client_fd, char *path)
     REQUIRE(S_ISREG(file_stat.st_mode), 400)
     REQUIRE(file_stat.st_size < 8192, 413)
 
-    response.head += sprintf(response.head, "HTTP 1.1 200 OK\nServer: pwnserver/1.3333333333333333333333333333333333.7\nX-Leetness-Level: 9001\nContent-type: ");
+    response.head += sprintf(response.head, "HTTP/1.1 200 OK\nServer: pwnserver/1.3333333333333333333333333333333333.7\nX-Leetness-Level: 9001\nContent-type: ");
     if (!strrchr(path, '.')) response.head += sprintf(response.head, "text/plain\n");
     else if (strcmp(strrchr(path, '.')+1, "html") == 0) response.head += sprintf(response.head, "text/html\n");
     else if (strcmp(strrchr(path, '.')+1, "jpg") == 0) response.head += sprintf(response.head, "image/jpeg\n");
