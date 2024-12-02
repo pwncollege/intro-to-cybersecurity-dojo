@@ -47,7 +47,7 @@ void send_file(int client_fd, char *path)
     struct response_t
     {
         char *head;
-        char content[1024];
+        char content[8192];
     } response = { 0 };
     response.head = response.content;
 
@@ -58,7 +58,7 @@ void send_file(int client_fd, char *path)
     fstat(file_fd, &file_stat);
 
     REQUIRE(S_ISREG(file_stat.st_mode), 400)
-    REQUIRE(file_stat.st_size < 1024, 413)
+    REQUIRE(file_stat.st_size < 8192, 413)
 
     response.head += sprintf(response.head, "HTTP 1.1 200 OK\nServer: pwnserver/1.333333333333333333333333.7\nX-Leetness-Level: 9001\nContent-type: ");
     if (!strrchr(path, '.')) response.head += sprintf(response.head, "text/plain\n");
@@ -76,7 +76,7 @@ void send_file(int client_fd, char *path)
 
 void handle_connection(int client_fd)
 {
-    char request[1024] = { 0 };
+    char request[8192] = { 0 };
     char method[8] = { 0 };
     char version[10] = { 0 };
     char path[256] = { 0 };
