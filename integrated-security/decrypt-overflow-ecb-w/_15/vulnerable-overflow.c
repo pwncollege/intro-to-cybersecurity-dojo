@@ -148,7 +148,7 @@ int challenge(int argc, char **argv, char **envp)
     {
         char header[8];
         unsigned long long length;
-        char message[];
+        char message[28];
     } plaintext = {0};
 
     // initialize the cipher
