@@ -11,5 +11,5 @@ if 80 not in open_ports:
     sys.exit(1)
 
 print(f"Visiting with a yummy cookie...")
-r = requests.get("http://localhost:80/index.txt", cookies={"flag": open("/flag").read().strip()})
+r = requests.get("http://localhost:80/hacker_manifesto.txt", cookies={"flag": open("/flag").read().strip()})
 print(f"... retrieved, in case it helps you debug: {r.content}")

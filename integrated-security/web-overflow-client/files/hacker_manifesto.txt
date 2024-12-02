@@ -11,7 +11,7 @@ For more hacker history, check out:
 - https://hackerhistory.com/
 - http://textfiles.com/
 
-Remember, you are a link in a long chain!
+Remember, you are a node in a long linked list. Pay it forward!
 
 
 
