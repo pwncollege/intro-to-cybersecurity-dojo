@@ -69,7 +69,7 @@ void send_file(int client_fd, char *path)
     response.head += sprintf(response.head, "Content-Length: %d\n", file_stat.st_size);
     response.head += sprintf(response.head, "\n");
     response.head += read(file_fd, response.head, file_stat.st_size);
-    REQUIRE(!strstr(response.content, "pwn.college"), 403);
+    REQUIRE(!strstr(response.content, "pwn.college{"), 403);
     write(client_fd, response.content, response.head-response.content);
     close(file_fd);
 
