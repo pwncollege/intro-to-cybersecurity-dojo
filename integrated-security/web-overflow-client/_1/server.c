@@ -106,11 +106,9 @@ int challenge(int argc, char **argv, char **envp)
     assert(bind(server_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) >= 0);
     assert(listen(server_fd, 10) >= 0);
 
-    if (getuid())
-    {
-        assert(setresgid(65534, 65534, 65534) == 0);
-        assert(setresuid(65534, 65534, 65534) == 0);
-    }
+    assert(setresgid(65534, 65534, 65534) == 0);
+    assert(setresuid(65534, 65534, 65534) == 0);
+    assert(open("/flag", O_RDONLY) < 0);
 
     puts("Listening on port 80.");
 
