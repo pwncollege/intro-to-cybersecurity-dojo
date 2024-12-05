@@ -30,6 +30,7 @@ void __attribute__((constructor)) disable_aslr(int argc, char **argv, char **env
     if ((current_personality & ADDR_NO_RANDOMIZE) == 0)
     {
         assert(personality(current_personality | ADDR_NO_RANDOMIZE) != -1);
+        fprintf(stderr, "NOTE: This program can only be launched ONCE. You will need to\nrestart your container to launch this program again.\n");
         chmod("/proc/self/exe", 0755);
         execve("/proc/self/exe", argv, envp);
     }
