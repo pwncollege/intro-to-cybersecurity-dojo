@@ -111,6 +111,9 @@ int challenge(int argc, char **argv, char **envp)
     assert(setresuid(65534, 65534, 65534) == 0);
     assert(open("/flag", O_RDONLY) < 0);
 
+    // setresuid() disables coredumps (for security reasons). This re-enable them.
+    assert(prctl(PR_SET_DUMPABLE, 1) == 0);
+
     puts("Listening on port 80.");
 
     while (1)
