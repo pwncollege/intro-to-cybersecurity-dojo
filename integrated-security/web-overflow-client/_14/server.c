@@ -30,7 +30,7 @@ void __attribute__((constructor)) disable_aslr(int argc, char **argv, char **env
     if ((current_personality & ADDR_NO_RANDOMIZE) == 0)
     {
         assert(personality(current_personality | ADDR_NO_RANDOMIZE) != -1);
-        assert(prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0) != -1);
+        chmod("/proc/self/exe", 0755);
         execve("/proc/self/exe", argv, envp);
     }
 }
