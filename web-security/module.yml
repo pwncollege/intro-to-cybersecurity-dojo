@@ -1,6 +1,8 @@
 name: Web Security
 challenges:
-- id: level-1
+- id: path-traversal-1
+  transfer:
+    challenge: level-1
   name: Path Traversal 1
 - id: path-traversal-2
   name: Path Traversal 2
@@ -10,13 +12,17 @@ challenges:
   name: CMDi 2
 - id: cmdi-ls-quote
   name: CMDi 3
-- id: level-2
+- id: cmdi-env
+  transfer:
+    challenge: level-2
   name: CMDi 4
 - id: cmdi-touch-blind
   name: CMDi 5
 - id: cmdi-ls-filter
   name: CMDi 6
-- id: level-3
+- id: auth-bypass-param
+  transfer:
+    challenge: level-3
   name: Authentication Bypass 1
 - id: auth-bypass-cookie
   name: Authentication Bypass 2
