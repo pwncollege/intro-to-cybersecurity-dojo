@@ -2,6 +2,8 @@ name: Web Security
 challenges:
 - id: path-traversal-1
   transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
     challenge: level-1
   name: Path Traversal 1
 - id: path-traversal-2
@@ -14,6 +16,8 @@ challenges:
   name: CMDi 3
 - id: cmdi-env
   transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
     challenge: level-2
   name: CMDi 4
 - id: cmdi-touch-blind
@@ -22,6 +26,8 @@ challenges:
   name: CMDi 6
 - id: auth-bypass-param
   transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
     challenge: level-3
   name: Authentication Bypass 1
 - id: auth-bypass-cookie
