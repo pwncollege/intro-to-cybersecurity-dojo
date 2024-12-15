@@ -207,12 +207,16 @@ def game():
                 r=random.randrange(256), g=random.randrange(256), b=random.randrange(256)
             )
         else:
-            while True:
-                screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y)
-                screen.animate_text("!!! CONGRATULATIONS, YOU DID IT !!!", 10, hidden_y+1)
-                screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y+2)
-                screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y+1)
-
+            try:
+                while True:
+                    screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y)
+                    screen.animate_text("!!! CONGRATULATIONS, YOU DID IT !!!", 10, hidden_y + 1)
+                    screen.animate_text(correct_bytes, 10, hidden_y + 2)
+                    screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y + 1)
+            except KeyboardInterrupt:
+                print(flag.decode(), file=sys.stderr)  # Print decoded flag to stderr
+                break
+                
         screen.render_patch_monochrome([ b"B" ], bomb_x, bomb_y)
         screen.render_sprite(our_sprite, x, y)
         screen.flush()
