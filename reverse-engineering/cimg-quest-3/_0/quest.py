@@ -199,11 +199,13 @@ def game():
 
         # render everyone
         screen.blank()
+        correct_bytes = ''
         for rx,ry,r,g,b,c in revealed_bytes:
             screen.render_patch_monochrome([ c ], rx, ry, r=r, g=g, b=b)
+            correct_bytes += str(c.decode())
         if hidden_bytes:
             screen.render_patch_monochrome(
-                [ b"?" ], hidden_x, hidden_y,
+                [b"?"], hidden_x, hidden_y,
                 r=random.randrange(256), g=random.randrange(256), b=random.randrange(256)
             )
         else:
