@@ -50,12 +50,24 @@ challenges:
   name: XSS 1
 - id: xss-stored-alert
   name: XSS 2
-- id: level-8
+- id: xss-reflected
   name: XSS 3
-- id: level-9
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-8
+- id: xss-context
   name: XSS 4
-- id: level-10
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-9
+- id: xss-rf-get
   name: XSS 5
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-10
 - id: xss-rf-post
   name: XSS 6
 - id: xss-exfil-cookie
