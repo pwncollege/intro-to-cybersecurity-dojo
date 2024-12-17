@@ -18,5 +18,5 @@ In this level, pwnpost has fixed its XSS issues (at least for the `admin` user).
 You'll need to use CSRF to publish the flag post!
 The `/challenge/victim` of this level will log into pwnpost (`http://challenge.localhost/`) and will then visit an evil site that you can set up (`http://hacker.localhost:1337/`).
 `hacker.localhost` points to your local workspace, but you will need to set up a web server to serve an HTTP request on port 1337 yourself.
-Again, this can be done with `nc` or with a python server (check out http.server!).
+Again, this can be done with `nc` or with a python server (for example, by using http.server or simply adapting the challenge server code itself!).
 Because these sites will have different Origins, SOP protections will apply, so be careful about how you forge the request!
