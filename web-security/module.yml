@@ -22,14 +22,30 @@ challenges:
   name: Authentication Bypass 2
 - id: sqli-pin
   name: SQLi 1
-- id: level-4
+- id: sqli-password
   name: SQLi 2
-- id: level-5
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-4
+- id: sqli-union
   name: SQLi 3
-- id: level-6
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-5
+- id: sqli-tablename
   name: SQLi 4
-- id: level-7
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-6
+- id: sqli-blind
   name: SQLi 5
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-7
 - id: xss-stored-html
   name: XSS 1
 - id: xss-stored-alert
