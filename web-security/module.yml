@@ -72,16 +72,32 @@ challenges:
   name: XSS 6
 - id: xss-exfil-cookie
   name: XSS 7
-- id: level-11
+- id: csrf-get
   name: CSRF 1
-- id: level-12
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-11
+- id: csrf-post
   name: CSRF 2
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-12
 - id: csrf-reflected-alert
   name: CSRF 3
-- id: level-13
+- id: csrf-xss-cookie
   name: CSRF 4
-- id: level-14
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-13
+- id: csrf-xss-post
   name: CSRF 5
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: web-security
+    challenge: level-14
 resources:
 - name: "Web Security: Introduction"
   type: lecture
