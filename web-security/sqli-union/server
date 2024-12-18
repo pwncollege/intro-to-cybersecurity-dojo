@@ -1,11 +1,14 @@
 #!/opt/pwn.college/python
 
-import tempfile
-import sqlite3
 import flask
 import os
 
 app = flask.Flask(__name__)
+
+
+import sqlite3
+import tempfile
+
 
 class TemporaryDB:
     def __init__(self):
@@ -19,11 +22,12 @@ class TemporaryDB:
         connection.commit()
         return result
 
+
 db = TemporaryDB()
-# https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [open("/flag").read()])
+db.execute(f"""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [open("/flag").read()])
 # https://www.sqlite.org/lang_insert.html
-db.execute("""INSERT INTO users SELECT "guest" as username, "password" as password""")
+db.execute(f"""INSERT INTO users SELECT "guest" as username, "password" as password""")
+
 
 @app.route("/", methods=["GET"])
 def challenge():
@@ -41,11 +45,12 @@ def challenge():
         <html><body>Welcome to the user query service!
         <form>Query:<input type=text name=query value='{query}'><input type=submit value=Submit></form>
         <hr>
-        <b>Query:</b> <pre>{sql}</pre><br>
+        <b>Query:</b> <pre>{ sql }</pre><br>
         <b>Results:</b><pre>{results}</pre>
         </body></html>
         """
 
+
 app.secret_key = os.urandom(8)
-app.config['SERVER_NAME'] = f"challenge.localhost:80"
+app.config["SERVER_NAME"] = f"challenge.localhost:80"
 app.run("challenge.localhost", 80)

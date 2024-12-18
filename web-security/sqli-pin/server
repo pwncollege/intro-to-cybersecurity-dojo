@@ -1,12 +1,14 @@
 #!/opt/pwn.college/python
 
-import tempfile
-import sqlite3
 import random
 import flask
 import os
 
 app = flask.Flask(__name__)
+
+
+import sqlite3
+import tempfile
 
 
 class TemporaryDB:
@@ -70,7 +72,7 @@ def challenge_get():
         + """
         <hr>
         <form method=post>
-        User:<input type=text name=username>PIN:<input type=text name=pin><input type=submit value=Submit>
+        User:<input type=text name=username>Pin:<input type=text name=pin><input type=submit value=Submit>
         </form>
         </body></html>
     """

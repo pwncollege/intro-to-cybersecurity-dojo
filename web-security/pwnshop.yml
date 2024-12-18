@@ -20,3 +20,5 @@ challenges:
   challenge: SQLInjectionPin
 - id: sqli-password
   challenge: SQLInjectionPassword
+- id: sqli-union
+  challenge: SQLInjectionUnion

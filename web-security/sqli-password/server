@@ -1,11 +1,14 @@
 #!/opt/pwn.college/python
 
-import tempfile
-import sqlite3
+import random
 import flask
 import os
 
 app = flask.Flask(__name__)
+
+
+import tempfile
+import sqlite3
 
 
 class TemporaryDB:
