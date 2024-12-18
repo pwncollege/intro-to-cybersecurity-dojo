@@ -22,3 +22,5 @@ challenges:
   challenge: SQLInjectionPassword
 - id: sqli-union
   challenge: SQLInjectionUnion
+- id: sqli-tablename
+  challenge: SQLInjectionSchema

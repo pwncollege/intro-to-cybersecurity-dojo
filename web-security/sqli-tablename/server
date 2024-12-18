@@ -1,12 +1,15 @@
 #!/opt/pwn.college/python
 
-import tempfile
-import sqlite3
 import random
 import flask
 import os
 
 app = flask.Flask(__name__)
+
+
+import sqlite3
+import tempfile
+
 
 class TemporaryDB:
     def __init__(self):
@@ -20,21 +23,22 @@ class TemporaryDB:
         connection.commit()
         return result
 
+
 db = TemporaryDB()
-# https://www.sqlite.org/lang_createtable.html
-user_table = f"users_{random.randrange(2**32, 2**33)}"
-db.execute(f"""CREATE TABLE {user_table} AS SELECT "admin" AS username, ? as password""", [open("/flag").read()])
+random_user_table = f"users_{random.randrange(2**32, 2**33)}"
+db.execute(f"""CREATE TABLE {random_user_table} AS SELECT "admin" AS username, ? as password""", [open("/flag").read()])
 # https://www.sqlite.org/lang_insert.html
-db.execute(f"""INSERT INTO {user_table} SELECT "guest" as username, "password" as password""")
+db.execute(f"""INSERT INTO {random_user_table} SELECT "guest" as username, "password" as password""")
+
 
 @app.route("/", methods=["GET"])
 def challenge():
     query = flask.request.args.get("query", "%")
 
     try:
-        # https://www.sqlite.org/schematab.htmlF
+        # https://www.sqlite.org/schematab.html
         # https://www.sqlite.org/lang_select.html
-        sql = f'SELECT username FROM {user_table} WHERE username LIKE "{query}"'
+        sql = f'SELECT username FROM {random_user_table} WHERE username LIKE "{query}"'
         print(f"DEBUG: {query=}")
         results = "\n".join(user["username"] for user in db.execute(sql).fetchall())
     except sqlite3.Error as e:
@@ -44,11 +48,12 @@ def challenge():
         <html><body>Welcome to the user query service!
         <form>Query:<input type=text name=query value='{query}'><input type=submit value=Submit></form>
         <hr>
-        <b>Query:</b> <pre>{sql.replace(user_table, "REDACTED")}</pre><br>
+        <b>Query:</b> <pre>{ sql.replace(random_user_table, "REDACTED") }</pre><br>
         <b>Results:</b><pre>{results}</pre>
         </body></html>
         """
 
+
 app.secret_key = os.urandom(8)
-app.config['SERVER_NAME'] = f"challenge.localhost:80"
+app.config["SERVER_NAME"] = f"challenge.localhost:80"
 app.run("challenge.localhost", 80)
