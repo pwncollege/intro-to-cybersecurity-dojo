@@ -2,25 +2,21 @@ walkthrough: true
 binary_name_prefix: web-security
 build_image: pwncollege/challenge-legacy:latest
 verify_image: pwncollege/challenge-legacy:latest
+binary_name: server
 challenges:
 - id: path-traversal-1
   challenge: PathTraversal
-  binary_name: server
 - id: path-traversal-2
   challenge: PathTraversalStripped
-  binary_name: server
 - id: cmdi-ls-semicolon
   challenge: CommandInjectionLS
-  binary_name: server
 - id: cmdi-ls-pipe
   challenge: CommandInjectionLSPipe
-  binary_name: server
 - id: cmdi-ls-quote
   challenge: CommandInjectionLSQuote
-  binary_name: server
 - id: cmdi-ls-filter
   challenge: CommandInjectionLSFilter
-  binary_name: server
 - id: sqli-pin
   challenge: SQLInjectionPin
-  binary_name: server
+- id: sqli-password
+  challenge: SQLInjectionPassword

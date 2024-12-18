@@ -7,6 +7,7 @@ import os
 
 app = flask.Flask(__name__)
 
+
 class TemporaryDB:
     def __init__(self):
         self.db_file = tempfile.NamedTemporaryFile("x", suffix=".db")
@@ -19,11 +20,13 @@ class TemporaryDB:
         connection.commit()
         return result
 
+
 db = TemporaryDB()
 # https://www.sqlite.org/lang_createtable.html
 db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [os.urandom(8)])
 # https://www.sqlite.org/lang_insert.html
-db.execute("""INSERT INTO users SELECT "guest" as username, "password" as password""")
+db.execute("""INSERT INTO users SELECT "guest" as username, 'password' as password""")
+
 
 @app.route("/", methods=["POST"])
 def challenge_post():
@@ -36,7 +39,7 @@ def challenge_post():
 
     try:
         # https://www.sqlite.org/lang_select.html
-        query = f"SELECT rowid, * FROM users WHERE username = '{username}' AND password = '{password}'"
+        query = f"SELECT rowid, * FROM users WHERE username = '{username}' AND password = '{ password }'"
         print(f"DEBUG: {query=}")
         user = db.execute(query).fetchone()
     except sqlite3.Error as e:
@@ -48,6 +51,7 @@ def challenge_post():
     flask.session["user"] = username
     return flask.redirect(flask.request.path)
 
+
 @app.route("/", methods=["GET"])
 def challenge_get():
     if not (username := flask.session.get("user", None)):
@@ -57,14 +61,18 @@ def challenge_get():
         if username == "admin":
             page += "<br>Here is your flag: " + open("/flag").read()
 
-    return page + """
+    return (
+        page
+        + """
         <hr>
         <form method=post>
-        User:<input type=text name=username>Pass:<input type=text name=password><input type=submit value=Submit>
+        User:<input type=text name=username>Password:<input type=text name=password><input type=submit value=Submit>
         </form>
         </body></html>
     """
+    )
+
 
 app.secret_key = os.urandom(8)
-app.config['SERVER_NAME'] = f"challenge.localhost:80"
+app.config["SERVER_NAME"] = f"challenge.localhost:80"
 app.run("challenge.localhost", 80)
