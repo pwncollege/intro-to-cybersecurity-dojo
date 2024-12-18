@@ -21,3 +21,6 @@ challenges:
 - id: cmdi-ls-filter
   challenge: CommandInjectionLSFilter
   binary_name: server
+- id: sqli-pin
+  challenge: SQLInjectionPin
+  binary_name: server
