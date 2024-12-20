@@ -24,6 +24,7 @@ class TemporaryDB:
 
 
 db = TemporaryDB()
+
 db.execute(f"""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [open("/flag").read()])
 # https://www.sqlite.org/lang_insert.html
 db.execute(f"""INSERT INTO users SELECT "guest" as username, "password" as password""")
@@ -34,6 +35,7 @@ def challenge():
     query = flask.request.args.get("query", "%")
 
     try:
+
         # https://www.sqlite.org/lang_select.html
         sql = f'SELECT username FROM users WHERE username LIKE "{query}"'
         print(f"DEBUG: {query=}")

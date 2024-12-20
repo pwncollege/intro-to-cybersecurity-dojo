@@ -24,3 +24,5 @@ challenges:
   challenge: SQLInjectionUnion
 - id: sqli-tablename
   challenge: SQLInjectionSchema
+- id: sqli-blind
+  challenge: SQLInjectionBlind

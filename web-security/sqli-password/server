@@ -1,14 +1,13 @@
 #!/opt/pwn.college/python
 
-import random
 import flask
 import os
 
 app = flask.Flask(__name__)
 
 
-import tempfile
 import sqlite3
+import tempfile
 
 
 class TemporaryDB:
@@ -25,6 +24,7 @@ class TemporaryDB:
 
 
 db = TemporaryDB()
+
 # https://www.sqlite.org/lang_createtable.html
 db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [os.urandom(8)])
 # https://www.sqlite.org/lang_insert.html

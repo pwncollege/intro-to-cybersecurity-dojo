@@ -25,6 +25,7 @@ class TemporaryDB:
 
 
 db = TemporaryDB()
+
 random_user_table = f"users_{random.randrange(2**32, 2**33)}"
 db.execute(f"""CREATE TABLE {random_user_table} AS SELECT "admin" AS username, ? as password""", [open("/flag").read()])
 # https://www.sqlite.org/lang_insert.html
