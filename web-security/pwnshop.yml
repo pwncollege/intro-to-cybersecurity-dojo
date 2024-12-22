@@ -26,3 +26,5 @@ challenges:
   challenge: SQLInjectionSchema
 - id: sqli-blind
   challenge: SQLInjectionBlind
+- id: xss-stored-html
+  challenge: XSSStoredHTML

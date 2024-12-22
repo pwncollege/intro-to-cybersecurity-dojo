@@ -1,11 +1,14 @@
 #!/opt/pwn.college/python
 
-import tempfile
-import sqlite3
 import flask
 import os
 
 app = flask.Flask(__name__)
+
+
+import sqlite3
+import tempfile
+
 
 class TemporaryDB:
     def __init__(self):
@@ -19,15 +22,19 @@ class TemporaryDB:
         connection.commit()
         return result
 
+
 db = TemporaryDB()
+
 # https://www.sqlite.org/lang_createtable.html
 db.execute("""CREATE TABLE posts AS SELECT "First Post!" AS content""")
+
 
 @app.route("/", methods=["POST"])
 def challenge_post():
     content = flask.request.form.get("content", "")
     db.execute("INSERT INTO posts VALUES (?)", [content])
     return flask.redirect(flask.request.path)
+
 
 @app.route("/", methods=["GET"])
 def challenge_get():
@@ -39,6 +46,7 @@ def challenge_get():
 
     return page + "</body></html>"
 
+
 app.secret_key = os.urandom(8)
-app.config['SERVER_NAME'] = f"challenge.localhost:80"
+app.config["SERVER_NAME"] = f"challenge.localhost:80"
 app.run("challenge.localhost", 80)
