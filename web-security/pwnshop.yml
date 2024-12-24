@@ -32,3 +32,5 @@ challenges:
   challenge: XSSStoredAlert
 - id: xss-reflected
   challenge: XSSReflected
+- id: xss-context
+  challenge: XSSContext

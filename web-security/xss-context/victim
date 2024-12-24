@@ -25,11 +25,17 @@ service = FirefoxService(log_path="/dev/null")
 browser = webdriver.Firefox(service=service, options=options)
 atexit.register(browser.quit)
 
+open_ports = {s.laddr.port for s in psutil.net_connections(kind="inet") if s.status == "LISTEN"}
+if 80 not in open_ports:
+    print("Service doesn't seem to be running?")
+    sys.exit(1)
+
 if len(sys.argv) == 1:
     print(f"Usage: {sys.argv[0]} URL")
     sys.exit(1)
 
 challenge_url = sys.argv[1]
+
 url_parsed = urllib.parse.urlparse(challenge_url)
 if url_parsed.hostname != "challenge.localhost":
     print("Hostname should be 'challenge.localhost'.")
@@ -47,4 +53,4 @@ except TimeoutException:
     sys.exit(3)
 else:
     print("Alert triggered! Your reward:")
-    print(open("/flag").read())
+    print(open("/flag").read().strip())
