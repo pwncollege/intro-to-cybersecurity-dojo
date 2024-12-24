@@ -30,3 +30,5 @@ challenges:
   challenge: XSSStoredHTML
 - id: xss-stored-alert
   challenge: XSSStoredAlert
+- id: xss-reflected
+  challenge: XSSReflected

@@ -5,6 +5,7 @@ import os
 
 app = flask.Flask(__name__)
 
+
 @app.route("/", methods=["GET"])
 def challenge_get():
     return f"""
@@ -15,6 +16,7 @@ def challenge_get():
         </body></html>
     """
 
+
 app.secret_key = os.urandom(8)
-app.config['SERVER_NAME'] = f"challenge.localhost:80"
+app.config["SERVER_NAME"] = f"challenge.localhost:80"
 app.run("challenge.localhost", 80)
