@@ -28,3 +28,5 @@ challenges:
   challenge: SQLInjectionBlind
 - id: xss-stored-html
   challenge: XSSStoredHTML
+- id: xss-stored-alert
+  challenge: XSSStoredAlert
