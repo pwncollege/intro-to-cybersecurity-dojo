@@ -1,11 +1,16 @@
 #!/opt/pwn.college/python
 
-import tempfile
-import sqlite3
 import flask
 import os
 
 app = flask.Flask(__name__)
+
+
+flag = open("/flag").read().strip() if os.geteuid() == 0 else "pwn.college{fake_flag}"
+
+import sqlite3
+import tempfile
+
 
 class TemporaryDB:
     def __init__(self):
@@ -19,15 +24,16 @@ class TemporaryDB:
         connection.commit()
         return result
 
-flag = open("/flag").read().strip() if os.geteuid() == 0 else "pwn.college{fake_flag}"
 
 db = TemporaryDB()
+
 # https://www.sqlite.org/lang_createtable.html
 db.execute("""CREATE TABLE posts AS SELECT ? AS content, "admin" AS author, FALSE AS published""", [flag])
 db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [flag])
 # https://www.sqlite.org/lang_insert.html
 db.execute("""INSERT INTO users SELECT "guest" as username, "password" as password""")
 db.execute("""INSERT INTO users SELECT "hacker" as username, "1337" as password""")
+
 
 @app.route("/login", methods=["POST"])
 def challenge_login():
@@ -46,6 +52,7 @@ def challenge_login():
     flask.session["username"] = username
     return flask.redirect("/")
 
+
 @app.route("/draft", methods=["POST"])
 def challenge_draft():
     if "username" not in flask.session:
@@ -55,9 +62,10 @@ def challenge_draft():
     # https://www.sqlite.org/lang_insert.html
     db.execute(
         "INSERT INTO posts (content, author, published) VALUES (?, ?, ?)",
-        (content, flask.session.get("username"), bool(flask.request.form.get("publish")))
+        (content, flask.session.get("username"), bool(flask.request.form.get("publish"))),
     )
     return flask.redirect("/")
+
 
 @app.route("/publish", methods=["GET"])
 def challenge_publish():
@@ -67,6 +75,7 @@ def challenge_publish():
     # https://www.sqlite.org/lang_update.html
     db.execute("UPDATE posts SET published = TRUE WHERE author = ?", [flask.session.get("username")])
     return flask.redirect("/")
+
 
 @app.route("/", methods=["GET"])
 def challenge_get():
@@ -78,7 +87,9 @@ def challenge_get():
               Post:<textarea name=content>Write something!</textarea>
               <input type=checkbox name=publish>Publish
               <input type=submit value=Save>
-            </form><br><a href=publish>Publish your drafts!</a><hr>
+            </form><br>
+            <a href=publish>Publish your drafts!</a>
+            <hr>
         """
 
         for post in db.execute("SELECT * FROM posts").fetchall():
@@ -98,6 +109,7 @@ def challenge_get():
 
     return page + "</body></html>"
 
+
 app.secret_key = os.urandom(8)
-app.config['SERVER_NAME'] = f"challenge.localhost:80"
+app.config["SERVER_NAME"] = f"challenge.localhost:80"
 app.run("challenge.localhost", 80)

@@ -34,3 +34,7 @@ challenges:
   challenge: XSSReflected
 - id: xss-context
   challenge: XSSContext
+- id: xss-rf-get
+  challenge: XSSPublishGet
+- id: xss-rf-post
+  challenge: XSSPublishPost
