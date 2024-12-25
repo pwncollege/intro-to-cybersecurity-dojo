@@ -55,25 +55,27 @@ def challenge_login():
 
 @app.route("/draft", methods=["POST"])
 def challenge_draft():
-    if "username" not in flask.session:
+    username = flask.session.get("username", None)
+    if not username:
         flask.abort(403, "Log in first!")
 
     content = flask.request.form.get("content", "")
     # https://www.sqlite.org/lang_insert.html
     db.execute(
         "INSERT INTO posts (content, author, published) VALUES (?, ?, ?)",
-        (content, flask.session.get("username"), bool(flask.request.form.get("publish"))),
+        (content, username, bool(flask.request.form.get("publish"))),
     )
     return flask.redirect("/")
 
 
 @app.route("/publish", methods=["POST"])
 def challenge_publish():
-    if "username" not in flask.session:
+    username = flask.session.get("username", None)
+    if not username:
         flask.abort(403, "Log in first!")
 
     # https://www.sqlite.org/lang_update.html
-    db.execute("UPDATE posts SET published = TRUE WHERE author = ?", [flask.session.get("username")])
+    db.execute("UPDATE posts SET published = TRUE WHERE author = ?", [username])
     return flask.redirect("/")
 
 
