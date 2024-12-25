@@ -38,3 +38,5 @@ challenges:
   challenge: XSSPublishGet
 - id: xss-rf-post
   challenge: XSSPublishPost
+- id: xss-exfil-cookie
+  challenge: XSSExfilCookie
