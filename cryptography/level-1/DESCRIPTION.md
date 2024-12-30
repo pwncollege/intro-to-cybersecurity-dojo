@@ -8,7 +8,7 @@ These can actually vary, but the standard base64 encoding uses an "alphabet" of 
 This results in 64 total output symbols, and each symbol can encode `2**6` (2 to the power of 6) possible input symbols, or 6 bits of data.
 That means that two encode a single byte (8 bits) of input, you need more than one base64 output character.
 In fact, you need _two_: one that encodes the first 6 bits and one that encodes the remaining 2 (with 4 bits of that second output character being unused).
-To mark these unused bits, base64 encoded data appends an `=` for every two unused bytes.
+To mark these unused bits, base64 encoded data appends an `=` for every two unused bits.
 For example:
 
 ```console
