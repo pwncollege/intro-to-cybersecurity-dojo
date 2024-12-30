@@ -7,8 +7,8 @@ The name "base64" comes from the fact that there are 64 characters used in the o
 These can actually vary, but the standard base64 encoding uses an "alphabet" of the uppercase letters `A` through `Z`, the lowercase letters `a` through `z`, the digits `0` through `9`, and the `+` and `/` symbols.
 This results in 64 total output symbols, and each symbol can encode `2**6` (2 to the power of 6) possible input symbols, or 6 bits of data.
 That means that two encode a single byte (8 bits) of input, you need more than one base64 output character.
-In fact, you need _two_: one that encodes the first 6 bytes and one that encodes the remaining 2 (with 4 bytes of that second output character being unused).
-To mark these unused bytes, base64 encoded data appends an `=` for every two unused bytes.
+In fact, you need _two_: one that encodes the first 6 bits and one that encodes the remaining 2 (with 4 bits of that second output character being unused).
+To mark these unused bits, base64 encoded data appends an `=` for every two unused bytes.
 For example:
 
 ```console
