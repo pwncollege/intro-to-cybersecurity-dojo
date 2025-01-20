@@ -1,5 +1,7 @@
 name: Cryptography
-description: Solve various cryptography challenges ranging from decoding base64 data to performing a simplified TLS handshake.
+description: |
+  Solve various cryptography challenges, starting from the fundamentals and diving toward advanced concepts!
+  This module assumes that you know how to deal with [data encodings](/fundamentals/data-dealings).
 challenges:
 - id: xor
   name: XOR
@@ -9,8 +11,6 @@ challenges:
   name: ASCII
 - id: strxor
   name: ASCII Strings
-- id: level-1
-  name: Base64
 - id: level-2
   name: One-time Pad
 - id: level-3
