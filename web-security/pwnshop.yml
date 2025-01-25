@@ -9,6 +9,7 @@ challenges:
   variants: 16
 - id: path-traversal-2
   challenge: PathTraversalStripped
+  variants: 16
 - id: cmdi-ls-semicolon
   challenge: CommandInjectionLS
 - id: cmdi-ls-pipe

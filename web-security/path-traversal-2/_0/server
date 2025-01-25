@@ -6,8 +6,8 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/", methods=["GET"])
-@app.route("/<path:path>", methods=["GET"])
+@app.route("/shared", methods=["GET"])
+@app.route("/shared/<path:path>", methods=["GET"])
 def challenge(path="index.html"):
     requested_path = app.root_path + "/files/" + path.strip("/.")
     print(f"DEBUG: {requested_path=}")
