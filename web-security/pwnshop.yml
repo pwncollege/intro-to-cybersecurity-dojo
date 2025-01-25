@@ -6,6 +6,7 @@ binary_name: server
 challenges:
 - id: path-traversal-1
   challenge: PathTraversal
+  variants: 16
 - id: path-traversal-2
   challenge: PathTraversalStripped
 - id: cmdi-ls-semicolon
