@@ -45,6 +45,10 @@ challenges:
       variants: 16
 - id: cmdi-touch-blind
   name: CMDi 5
+  auxiliary:
+    pwnshop:
+      challenge: CommandInjectionTouch
+      variants: 16
 - id: cmdi-ls-filter
   name: CMDi 6
   auxiliary:
