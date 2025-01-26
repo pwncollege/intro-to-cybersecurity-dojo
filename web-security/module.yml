@@ -39,6 +39,10 @@ challenges:
       variants: 16
 - id: cmdi-env
   name: CMDi 4
+  auxiliary:
+    pwnshop:
+      challenge: CommandInjectionEnv
+      variants: 16
 - id: cmdi-touch-blind
   name: CMDi 5
 - id: cmdi-ls-filter
