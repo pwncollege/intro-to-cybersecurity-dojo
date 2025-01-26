@@ -32,12 +32,12 @@ db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as pin""", [ra
 db.execute("""INSERT INTO users SELECT "guest" as username, 1337 as pin""")
 
 
-@app.route("/", methods=["POST"])
+@app.route("/identity", methods=["POST"])
 def challenge_post():
-    username = flask.request.form.get("username")
+    username = flask.request.form.get("account-id")
     pin = flask.request.form.get("pin")
     if not username:
-        flask.abort(400, "Missing `username` form parameter")
+        flask.abort(400, "Missing `account-id` form parameter")
     if not pin:
         flask.abort(400, "Missing `pin` form parameter")
 
@@ -59,7 +59,7 @@ def challenge_post():
     return flask.redirect(flask.request.path)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/identity", methods=["GET"])
 def challenge_get():
     if not (username := flask.session.get("user", None)):
         page = "<html><body>Welcome to the login service! Please log in as admin to get the flag."
@@ -73,7 +73,7 @@ def challenge_get():
         + """
         <hr>
         <form method=post>
-        User:<input type=text name=username>Pin:<input type=text name=pin><input type=submit value=Submit>
+        User:<input type=text name=account-id>Pin:<input type=text name=pin><input type=submit value=Submit>
         </form>
         </body></html>
     """

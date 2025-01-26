@@ -64,6 +64,7 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: SQLInjectionPin
+      variants: 16
 - id: sqli-password
   name: SQLi 2
   auxiliary:
