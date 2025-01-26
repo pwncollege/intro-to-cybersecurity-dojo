@@ -7,7 +7,7 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/quest", methods=["GET"])
+@app.route("/adventure", methods=["GET"])
 def challenge():
     arg = flask.request.args.get("file-dest", "/challenge/PWN")
     command = f"touch {arg}"
@@ -26,9 +26,8 @@ def challenge():
         Welcome to the touch service! Please choose a file to touch:
         <form><input type=text name=file-dest><input type=submit value=Submit></form>
         <hr>
-                <b>Output of {command}:</b><br>
-        <pre>{result}</pre>
-                </body></html>
+        <b>Ran {command}!</b><br>
+        </body></html>
         """
 
 
