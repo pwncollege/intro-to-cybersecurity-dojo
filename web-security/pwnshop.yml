@@ -12,12 +12,16 @@ challenges:
   variants: 16
 - id: cmdi-ls-semicolon
   challenge: CommandInjectionLS
+  variants: 16
 - id: cmdi-ls-pipe
   challenge: CommandInjectionLSPipe
+  variants: 16
 - id: cmdi-ls-quote
   challenge: CommandInjectionLSQuote
+  variants: 16
 - id: cmdi-ls-filter
   challenge: CommandInjectionLSFilter
+  variants: 16
 - id: sqli-pin
   challenge: SQLInjectionPin
 - id: sqli-password

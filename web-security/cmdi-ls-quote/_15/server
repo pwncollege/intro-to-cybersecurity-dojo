@@ -7,12 +7,13 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/level", methods=["GET"])
 def challenge():
-    directory = flask.request.args.get("directory", "/challenge")
-    command = f"ls -l {directory}"
+    directory = flask.request.args.get("top-path", "/challenge")
+    command = f"ls -l '{directory}'"
+
     print(f"DEBUG: {command=}")
-    listing = subprocess.run(
+    result = subprocess.run(
         command,  # the command to run
         shell=True,  # use the shell to run this command
         stdout=subprocess.PIPE,  # capture the standard output
@@ -25,8 +26,8 @@ def challenge():
         Welcome to the dirlister service! Please choose a directory to list the files of:
         <form><input type=text name=directory><input type=submit value=Submit></form>
         <hr>
-        <b>Output of: ls -l {directory}</b><br>
-        <pre>{listing}</pre>
+        <b>Output of {command}:</b><br>
+        <pre>{result}</pre>
         </body></html>
         """
 
