@@ -70,6 +70,7 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: SQLInjectionPassword
+      variants: 16
 - id: sqli-union
   name: SQLi 3
   auxiliary:

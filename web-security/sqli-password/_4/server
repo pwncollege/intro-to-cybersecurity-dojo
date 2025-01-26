@@ -31,14 +31,14 @@ db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as password"""
 db.execute("""INSERT INTO users SELECT "guest" as username, 'password' as password""")
 
 
-@app.route("/", methods=["POST"])
+@app.route("/logon", methods=["POST"])
 def challenge_post():
-    username = flask.request.form.get("username")
-    password = flask.request.form.get("password")
+    username = flask.request.form.get("userid")
+    password = flask.request.form.get("account-password")
     if not username:
-        flask.abort(400, "Missing `username` form parameter")
+        flask.abort(400, "Missing `userid` form parameter")
     if not password:
-        flask.abort(400, "Missing `password` form parameter")
+        flask.abort(400, "Missing `account-password` form parameter")
 
     try:
         # https://www.sqlite.org/lang_select.html
@@ -55,7 +55,7 @@ def challenge_post():
     return flask.redirect(flask.request.path)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/logon", methods=["GET"])
 def challenge_get():
     if not (username := flask.session.get("user", None)):
         page = "<html><body>Welcome to the login service! Please log in as admin to get the flag."
@@ -69,7 +69,7 @@ def challenge_get():
         + """
         <hr>
         <form method=post>
-        User:<input type=text name=username>Password:<input type=text name=password><input type=submit value=Submit>
+        User:<input type=text name=userid>Password:<input type=text name=account-password><input type=submit value=Submit>
         </form>
         </body></html>
     """
