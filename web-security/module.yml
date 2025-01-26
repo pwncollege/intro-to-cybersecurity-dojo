@@ -1,103 +1,130 @@
 name: Web Security
+auxiliary:
+  pwnshop:
+    walkthrough: true
+    binary_name_prefix: web-security
+    build_image: pwncollege/challenge-legacy:latest
+    verify_image: pwncollege/challenge-legacy:latest
+    binary_name: server
 challenges:
 - id: path-traversal-1
   name: Path Traversal 1
+  auxiliary:
+    pwnshop:
+      challenge: PathTraversal
+      variants: 16
 - id: path-traversal-2
   name: Path Traversal 2
+  auxiliary:
+    pwnshop:
+      challenge: PathTraversalStripped
+      variants: 16
 - id: cmdi-ls-semicolon
   name: CMDi 1
+  auxiliary:
+    pwnshop:
+      challenge: CommandInjectionLS
+      variants: 16
 - id: cmdi-ls-pipe
   name: CMDi 2
+  auxiliary:
+    pwnshop:
+      challenge: CommandInjectionLSPipe
+      variants: 16
 - id: cmdi-ls-quote
   name: CMDi 3
+  auxiliary:
+    pwnshop:
+      challenge: CommandInjectionLSQuote
+      variants: 16
 - id: cmdi-env
   name: CMDi 4
 - id: cmdi-touch-blind
   name: CMDi 5
 - id: cmdi-ls-filter
   name: CMDi 6
+  auxiliary:
+    pwnshop:
+      challenge: CommandInjectionLSFilter
+      variants: 16
 - id: auth-bypass-param
   name: Authentication Bypass 1
 - id: auth-bypass-cookie
   name: Authentication Bypass 2
 - id: sqli-pin
   name: SQLi 1
+  auxiliary:
+    pwnshop:
+      challenge: SQLInjectionPin
 - id: sqli-password
   name: SQLi 2
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-4
+  auxiliary:
+    pwnshop:
+      challenge: SQLInjectionPassword
 - id: sqli-union
   name: SQLi 3
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-5
+  auxiliary:
+    pwnshop:
+      challenge: SQLInjectionUnion
 - id: sqli-tablename
   name: SQLi 4
   transfer:
     dojo: intro-to-cybersecurity
     module: web-security
     challenge: level-6
+  auxiliary:
+    pwnshop:
+      challenge: SQLInjectionSchema
 - id: sqli-blind
   name: SQLi 5
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-7
+  auxiliary:
+    pwnshop:
+      challenge: SQLInjectionBlind
 - id: xss-stored-html
   name: XSS 1
+  auxiliary:
+    pwnshop:
+      challenge: XSSStoredHTML
 - id: xss-stored-alert
   name: XSS 2
+  auxiliary:
+    pwnshop:
+      challenge: XSSStoredAlert
 - id: xss-reflected
   name: XSS 3
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-8
+  auxiliary:
+    pwnshop:
+      challenge: XSSReflected
 - id: xss-context
   name: XSS 4
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-9
+  auxiliary:
+    pwnshop:
+      challenge: XSSContext
 - id: xss-rf-get
   name: XSS 5
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-10
+  auxiliary:
+    pwnshop:
+      challenge: XSSPublishGet
 - id: xss-rf-post
   name: XSS 6
+  auxiliary:
+    pwnshop:
+      challenge: XSSPublishPost
 - id: xss-exfil-cookie
   name: XSS 7
+  auxiliary:
+    pwnshop:
+      challenge: XSSExfilCookie
 - id: csrf-get
   name: CSRF 1
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-11
 - id: csrf-post
   name: CSRF 2
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-12
 - id: csrf-reflected-alert
   name: CSRF 3
 - id: csrf-xss-cookie
   name: CSRF 4
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-13
 - id: csrf-xss-post
   name: CSRF 5
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-14
 resources:
 - name: "Web Security: Introduction"
   type: lecture
