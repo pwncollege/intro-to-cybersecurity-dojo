@@ -78,10 +78,6 @@ challenges:
       challenge: SQLInjectionUnion
 - id: sqli-tablename
   name: SQLi 4
-  transfer:
-    dojo: intro-to-cybersecurity
-    module: web-security
-    challenge: level-6
   auxiliary:
     pwnshop:
       challenge: SQLInjectionSchema
