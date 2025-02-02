@@ -7,9 +7,9 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/assignment", methods=["GET"])
+@app.route("/puzzle", methods=["GET"])
 def challenge():
-    arg = flask.request.args.get("timezone-value", "MST")
+    arg = flask.request.args.get("tzid", "MST")
     command = f"TZ={arg} date"
 
     print(f"DEBUG: {command=}")
@@ -24,7 +24,7 @@ def challenge():
     return f"""
         <html><body>
         Welcome to the timezone service! Please choose a timezone to get the time there.
-        <form><input type=text name=timezone-value><input type=submit value=Submit></form>
+        <form action="/puzzle"><input type=text name=tzid><input type=submit value=Submit></form>
         <hr>
         <b>Output of {command}:</b><br>
         <pre>{result}</pre>
@@ -35,5 +35,5 @@ def challenge():
 os.setuid(os.geteuid())
 os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 app.secret_key = os.urandom(8)
-app.config["SERVER_NAME"] = f"challenge.localhost:80"
+app.config["SERVER_NAME"] = "challenge.localhost:80"
 app.run("challenge.localhost", 80)

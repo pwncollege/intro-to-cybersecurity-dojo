@@ -7,9 +7,9 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/task", methods=["GET"])
+@app.route("/test", methods=["GET"])
 def challenge():
-    arg = flask.request.args.get("file-ref", "/challenge/PWN")
+    arg = flask.request.args.get("target-file", "/challenge/PWN")
     command = f"touch {arg}"
 
     print(f"DEBUG: {command=}")
@@ -24,7 +24,7 @@ def challenge():
     return f"""
         <html><body>
         Welcome to the touch service! Please choose a file to touch:
-        <form><input type=text name=file-ref><input type=submit value=Submit></form>
+        <form action="/test"><input type=text name=target-file><input type=submit value=Submit></form>
         <hr>
         <b>Ran {command}!</b><br>
         </body></html>
@@ -34,5 +34,5 @@ def challenge():
 os.setuid(os.geteuid())
 os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 app.secret_key = os.urandom(8)
-app.config["SERVER_NAME"] = f"challenge.localhost:80"
+app.config["SERVER_NAME"] = "challenge.localhost:80"
 app.run("challenge.localhost", 80)

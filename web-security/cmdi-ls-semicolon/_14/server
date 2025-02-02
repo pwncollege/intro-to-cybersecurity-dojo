@@ -7,10 +7,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/stage", methods=["GET"])
+@app.route("/resource", methods=["GET"])
 def challenge():
-    directory = flask.request.args.get("directory", "/challenge")
-    command = f"ls -l {directory}"
+    arg = flask.request.args.get("directory", "/challenge")
+    command = f"ls -l {arg}"
 
     print(f"DEBUG: {command=}")
     result = subprocess.run(
@@ -24,7 +24,7 @@ def challenge():
     return f"""
         <html><body>
         Welcome to the dirlister service! Please choose a directory to list the files of:
-        <form><input type=text name=directory><input type=submit value=Submit></form>
+        <form action="/resource"><input type=text name=directory><input type=submit value=Submit></form>
         <hr>
         <b>Output of {command}:</b><br>
         <pre>{result}</pre>
@@ -35,5 +35,5 @@ def challenge():
 os.setuid(os.geteuid())
 os.environ["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 app.secret_key = os.urandom(8)
-app.config["SERVER_NAME"] = f"challenge.localhost:80"
+app.config["SERVER_NAME"] = "challenge.localhost:80"
 app.run("challenge.localhost", 80)
