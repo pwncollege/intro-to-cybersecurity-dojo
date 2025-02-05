@@ -99,3 +99,4 @@ resources:
   content: |
     - [A deep dive into Padding Oracle Attacks](https://www.nccgroup.com/us/research-blog/cryptopals-exploiting-cbc-padding-oracles/)
     - [Byte by byte EBC mode decryption](https://node-security.com/posts/cryptography-byte-by-byte-ecb-decryption/) (albeit in a slightly different context than we explore)
+    - [Some POA practice](https://paddingoracle.github.io/)
