@@ -31,3 +31,11 @@ You will now have a `/challenge/victim` program that simulates a victim user vis
 Set up your attack and invoke `/challenge/victim` with the URL that will trigger the Stored XSS.
 In this level, all you have to do is inject a textbox.
 If our victim script sees three textboxes, we will give you the flag!
+
+----
+**DEBUGGING:**
+How do you debug these sorts of attacks?
+The most common thing to go wrong in this simple scenario is that the resulting post-injection HTML is invalid.
+Here, the View Source functionality of your browser can help.
+You can either try launching your attack against the web browser in the DOJO's GUI Desktop (e.g., set up the XSS, then visit with the DOJO's Firefox rather than with `/challenge/victim`), and View Source, or just use curl and read the result.
+The result, after you inject your payload, should still be valid (but newly-evil) HTML!
