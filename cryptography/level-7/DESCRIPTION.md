@@ -10,7 +10,7 @@ The _why_ of this theorem is some advanced math stuff that, to be honest, few pe
 Computing `(p-1)*(q-1)` is trivial for Alice (armed with knowledge of `p` and `q`) but impossible to anyone else (assuming that `p` and `q` are large), because the human race lacks an efficient algorithm to factor products of large prime numbers!
 
 Recall that `e*d` in the exponent of `m**(e*d) mod n`?
-For any `e`, knowing `(p-q)*(q-1)` allows Alice to compute a `d` such that `e*d == 1`.
+For any `e`, knowing `(p-1)*(q-1)` allows Alice to compute a `d` such that `e*d == 1`.
 While this seems silly, it is the core of RSA.
 Alice chooses a number `e` (typically fairly small to reduce computation costs, but not too small to cause certain security issues) and computes the corresponding multiplicative inverse `d`.
 This leads to encryption of plaintext `m` (`m**e mod n == c`) and decryption! `c**d mod n == (m**e)**d mod n == m**(e*d) mod n == m**1 mod n == m`.
