@@ -23,8 +23,7 @@ modules:
   description: Learn various techniques to intercept and manipulate network communication, from connecting to remote hosts to performing man-in-the-middle attacks.
   challenges:
   - id: level-1
-    name: level1
-    description: Connect to a remote host
+    name: Connect
   - id: level-2
     name: level2
     description: Listen for a connection from a remote host
