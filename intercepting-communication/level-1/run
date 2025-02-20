@@ -1,1 +1,26 @@
-../run
+#!/usr/bin/exec-suid --real -- /usr/bin/python -I
+
+import socket
+from dojjail import Host, Network
+
+flag = open("/flag").read()
+
+class ServerHost(Host):
+    def entrypoint(self):
+        server_socket = socket.socket()
+        server_socket.bind(("0.0.0.0", 31337))
+        server_socket.listen()
+        while True:
+            try:
+                connection, _ = server_socket.accept()
+                connection.sendall(flag.encode())
+                connection.close()
+            except ConnectionError:
+                continue
+
+user_host = Host("ip-10-0-0-1")
+server_host = ServerHost("ip-10-0-0-2")
+network = Network(hosts=[user_host, server_host])
+network.run()
+
+user_host.interact()

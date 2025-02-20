@@ -1,0 +1,2 @@
+chmod 6755 /challenge/run
+rm /challenge/.init
