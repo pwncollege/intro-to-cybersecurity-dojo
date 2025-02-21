@@ -16,32 +16,13 @@ class ClientHost(Host):
                 client_socket.connect(("10.0.0.3", 31337))
                 client_socket.sendall(flag.encode())
                 client_socket.close()
-                subprocess.run(["/bin/ip", "neigh", "flush", "all"],
-                                check=True,
-                                stdin=subprocess.DEVNULL,
-                                stdout=subprocess.DEVNULL,
-                                stderr=subprocess.DEVNULL)
                 time.sleep(1)
             except (ConnectionError, TimeoutError):
                 continue
 
-class ServerHost(Host):
-    def entrypoint(self):
-        server_socket = socket.socket()
-        server_socket.bind(("0.0.0.0", 31337))
-        server_socket.listen()
-        while True:
-            try:
-                connection, _ = server_socket.accept()
-                connection.recv(1024)
-                connection.close()
-            except ConnectionError:
-                continue
-
 user_host = Host("ip-10-0-0-1")
 client_host = ClientHost("ip-10-0-0-2")
-server_host = ServerHost("ip-10-0-0-3")
-network = Network(hosts={user_host: "10.0.0.1", client_host: "10.0.0.2", server_host: "10.0.0.3"}, subnet="10.0.0.0/24")
+network = Network(hosts={user_host: "10.0.0.1", client_host: "10.0.0.2"}, subnet="10.0.0.0/24")
 network.run()
 
 user_host.interact()
