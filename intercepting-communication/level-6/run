@@ -28,7 +28,8 @@ class ServerHost(Host):
         while True:
             try:
                 connection, _ = server_socket.accept()
-                connection.recv(1024)
+                while connection.recv(1):
+                    pass
                 connection.close()
             except ConnectionError:
                 continue
