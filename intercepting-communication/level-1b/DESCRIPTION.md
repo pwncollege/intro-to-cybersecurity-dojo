@@ -1,6 +1,6 @@
-From your host at 10.0.0.1, connect to the remote host at 10.0.0.2 on port 31337, and then shut down the connection.
+From your host at 10.0.0.1, connect to the remote host at 10.0.0.2 on port 31337, and then shutdown the connection.
 
-As before, you'll want to use the `nc` command.
+As before, you'll want to use the netcat command.
 
 Sometimes the other side of a connection wants to wait for you to finish sending all of your data before it finishes sending data back to you.
 Imagine a protocol where the client might need to send lots of data, over a long duration, before the server can respond with some final result.
@@ -11,10 +11,10 @@ One option would be to have the client send a single packet at the end that just
 But network packets can be complicated, with no guarantees from the network that they won't be split apart or merged together.
 Or what if you want to be able to send "END" as part of the data?
 
-Fortunately, TCP provides a solution to this problem, with the TCP "FIN" flag.
-When a client sends a packet with the FIN flag set, it is saying "I'm done sending data, but I'm still listening for data from you."
-
 Netcat is ultimately a simple tool, that translates data from standard input to network packets and vice versa to standard output.
-So how do you send a packet with the FIN flag set?
+So how do you shutdown the network connection in this way?
 You do the equivalent file operation: you close standard input!
 In an interactive terminal session, you can do this by pressing `Ctrl-D`.
+
+Unfortunately, netcat may not actually do this by default.
+Review the man page for `nc` (`man nc`) to see if there is any way to configure netcat to shutdown the network connection after closing standard input (EOF).
