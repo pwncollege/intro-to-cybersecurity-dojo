@@ -35,11 +35,9 @@ modules:
   - id: level-4
     name: Scan 2
   - id: level-5
-    name: level5
-    description: Monitor traffic from a remote host
+    name: Monitor 1
   - id: level-6
-    name: level6
-    description: Monitor slow traffic from a remote host
+    name: Monitor 2
   - id: level-7
     name: level7
     description: Hijack traffic from a remote host by configuring your network interface
