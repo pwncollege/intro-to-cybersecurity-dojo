@@ -20,7 +20,7 @@ class ServerHost(Host):
 
 user_host = Host("ip-10-0-0-1")
 server_host = ServerHost("ip-10-0-0-2")
-network = Network(hosts=[user_host, server_host])
+network = Network(hosts={user_host: "10.0.0.1", server_host: "10.0.0.2"}, subnet="10.0.0.0/24")
 network.run()
 
 user_host.interact()

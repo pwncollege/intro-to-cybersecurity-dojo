@@ -1,1 +1,29 @@
-../run
+#!/usr/bin/exec-suid --real -- /usr/bin/python -I
+
+import random
+import socket
+from dojjail import Host, Network
+
+flag = open("/flag").read()
+
+class ServerHost(Host):
+    def entrypoint(self):
+        server_socket = socket.socket()
+        server_socket.bind(("0.0.0.0", 31337))
+        server_socket.listen()
+        while True:
+            try:
+                connection, _ = server_socket.accept()
+                connection.sendall(flag.encode())
+                connection.close()
+            except ConnectionError:
+                continue
+
+unknown_ip = f"10.0.0.{random.randint(10, 255)}"
+
+user_host = Host("ip-10-0-0-1")
+server_host = ServerHost("ip-10-0-0-?")
+network = Network(hosts={user_host: "10.0.0.1", server_host: unknown_ip}, subnet="10.0.0.0/24")
+network.run()
+
+user_host.interact()

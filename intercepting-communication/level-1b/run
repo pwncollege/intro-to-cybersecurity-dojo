@@ -1,6 +1,5 @@
 #!/usr/bin/exec-suid --real -- /usr/bin/python -I
 
-import random
 import socket
 from dojjail import Host, Network
 
@@ -14,16 +13,18 @@ class ServerHost(Host):
         while True:
             try:
                 connection, _ = server_socket.accept()
-                connection.sendall(flag.encode())
+                while True:
+                    client_message = connection.recv(1024).decode().strip()
+                    if not client_message:
+                        connection.sendall(flag.encode())
+                        break
                 connection.close()
             except ConnectionError:
                 continue
 
-unknown_ip = f"10.0.{random.randint(1, 255)}.{random.randint(10, 255)}"
-
 user_host = Host("ip-10-0-0-1")
-server_host = ServerHost("ip-10-0-?-?")
-network = Network(hosts={user_host: "10.0.0.1", server_host: unknown_ip}, subnet="10.0.0.0/16")
+server_host = ServerHost("ip-10-0-0-2")
+network = Network(hosts={user_host: "10.0.0.1", server_host: "10.0.0.2"}, subnet="10.0.0.0/24")
 network.run()
 
 user_host.interact()
