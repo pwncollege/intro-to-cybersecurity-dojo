@@ -1,7 +1,6 @@
 From your host at 10.0.0.1, connect to the remote host at 10.0.0.2 on port 31337, and send the message: `Hello, World!`.
 
 As before, you'll want to use the netcat command.
-
 You'll notice that netcat will hang (e.g. you will not get a shell prompt back), waiting until the connection is closed.
 You can, as with most hanging processes, kill the process by pressing `Ctrl-C`.
 

@@ -19,7 +19,7 @@ class ServerHost(Host):
             except ConnectionError:
                 continue
 
-unknown_ip = f"10.0.{random.randint(1, 255)}.{random.randint(10, 255)}"
+unknown_ip = f"10.0.{random.randint(1, 255)}.{random.randint(1, 254)}"
 
 user_host = Host("ip-10-0-0-1")
 server_host = ServerHost("ip-10-0-?-?")
