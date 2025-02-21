@@ -14,10 +14,10 @@ class ServerHost(Host):
             try:
                 connection, _ = server_socket.accept()
                 while True:
-                    client_message = connection.recv(1024).decode().strip()
+                    client_message = connection.recv(1024).decode()
                     if not client_message:
                         break
-                    if client_message == "Hello, World!":
+                    if client_message == "Hello, World!\n":
                         connection.sendall(flag.encode())
                         break
                 connection.close()

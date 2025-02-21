@@ -14,8 +14,7 @@ class ServerHost(Host):
             try:
                 connection, _ = server_socket.accept()
                 while True:
-                    client_message = connection.recv(1024).decode().strip()
-                    if not client_message:
+                    if not connection.recv(1):
                         connection.sendall(flag.encode())
                         break
                 connection.close()

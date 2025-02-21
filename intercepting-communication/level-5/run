@@ -14,7 +14,7 @@ class ClientHost(Host):
                 client_socket.connect(("10.0.0.2", 31337))
                 client_socket.sendall(flag.encode())
                 client_socket.close()
-                time.sleep(10)
+                time.sleep(1)
             except (ConnectionError, TimeoutError):
                 continue
 
