@@ -31,7 +31,7 @@ modules:
   - id: level-2
     name: Listen
   - id: level-3
-    name: Scan
+    name: Scan 1
   - id: level-4
     name: Scan 2
   - id: level-5
@@ -39,8 +39,7 @@ modules:
   - id: level-6
     name: Monitor 2
   - id: level-7
-    name: level7
-    description: Hijack traffic from a remote host by configuring your network interface
+    name: Network Configuration
   - id: level-8
     name: level8
     description: Manually send an Ethernet packet
