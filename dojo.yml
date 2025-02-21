@@ -25,8 +25,7 @@ modules:
   - id: level-1
     name: Connect
   - id: level-2
-    name: level2
-    description: Listen for a connection from a remote host
+    name: Listen
   - id: level-3
     name: level3
     description: Find and connect to a remote host
