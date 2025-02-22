@@ -41,14 +41,11 @@ modules:
   - id: level-7
     name: Network Configuration
   - id: level-8
-    name: level8
-    description: Manually send an Ethernet packet
+    name: Ethernet
   - id: level-9
-    name: level9
-    description: Manually send an Internet Protocol packet
+    name: IP
   - id: level-10
-    name: level10
-    description: Manually send a Transmission Control Protocol packet
+    name: TCP
   - id: level-11
     name: level11
     description: Manually perform a Transmission Control Protocol handshake

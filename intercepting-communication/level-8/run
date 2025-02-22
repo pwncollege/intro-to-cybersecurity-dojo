@@ -1,1 +1,24 @@
-../run
+#!/usr/bin/exec-suid --real -- /usr/bin/python -I
+
+from dojjail import Host, Network
+import scapy.all as scapy
+
+flag = open("/flag").read()
+
+class RawPacketHost(Host):
+    def entrypoint(self):
+        scapy.conf.ifaces.reload()
+        scapy.sniff(prn=self.handle_packet, iface="eth0")
+
+    def handle_packet(self, packet):
+        if "Ether" not in packet:
+            return
+        if packet["Ether"].type == 0xFFFF:
+            print(flag, flush=True)
+
+user_host = Host("ip-10-0-0-1")
+raw_packet_host = RawPacketHost("ip-10-0-0-2")
+network = Network(hosts={user_host: "10.0.0.1", raw_packet_host: "10.0.0.2"}, subnet="10.0.0.0/24")
+network.run()
+
+user_host.interact()
