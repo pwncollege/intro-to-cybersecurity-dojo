@@ -18,7 +18,7 @@ class AuthenticatedClientHost(Host):
                 assert client_socket.recv(1024) == b"secret: "
                 secret = bytes(server_host.secret)  # Get the secret out-of-band
                 time.sleep(1)
-                client_socket.sendall(secret.hex())
+                client_socket.sendall(secret.hex().encode())
 
                 assert client_socket.recv(1024) == b"command: "
                 time.sleep(1)
