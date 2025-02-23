@@ -47,11 +47,9 @@ modules:
   - id: level-10
     name: TCP
   - id: level-11
-    name: level11
-    description: Manually perform a Transmission Control Protocol handshake
+    name: TCP Handshake
   - id: level-12
-    name: level12
-    description: Manually send an Address Resolution Protocol packet
+    name: ARP
   - id: level-13
     name: level13
     description: Hijack traffic from a remote host using ARP

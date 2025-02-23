@@ -1,7 +1,7 @@
 #!/usr/bin/exec-suid --real -- /usr/bin/python -I
 
-from dojjail import Host, Network
 import scapy.all as scapy
+from dojjail import Host, Network
 
 flag = open("/flag").read()
 

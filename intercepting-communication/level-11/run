@@ -1,1 +1,41 @@
-../run
+#!/usr/bin/exec-suid --real -- /usr/bin/python -I
+
+import random
+import scapy.all as scapy
+from dojjail import Host, Network
+
+flag = open("/flag").read()
+
+class RawPacketHost(Host):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.seq = None
+
+    def entrypoint(self):
+        scapy.conf.ifaces.reload()
+        scapy.sniff(prn=self.handle_packet, iface="eth0")
+
+    def handle_packet(self, packet):
+        if "TCP" not in packet:
+            return
+        if not (packet["TCP"].sport == 31337 and packet["TCP"].dport == 31337):
+            return
+
+        if packet["TCP"].seq == 31337 and packet["TCP"].flags == "S":
+            self.seq = random.randrange(0, 2**32)
+            response_packet = (scapy.IP(src=packet["IP"].dst, dst=packet["IP"].src) /
+                               scapy.TCP(sport=packet["TCP"].dport, dport=packet["TCP"].sport,
+                                         seq=self.seq, ack=(packet["TCP"].seq + 1) & (2**32 - 1),
+                                         flags="SA"))
+            scapy.send(response_packet, verbose=False)
+
+        if (packet["TCP"].seq == (31337 + 1) and packet["TCP"].ack == self.seq and
+            packet["TCP"].flags == "A"):
+            print(flag, flush=True)
+
+user_host = Host("ip-10-0-0-1")
+raw_packet_host = RawPacketHost("ip-10-0-0-2")
+network = Network(hosts={user_host: "10.0.0.1", raw_packet_host: "10.0.0.2"}, subnet="10.0.0.0/24")
+network.run()
+
+user_host.interact()
