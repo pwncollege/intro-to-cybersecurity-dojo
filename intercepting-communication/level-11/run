@@ -1,10 +1,25 @@
 #!/usr/bin/exec-suid --real -- /usr/bin/python -I
 
+import os
 import random
+import subprocess
 import scapy.all as scapy
 from dojjail import Host, Network
 
 flag = open("/flag").read()
+
+os.open("/run/xtables.lock", os.O_CREAT)
+
+def drop_rst_packets(sport):
+    subprocess.run(["/usr/sbin/iptables",
+                    "-A", "OUTPUT",
+                    "-p", "tcp",
+                    "--tcp-flags", "RST", "RST",
+                    "--sport", str(sport),
+                    "-j", "DROP"],
+                   stdin=subprocess.DEVNULL,
+                   capture_output=True,
+                   check=True)
 
 class RawPacketHost(Host):
     def __init__(self, *args, **kwargs):
@@ -13,6 +28,8 @@ class RawPacketHost(Host):
 
     def entrypoint(self):
         scapy.conf.ifaces.reload()
+        scapy.conf.route.resync()
+        drop_rst_packets(31337)
         scapy.sniff(prn=self.handle_packet, iface="eth0")
 
     def handle_packet(self, packet):
@@ -37,5 +54,7 @@ user_host = Host("ip-10-0-0-1")
 raw_packet_host = RawPacketHost("ip-10-0-0-2")
 network = Network(hosts={user_host: "10.0.0.1", raw_packet_host: "10.0.0.2"}, subnet="10.0.0.0/24")
 network.run()
+
+user_host.exec(lambda: drop_rst_packets(31337))
 
 user_host.interact()
