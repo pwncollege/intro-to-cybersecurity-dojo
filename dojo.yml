@@ -51,11 +51,9 @@ modules:
   - id: level-12
     name: ARP
   - id: level-13
-    name: level13
-    description: Hijack traffic from a remote host using ARP
+    name: Intercept
   - id: level-14
-    name: level14
-    description: Man-in-the-middle traffic between two remote hosts and inject extra traffic
+    name: Man-in-the-Middle
   resources:
   - name: "Intercepting Communication: Introduction"
     type: lecture
