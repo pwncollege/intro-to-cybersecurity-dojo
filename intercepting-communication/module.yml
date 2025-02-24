@@ -21,6 +21,12 @@ challenges:
   name: Sniffing Cookies
 - id: level-7
   name: Network Configuration
+- id: firewall-1
+  name: Firewall 1
+- id: firewall-2
+  name: Firewall 2
+- id: firewall-3
+  name: Firewall 3
 - id: level-8
   name: Ethernet
 - id: level-9
