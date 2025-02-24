@@ -3,7 +3,6 @@
 import requests
 import random
 import psutil
-import socket
 import string
 import flask
 import time
