@@ -31,8 +31,6 @@ challenges:
   name: TCP Handshake
 - id: udp-1
   name: UDP
-  visibility:
-    start: "2029-11-04T13:00:00-07:00"
 - id: level-12
   name: ARP
 - id: level-13
