@@ -7,6 +7,7 @@ import socket
 import string
 import flask
 import time
+import sys
 import os
 
 from dojjail import Host, Network
@@ -15,8 +16,13 @@ flag = open("/flag").read()
 parent_process = psutil.Process(os.getppid())
 admin_pw = "".join(random.sample(string.ascii_letters*10, 8))
 
+def ensure_new_file_fd(path, flags):
+    return os.open(path, os.O_CREAT|os.O_EXCL|os.O_WRONLY)
+
 class ClientHost(Host):
     def entrypoint(self):
+        sys.stderr = open("/tmp/client-stderr", "w", opener=ensure_new_file_fd)
+
         time.sleep(2)
         s = requests.Session()
         assert s.post("http://10.0.0.2/login", data={"username":"admin", "password":admin_pw}).status_code == 200
@@ -29,6 +35,8 @@ class ClientHost(Host):
 
 class ServerHost(Host):
     def entrypoint(self):
+        sys.stderr = open("/tmp/server-stderr", "w", opener=ensure_new_file_fd)
+
         app = flask.Flask("server")
 
         @app.route("/login", methods=["POST"])
