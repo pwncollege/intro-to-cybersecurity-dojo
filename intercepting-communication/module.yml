@@ -27,6 +27,12 @@ challenges:
   name: Firewall 2
 - id: firewall-3
   name: Firewall 3
+- id: dos-1
+  name: Denial of Service 1
+- id: dos-2
+  name: Denial of Service 2
+- id: dos-3
+  name: Denial of Service 3
 - id: level-8
   name: Ethernet
 - id: level-9
