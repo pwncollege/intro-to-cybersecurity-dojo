@@ -36,6 +36,8 @@ class ServerHost(Host):
             password = flask.request.form.get("password")
             if username == "admin" and password == admin_pw:
                 flask.session["user"] = "admin"
+                return "OK"
+            flask.abort(403, "NOPE")
 
         @app.route("/ping", methods=["GET"])
         def ping():
