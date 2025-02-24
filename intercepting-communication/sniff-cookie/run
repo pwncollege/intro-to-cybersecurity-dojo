@@ -23,6 +23,7 @@ class ClientHost(Host):
         while True:
             try:
                 s.get("http://10.0.0.2/ping")
+                time.sleep(1)
             except (OSError, ConnectionError, TimeoutError, RequestException):
                 continue
 
