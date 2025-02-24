@@ -32,6 +32,7 @@ class ClientHost(Host):
                 message, (peer_host, peer_port) = client_socket.recvfrom(1024)
                 if peer_port == 31337 and message.strip() == b"FLAG":
                     _, flag_host, flag_port = message.strip().split(b":")
+                    print("SENDING TO:", flag_host, flag_port)
                     client_socket.sendto(flag.encode(), (flag_host, int(flag_port)))
 
                 time.sleep(1)
