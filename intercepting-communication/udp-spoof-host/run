@@ -31,6 +31,8 @@ class ClientHost(Host):
                 message, (peer_host, peer_port) = client_socket.recvfrom(1024)
                 if peer_port == 31337 and message.strip() == b"FLAG":
                     print(f"YOUR FLAG: {flag}")
+
+                time.sleep(1)
             except ConnectionError:
                 continue
 
