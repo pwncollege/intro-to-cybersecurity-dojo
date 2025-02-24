@@ -46,7 +46,7 @@ class ServerHost(Host):
 
         @app.route("/flag", methods=["GET"])
         def flag():
-            if flask.session["user"] != "admin":
+            if flask.session.get("user", None) != "admin":
                 flask.abort(403, "NOPE")
             return flag
 
