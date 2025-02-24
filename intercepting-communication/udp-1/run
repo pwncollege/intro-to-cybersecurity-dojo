@@ -16,12 +16,8 @@ class ServerHost(Host):
         while True:
             try:
                 client_message, (client_host, client_port) = server_socket.recvfrom(1024)
-                while True:
-                    if not client_message:
-                        break
-                    if client_message == b"Hello, World!\n":
-                        server_socket.sendto(flag.encode(), (client_host, client_port))
-                        break
+                if client_message == b"Hello, World!\n":
+                    server_socket.sendto(flag.encode(), (client_host, client_port))
             except ConnectionError:
                 continue
 
