@@ -37,6 +37,8 @@ challenges:
   name: UDP Spoofing 1
 - id: udp-spoof-host-2
   name: UDP Spoofing 2
+- id: udp-spoof-host-3
+  name: UDP Spoofing 3
 - id: level-12
   name: ARP
 - id: level-13
