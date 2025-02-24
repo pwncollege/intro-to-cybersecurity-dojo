@@ -50,7 +50,7 @@ class AuthenticatedServerHost(Host):
                 time.sleep(1)
                 connection.sendall(b"secret: ")
                 secret = bytes.fromhex(connection.recv(1024).decode())
-                if secret != self.secret:
+                if secret != bytes(self.secret):
                     connection.close()
                     continue
 

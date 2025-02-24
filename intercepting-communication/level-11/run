@@ -1,14 +1,11 @@
 #!/usr/bin/exec-suid --real -- /usr/bin/python -I
 
-import os
 import random
 import subprocess
 import scapy.all as scapy
 from dojjail import Host, Network
 
 flag = open("/flag").read()
-
-os.open("/run/xtables.lock", os.O_CREAT)
 
 def drop_rst_packets(sport):
     subprocess.run(["/usr/sbin/iptables",
