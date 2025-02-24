@@ -33,6 +33,10 @@ challenges:
   name: UDP
 - id: udp-2
   name: UDP 2
+- id: udp-spoof-host
+  name: UDP 2
+  visibility:
+    start: "2029-11-04T13:00:00-07:00"
 - id: level-12
   name: ARP
 - id: level-13
