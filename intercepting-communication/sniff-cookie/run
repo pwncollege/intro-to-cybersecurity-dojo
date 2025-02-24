@@ -52,6 +52,7 @@ class ServerHost(Host):
 
 client_host = ClientHost("ip-10-0-0-1", privileged_uid=parent_process.uids().effective)
 server_host = ServerHost("ip-10-0-0-2")
-network = Network(hosts={ client_host: "10.0.0.1", server_host: "10.0.0.2" }, subnet="10.0.0.0/24") network.run()
+network = Network(hosts={ client_host: "10.0.0.1", server_host: "10.0.0.2" }, subnet="10.0.0.0/24")
+network.run()
 
 client_host.interactive(environ=parent_process.environ())
