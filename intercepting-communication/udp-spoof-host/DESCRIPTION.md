@@ -1,9 +1,12 @@
-Though we didn't explore this for TCP, in addition to selecting the destination port, both TCP and UDP can set their _source_ port.
-We'll practice that here --- you can set the source port with `s.bind` on the socket, exactly how a server does it to set their listening port.
-Read the source code of `/challenge/run` to see what source port you'll need!
+There are two dangers to UDP: first, it is often used in places where people are already cutting corners for performence's sake.
+Second, it forces the programmer to keep track of sessions explicitly.
+This combination can cause security issues.
+
+In this challenge, one side of the connection can confuse a non-trusted connection for a trusted connection, and print the flag.
+Can you trigger this confusion?
 
 ----
 
 **NOTE:**
-You must set the source port _before_ sending data!
-Otherwise, Linux will pick a random source port (the default behavior, when `bind` is not called).
+In this level, the flag will just be printed to the console when you trigger the confusion.
+We'll work on realistically exfiltrating it later.
