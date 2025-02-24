@@ -45,7 +45,7 @@ class ServerHost(Host):
             return "pong"
 
         @app.route("/flag", methods=["GET"])
-        def flag():
+        def get_flag():
             if flask.session.get("user", None) != "admin":
                 flask.abort(403, "NOPE")
             return flag
