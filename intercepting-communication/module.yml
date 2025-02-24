@@ -39,6 +39,10 @@ challenges:
   name: UDP Spoofing 2
 - id: udp-spoof-host-3
   name: UDP Spoofing 3
+- id: udp-spoof-host-4
+  name: UDP Spoofing 4
+  visibility:
+    start: "2029-11-04T13:00:00-07:00"
 - id: level-12
   name: ARP
 - id: level-13
