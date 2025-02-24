@@ -19,8 +19,6 @@ challenges:
   name: Monitor 2
 - id: sniff-cookie
   name: Sniffing Cookies
-  visibility:
-    start: "2029-11-04T13:00:00-07:00"
 - id: level-7
   name: Network Configuration
 - id: level-8
