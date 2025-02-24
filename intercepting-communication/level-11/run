@@ -1,11 +1,15 @@
 #!/usr/bin/exec-suid --real -- /usr/bin/python -I
 
+import os
 import random
 import subprocess
+
+import psutil
 import scapy.all as scapy
 from dojjail import Host, Network
 
 flag = open("/flag").read()
+parent_process = psutil.Process(os.getppid())
 
 def drop_rst_packets(sport):
     subprocess.run(["/usr/sbin/iptables",
@@ -47,11 +51,11 @@ class RawPacketHost(Host):
             packet["TCP"].flags == "A"):
             print(flag, flush=True)
 
-user_host = Host("ip-10-0-0-1")
+user_host = Host("ip-10-0-0-1", privileged_uid=parent_process.uids().effective)
 raw_packet_host = RawPacketHost("ip-10-0-0-2")
 network = Network(hosts={user_host: "10.0.0.1", raw_packet_host: "10.0.0.2"}, subnet="10.0.0.0/24")
 network.run()
 
 user_host.exec(lambda: drop_rst_packets(31337))
 
-user_host.interact()
+user_host.interactive(environ=parent_process.environ())

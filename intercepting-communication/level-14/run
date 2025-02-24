@@ -4,9 +4,12 @@ import multiprocessing
 import os
 import socket
 import time
+
+import psutil
 from dojjail import Host, Network
 
 flag = open("/flag").read()
+parent_process = psutil.Process(os.getppid())
 
 class AuthenticatedClientHost(Host):
     def entrypoint(self):
@@ -70,7 +73,7 @@ class AuthenticatedServerHost(Host):
             except ConnectionError:
                 continue
 
-user_host = Host("ip-10-0-0-1")
+user_host = Host("ip-10-0-0-1", privileged_uid=parent_process.uids().effective)
 client_host = AuthenticatedClientHost("ip-10-0-0-2")
 server_host = AuthenticatedServerHost("ip-10-0-0-3")
 network = Network(hosts={user_host: "10.0.0.1",
@@ -79,4 +82,4 @@ network = Network(hosts={user_host: "10.0.0.1",
                   subnet="10.0.0.0/24")
 network.run()
 
-user_host.interact()
+user_host.interactive(environ=parent_process.environ())
