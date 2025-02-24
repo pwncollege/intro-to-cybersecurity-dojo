@@ -18,7 +18,7 @@ admin_pw = "".join(random.sample(string.ascii_letters*10, 8))
 class ClientHost(Host):
     def entrypoint(self):
         # redirect stderr
-        os.dup2(os.close(os.open("/tmp/client-stderr", os.O_CREAT|os.O_EXCL|os.O_WRONLY)), 2)
+        os.dup2(os.open("/tmp/client-stderr", os.O_CREAT|os.O_EXCL|os.O_WRONLY), 2)
 
         time.sleep(2)
         s = requests.Session()
@@ -33,7 +33,7 @@ class ClientHost(Host):
 class ServerHost(Host):
     def entrypoint(self):
         # redirect stderr
-        os.dup2(os.close(os.open("/tmp/server-stderr", os.O_CREAT|os.O_EXCL|os.O_WRONLY)), 2)
+        os.dup2(os.open("/tmp/server-stderr", os.O_CREAT|os.O_EXCL|os.O_WRONLY), 2)
 
         app = flask.Flask("server")
 
