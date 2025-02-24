@@ -35,7 +35,8 @@ class ClientHost(Host):
 
 class ServerHost(Host):
     def entrypoint(self):
-        sys.stderr = open("/tmp/server-stderr", "w", opener=ensure_new_file_fd)
+        sys.stderr = open("/tmp/server-output", "w", opener=ensure_new_file_fd)
+        sys.stdout = sys.stderr
 
         app = flask.Flask("server")
 
