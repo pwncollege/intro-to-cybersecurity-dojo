@@ -85,6 +85,10 @@ resources:
   video: 9p2OU4r4aGs
   playlist: PL-ymxv0nOtqrrjUFj5DL7jby9xA4sPFq-
   slides: 1VoEUlgjCNZuNIdh8KSxF6bTXPr1ylaeokwFDOLk7F94
+- name: "Getting Started Notes"
+  type: markdown
+  content: |
+    To get started with this module, run the challenge located in `/challenge` from within a terminal session.  This will create the network environment for you to work with.  This will also change your terminal prompt to indicate the host machine you are working on.  You can run the command `exit` to return to your original terminal prompt outside of the challenge network.  Trying to connect to the network hosts outside of the challenge environment will not work.
 - name: "Tooling Documentation"
   type: markdown
   content: |
