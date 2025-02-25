@@ -27,10 +27,10 @@ class ServerHost(Host):
 class ClientHost(Host):
     def entrypoint(self):
         while True:
+            time.sleep(1)
             try:
                 with socket.create_connection(("10.0.0.2", 31337), timeout=1) as client_socket:
                     client_socket.sendall(b"Hello, World!\n")
-                time.sleep(1)
             except (TimeoutError, socket.timeout):
                 print(flag, flush=True)
                 break
