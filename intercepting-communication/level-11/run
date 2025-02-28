@@ -43,11 +43,12 @@ class RawPacketHost(Host):
             self.seq = random.randrange(0, 2**32)
             response_packet = (scapy.IP(src=packet["IP"].dst, dst=packet["IP"].src) /
                                scapy.TCP(sport=packet["TCP"].dport, dport=packet["TCP"].sport,
-                                         seq=self.seq, ack=(packet["TCP"].seq + 1) & (2**32 - 1),
+                                         seq=self.seq, ack=(packet["TCP"].seq + 1) % (2**32),
                                          flags="SA"))
             scapy.send(response_packet, verbose=False)
 
-        if (packet["TCP"].seq == (31337 + 1) and packet["TCP"].ack == self.seq and
+        if (packet["TCP"].seq == (31337 + 1) and
+            packet["TCP"].ack == ((self.seq + 1) % (2**32)) and
             packet["TCP"].flags == "A"):
             print(flag, flush=True)
 
