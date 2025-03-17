@@ -1,6 +1,5 @@
 #!/opt/pwn.college/python
 
-from base64 import b64encode
 from Crypto.PublicKey import RSA
 
 flag = open("/flag", "rb").read()
@@ -12,4 +11,4 @@ print(f"(public)  e = {key.e:#x}")
 print(f"(private) d = {key.d:#x}")
 
 ciphertext = pow(int.from_bytes(flag, "little"), key.e, key.n).to_bytes(256, "little")
-print(f"Flag Ciphertext (b64): {b64encode(ciphertext).decode()}")
+print(f"Flag Ciphertext (hex): {ciphertext.hex()}")
