@@ -6,7 +6,7 @@ What we would see after padding is:
 
 | Plaintext Block 1  | Plaintext Block 2 (oops, just padding!)                            |
 |--------------------|--------------------------------------------------------------------|
-| `AAAABBBBCCCCDDDD` | `\x16\x16\x16\x16\x16\x16\x16\x16\x16\x16\x16\x16\x16\x16\x16\x16` |
+| `AAAABBBBCCCCDDDD` | `\x10\x10\x10\x10\x10\x10\x10\x10\x10\x10\x10\x10\x10\x10\x10\x10` |
 
 When encrypted, we'd end up with three blocks:
 
