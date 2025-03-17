@@ -39,8 +39,12 @@ challenges:
   name: AES-CBC Tampering
 - id: aes-cbc-corrupt-resize
   name: AES-CBC Resizing
+- id: aes-cbc-poa-singleblock
+  name: "AES-CBC-POA-Block"
+- id: aes-cbc-poa-fullblock
+  name: "AES-CBC-POA-Full-Block"
 - id: aes-cbc-poa
-  name: "AES-CBC-POA"
+  name: "AES-CBC-POA-Multi-Block"
 - id: aes-cbc-poa-enc
   name: "AES-CBC-POA-Encrypt"
 - id: level-6
