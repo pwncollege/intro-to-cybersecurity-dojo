@@ -25,7 +25,5 @@ while line := sys.stdin.readline():
     if plaintext == "sleep":
         print("Sleeping!")
         time.sleep(1)
-    elif plaintext == "flag":
-        print("Not so easy...")
     else:
         print("Unknown command!")
