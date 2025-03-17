@@ -27,5 +27,6 @@ Moreover, even if the error itself is hidden from the user/attacker, it's often 
 **RESOURCES:**
 You might find some animated/interactive POA demonstrations useful:
 
-- [An Animated Primer](https://dylanpindur.com/blog/padding-oracles-an-animated-primer/)
+- [An Animated Primer from CryptoPals](https://www.nccgroup.com/us/research-blog/cryptopals-exploiting-cbc-padding-oracles/)
+- [Another Animated Primer](https://dylanpindur.com/blog/padding-oracles-an-animated-primer/)
 - [An Interactive POA Explorer](https://paddingoracle.github.io/)
