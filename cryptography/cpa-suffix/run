@@ -1,6 +1,5 @@
 #!/opt/pwn.college/python
 
-from base64 import b64encode, b64decode
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from Crypto.Random import get_random_bytes
@@ -23,4 +22,4 @@ while True:
         break
 
     ct = cipher.encrypt(pad(pt, cipher.block_size))
-    print(f"Result: {b64encode(ct).decode()}")
+    print(f"Result: {ct.hex()}")
