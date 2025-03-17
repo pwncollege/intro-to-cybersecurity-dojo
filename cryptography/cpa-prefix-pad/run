@@ -1,6 +1,5 @@
 #!/opt/pwn.college/python
 
-from base64 import b64encode, b64decode
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from Crypto.Random import get_random_bytes
@@ -24,4 +23,4 @@ for n in range(31337):
 
     padded_pt = pad(pt, cipher.block_size)
     ct = cipher.encrypt(padded_pt)
-    print(f"Result: {b64encode(ct).decode()}")
+    print(f"Result: {ct.hex()}")
