@@ -19,8 +19,10 @@ challenges:
   name: AES
 - id: cpa
   name: AES-ECB-CPA
-- id: cpa-http
+- id: cpa-http-hex
   name: AES-ECB-CPA-HTTP
+- id: cpa-http
+  name: AES-ECB-CPA-HTTP (base64)
 - id: cpa-suffix
   name: AES-ECB-CPA-Suffix
 - id: cpa-prefix
