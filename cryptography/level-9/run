@@ -2,15 +2,13 @@
 
 import hashlib
 
-from base64 import b64decode
-
 
 flag = open("/flag").read()
 prefix_length = 6
 flag_hash = hashlib.sha256(flag.encode("latin")).hexdigest()
 print(f"{flag_hash[:prefix_length]=}")
 
-collision = b64decode(input("Colliding input? "))
+collision = bytes.fromhex(input("Colliding input? ").strip())
 collision_hash = hashlib.sha256(collision).hexdigest()
 print(f"{collision_hash[:prefix_length]=}")
 if collision_hash[:prefix_length] == flag_hash[:prefix_length]:
