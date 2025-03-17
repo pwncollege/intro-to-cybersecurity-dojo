@@ -6,11 +6,11 @@ challenges:
 - id: xor
   name: XOR
 - id: hex
-  name: Hex
+  name: XORing Hex
 - id: ascii
-  name: ASCII
+  name: XORing ASCII
 - id: strxor
-  name: ASCII Strings
+  name: XORing ASCII Strings
 - id: level-2
   name: One-time Pad
 - id: level-3
