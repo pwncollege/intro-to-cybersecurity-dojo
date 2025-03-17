@@ -1,7 +1,6 @@
 #!/opt/pwn.college/python
 
 import sys
-from base64 import b64encode
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from Crypto.Random.random import getrandbits
@@ -47,4 +46,4 @@ key = s.to_bytes(256, "little")[:16]
 cipher = AES.new(key=key, mode=AES.MODE_CBC)
 flag = open("/flag", "rb").read()
 ciphertext = cipher.iv + cipher.encrypt(pad(flag, cipher.block_size))
-print(f"Flag Ciphertext (b64): {b64encode(ciphertext).decode()}")
+print(f"Flag Ciphertext (hex): {ciphertext.hex()}")
