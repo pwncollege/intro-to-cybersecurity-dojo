@@ -1,6 +1,5 @@
 #!/opt/pwn.college/python
 
-from base64 import b64encode
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 
@@ -15,4 +14,4 @@ else:
     plaintext = b"sleep"
 
 ciphertext = cipher.iv + cipher.encrypt(pad(plaintext, cipher.block_size))
-print(f"TASK: {b64encode(ciphertext).decode()}")
+print(f"TASK: {ciphertext.hex()}")

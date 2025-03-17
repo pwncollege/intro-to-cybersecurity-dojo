@@ -9,4 +9,4 @@ key = get_random_bytes(len(flag))
 ciphertext = strxor(flag, key)
 
 print(f"One-Time Pad Key (hex): {key.hex()}")
-print(f"Flag Ciphertext (b64): {ciphertext.hex()}")
+print(f"Flag Ciphertext (hex): {ciphertext.hex()}")
