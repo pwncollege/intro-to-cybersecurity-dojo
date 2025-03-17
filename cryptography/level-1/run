@@ -1,7 +1,0 @@
-#!/opt/pwn.college/python
-
-from base64 import b64encode
-
-flag = open("/flag", "rb").read()
-
-print(f"Base64-Encoded Flag: {b64encode(flag).decode()}")
