@@ -1,6 +1,5 @@
 #!/opt/pwn.college/python
 
-from base64 import b64encode, b64decode
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from Crypto.Random import get_random_bytes
@@ -50,10 +49,10 @@ def challenge_get():
 
     return f"""
         <html><body>Welcome to pwn.secret!
-        <form>Query:<input type=text name=query value='{query}'><input type=submit value=Submit></form>
+        <form>SELECT <input type=text name=query value='{query}'> FROM secrets<br><input type=submit value=Submit></form>
         <hr>
         <b>Query:</b> <pre>{sql}</pre><br>
-        <b>Results:</b><pre>{b64encode(ct).decode()}</pre>
+        <b>Results:</b><pre>{ct.hex()}</pre>
         </body></html>
     """
 
