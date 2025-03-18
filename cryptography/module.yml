@@ -47,6 +47,8 @@ challenges:
   name: "AES-CBC-POA-Multi-Block"
 - id: aes-cbc-poa-enc
   name: "AES-CBC-POA-Encrypt"
+#- id: aes-cbc-poa-enc-nodispatch
+#  name: "AES-CBC-POA-Encrypt-2"
 - id: level-6
   name: DHKE
 - id: dhke-aes
