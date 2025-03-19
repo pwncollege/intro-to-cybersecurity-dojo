@@ -8,7 +8,7 @@ import time
 import sys
 
 key = open("/challenge/.key", "rb").read()
-pw = open("/challenge/.pw").read()
+pw = open("/challenge/.pw").read().strip()
 
 print(f"The password is {len(pw)} bytes long!")
 
