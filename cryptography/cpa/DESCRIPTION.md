@@ -1,7 +1,7 @@
 Though the core of the AES crypto algorithm is thought to be secure (not _proven_ to be, though: no one has managed to do that! But no one has managed to significantly break the crypto in the 20+ years of its use, either), this core only encrypts 128-bit (16 byte) blocks at a time.
 To actually _use_ AES in practice, one must build a _cryptosystem_ on top of it.
 
-In the previous level, we used the AES-[ECB](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_(ECB)) cryptosystem: an Electronic Codebook Cipher where every block is indendently encrypted by the same key.
+In the previous level, we used the AES-[ECB](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_(ECB)) cryptosystem: an Electronic Codebook Cipher where every block is independently encrypted by the same key.
 This system is quite simple but, as we will discover here, extremely susceptible to a certain class of attack.
 
 Cryptosystems are held to very high standard of [ciphertext indistinguishability](https://en.wikipedia.org/wiki/Ciphertext_indistinguishability).
