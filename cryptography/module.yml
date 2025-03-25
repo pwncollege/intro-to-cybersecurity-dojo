@@ -13,6 +13,8 @@ challenges:
   name: XORing ASCII Strings
 - id: level-2
   name: One-time Pad
+#- id: otp-tamper
+#  name: "One-time Pad Tampering"
 - id: level-3
   name: Many-time Pad
 - id: level-4
