@@ -14,6 +14,7 @@ while line := sys.stdin.readline():
     cipher_len = min(len(data), len(key))
     plaintext = strxor(data[:cipher_len], key[:cipher_len])
 
+    print(f"Hex of plaintext: {plaintext.encode('latin1').hex()}")
     print(f"Received command: {plaintext}")
     if plaintext == b"sleep":
         print("Sleeping!")
