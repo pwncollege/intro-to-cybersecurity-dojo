@@ -98,6 +98,11 @@ resources:
        * In a pinch, `objdump -d -M intel the_binary` will disassemble the binary you want to look at.
          `-M intel`, in that command, makes objdump give you nice and readable Intel assembly syntax.
 challenges:
+- id: cimg-magic-number-python
+  name: "File Formats: Magic Numbers (Python)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGMagicNumberPython
 - id: cimg-magic-number-c
   name: "File Formats: Magic Numbers (C)"
   auxiliary:
@@ -109,6 +114,11 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: CIMGMagicNumber
+- id: cimg-magic-int-python
+  name: "File Formats: Magic Numbers (Python)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGMagicIntPython
 - id: cimg-magic-int-c
   name: "Reading Endianness (C)"
   auxiliary:
