@@ -130,6 +130,11 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: CIMGMagicInt
+- id: cimg-version-python
+  name: "Version Information (Python)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGVersionPython
 - id: cimg-version-c
   name: "Version Information (C)"
   auxiliary:
@@ -141,17 +146,11 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: CIMGVersion
-- id: cimg-version-c
-  name: "Version Information (C)"
-  auxiliary:
-    pwnshop:
-      challenge: CIMGVersion
-      keep_source: True
-- id: cimg-version
-  name: "Version Information (binary)"
-  auxiliary:
-    pwnshop:
-      challenge: CIMGVersion
+# - id: cimg-dimensions-python
+#   name: "Metadata and Data (Python)"
+#   auxiliary:
+#     pwnshop:
+#       challenge: CIMGDimensionsPython
 - id: cimg-dimensions-c
   name: "Metadata and Data (C)"
   auxiliary:
