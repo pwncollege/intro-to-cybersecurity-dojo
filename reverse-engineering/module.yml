@@ -2,7 +2,7 @@ name: Reverse Engineering
 auxiliary:
   pwnshop:
     seed: 1337
-    variants: 1
+    variants: 16
     walkthrough: false
     keep_source: false
     binary_name: cimg
@@ -98,46 +98,95 @@ resources:
        * In a pinch, `objdump -d -M intel the_binary` will disassemble the binary you want to look at.
          `-M intel`, in that command, makes objdump give you nice and readable Intel assembly syntax.
 challenges:
-- id: cimg-magic-number
-  name: "File Formats: Magic Numbers"
+- id: cimg-magic-number-c
+  name: "File Formats: Magic Numbers (C)"
   auxiliary:
     pwnshop:
       challenge: CIMGMagicNumber
-- id: cimg-magic-int
-  name: Reading Endianness
+      keep_source: True
+- id: cimg-magic-number
+  name: "File Formats: Magic Numbers (binary)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGMagicNumber
+- id: cimg-magic-int-c
+  name: "Reading Endianness (C)"
   auxiliary:
     pwnshop:
       challenge: CIMGMagicInt
-- id: cimg-version
-  name: Version Information
+      keep_source: True
+- id: cimg-magic-int
+  name: "Reading Endianness (binary)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGMagicInt
+- id: cimg-version-c
+  name: "Version Information (C)"
   auxiliary:
     pwnshop:
       challenge: CIMGVersion
+      keep_source: True
+- id: cimg-version
+  name: "Version Information (binary)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGVersion
+- id: cimg-version-c
+  name: "Version Information (C)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGVersion
+      keep_source: True
+- id: cimg-version
+  name: "Version Information (binary)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGVersion
+- id: cimg-dimensions-c
+  name: "Metadata and Data (C)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGDimensions
+      keep_source: True
 - id: cimg-dimensions
-  name: Metadata and Data
+  name: "Metadata and Data (binary)"
   auxiliary:
     pwnshop:
       challenge: CIMGDimensions
 - id: cimg-ascii
-  name: Input Restrictions
+  name: "Input Restrictions (binary)"
   auxiliary:
     pwnshop:
       challenge: CIMGAscii
 - id: cimg-display
-  name: Behold the cIMG!
+  name: "Behold the cIMG! (C)"
   auxiliary:
     pwnshop:
       challenge: CIMGDisplay
+      keep_source: True
 - id: cimg-color
-  name: A Basic cIMG
+  name: "A Basic cIMG (C)"
   auxiliary:
     pwnshop:
       challenge: CIMGColor
+      keep_source: True
+- id: "cimg-framebuffer-c"
+  name: "Internal State (C)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGFramebuffer
+      keep_source: True
 - id: cimg-framebuffer
   name: Internal State
   auxiliary:
     pwnshop:
       challenge: CIMGFramebuffer
+- id: cimg-operations-c
+  name: "File Formats: Directives (C)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGDirectives
+      keep_source: True
 - id: cimg-operations
   name: "File Formats: Directives"
   auxiliary:
