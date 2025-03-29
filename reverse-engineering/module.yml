@@ -1,4 +1,13 @@
 name: Reverse Engineering
+auxiliary:
+  pwnshop:
+    seed: 1337
+    variants: 1
+    walkthrough: false
+    keep_source: false
+    binary_name: cimg
+    build_image: pwncollege/challenge-legacy:latest
+    verify_image: pwncollege/challenge-legacy:latest
 visibility:
   start: "2024-11-04T13:00:00-07:00"
 resources:
@@ -91,43 +100,106 @@ resources:
 challenges:
 - id: cimg-magic-number
   name: "File Formats: Magic Numbers"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGMagicNumber
 - id: cimg-magic-int
   name: Reading Endianness
+  auxiliary:
+    pwnshop:
+      challenge: CIMGMagicInt
 - id: cimg-version
   name: Version Information
+  auxiliary:
+    pwnshop:
+      challenge: CIMGVersion
 - id: cimg-dimensions
   name: Metadata and Data
+  auxiliary:
+    pwnshop:
+      challenge: CIMGDimensions
 - id: cimg-ascii
   name: Input Restrictions
+  auxiliary:
+    pwnshop:
+      challenge: CIMGAscii
 - id: cimg-display
   name: Behold the cIMG!
+  auxiliary:
+    pwnshop:
+      challenge: CIMGDisplay
 - id: cimg-color
   name: A Basic cIMG
+  auxiliary:
+    pwnshop:
+      challenge: CIMGColor
 - id: cimg-framebuffer
   name: Internal State
+  auxiliary:
+    pwnshop:
+      challenge: CIMGFramebuffer
 - id: cimg-operations
   name: "File Formats: Directives"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGDirectives
 - id: cimg-patch
   name: The Patch Directive
+  auxiliary:
+    pwnshop:
+      challenge: CIMGPatch
 - id: cimg-patch1337
   name: Optimizing for Space
+  auxiliary:
+    pwnshop:
+      challenge: CIMGPatch1337
 - id: cimg-patch-oneline
   name: Tweaking Images
+  auxiliary:
+    pwnshop:
+      challenge: CIMGPatchNoWin
 - id: cimg-sprite
   name: Storage and Retrieval
+  auxiliary:
+    pwnshop:
+      challenge: CIMGSprite
 - id: cimg-sprite-parse
   name: Extracting Knowledge
+  auxiliary:
+    pwnshop:
+      challenge: CIMGSpriteParse
 - id: cimg-sprite-tiled
   name: Advanced Sprites
+  auxiliary:
+    pwnshop:
+      challenge: CIMGSpriteTiled
 - id: cimg-sprite-load
   name: Accessing Resources
+  auxiliary:
+    pwnshop:
+      challenge: CIMGSpriteLoad
 - id: cimg-animate-unsafe
   name: Unsafe Animations
+  auxiliary:
+    pwnshop:
+      challenge: CIMGAnimateUnsafe
 - id: cimg-animate
   name: Animations
+  auxiliary:
+    pwnshop:
+      challenge: CIMGAnimate
 - id: cimg-quest-1
   name: "Interoperability: Patching Data"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGQuestUnpatchedSwitch
 - id: cimg-quest-2
   name: Patching Code
+  auxiliary:
+    pwnshop:
+      challenge: CIMGQuestUnpatched
 - id: cimg-quest-3
   name: Patching Control Flow
+  auxiliary:
+    pwnshop:
+      challenge: CIMGQuestUnpatchedSwitch
