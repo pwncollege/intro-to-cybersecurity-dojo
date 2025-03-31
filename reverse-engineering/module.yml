@@ -146,11 +146,11 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: CIMGVersion
-# - id: cimg-dimensions-python
-#   name: "Metadata and Data (Python)"
-#   auxiliary:
-#     pwnshop:
-#       challenge: CIMGDimensionsPython
+- id: cimg-dimensions-python
+  name: "Metadata and Data (Python)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGDimensionsPython
 - id: cimg-dimensions-c
   name: "Metadata and Data (C)"
   auxiliary:
