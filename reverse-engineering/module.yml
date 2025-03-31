@@ -183,6 +183,11 @@ challenges:
     pwnshop:
       challenge: CIMGDisplay
       keep_source: True
+- id: cimg-color-python
+  name: "A Basic cIMG (Python)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGColorPython
 - id: cimg-color
   name: "A Basic cIMG (C)"
   auxiliary:
