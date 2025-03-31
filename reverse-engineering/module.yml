@@ -162,11 +162,21 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: CIMGDimensions
+- id: cimg-ascii-python
+  name: "Input Restrictions (Python)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGAsciiPython
 - id: cimg-ascii
   name: "Input Restrictions (binary)"
   auxiliary:
     pwnshop:
       challenge: CIMGAscii
+- id: cimg-display-python
+  name: "Behold the cIMG! (Python)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGDisplayPython
 - id: cimg-display
   name: "Behold the cIMG! (C)"
   auxiliary:
