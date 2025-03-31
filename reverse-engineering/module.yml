@@ -194,6 +194,17 @@ challenges:
     pwnshop:
       challenge: CIMGColor
       keep_source: True
+- id: "cimg-framebuffer-mini-c"
+  name: "Internal State Mini (C)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGFramebufferMini
+      keep_source: True
+- id: cimg-framebuffer-mini
+  name: Internal State Mini
+  auxiliary:
+    pwnshop:
+      challenge: CIMGFramebufferMini
 - id: "cimg-framebuffer-c"
   name: "Internal State (C)"
   auxiliary:
