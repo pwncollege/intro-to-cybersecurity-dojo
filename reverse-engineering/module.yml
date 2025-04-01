@@ -167,6 +167,11 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: CIMGAsciiPython
+- id: cimg-ascii-c
+  name: "Input Restrictions (C)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGAscii
 - id: cimg-ascii
   name: "Input Restrictions (binary)"
   auxiliary:
@@ -177,23 +182,33 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: CIMGDisplayPython
-- id: cimg-display
+- id: cimg-display-c
   name: "Behold the cIMG! (C)"
   auxiliary:
     pwnshop:
       challenge: CIMGDisplay
       keep_source: True
+- id: cimg-display
+  name: "Behold the cIMG! (binary)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGDisplay
 - id: cimg-color-python
   name: "A Basic cIMG (Python)"
   auxiliary:
     pwnshop:
       challenge: CIMGColorPython
-- id: cimg-color
+- id: cimg-color-c
   name: "A Basic cIMG (C)"
   auxiliary:
     pwnshop:
       challenge: CIMGColor
       keep_source: True
+- id: cimg-color
+  name: "A Basic cIMG (binary)"
+  auxiliary:
+    pwnshop:
+      challenge: CIMGColor
 - id: "cimg-framebuffer-mini-c"
   name: "Internal State Mini (C)"
   auxiliary:
