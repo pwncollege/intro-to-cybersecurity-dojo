@@ -115,7 +115,7 @@ challenges:
     pwnshop:
       challenge: CIMGMagicNumber
 - id: cimg-magic-int-python
-  name: "File Formats: Magic Numbers (Python)"
+  name: "Reading Endianness (Python)"
   auxiliary:
     pwnshop:
       challenge: CIMGMagicIntPython
