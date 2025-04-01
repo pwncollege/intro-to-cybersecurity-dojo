@@ -110,7 +110,7 @@ challenges:
       challenge: CIMGMagicNumber
       keep_source: True
 - id: cimg-magic-number
-  name: "File Formats: Magic Numbers (binary)"
+  name: "File Formats: Magic Numbers (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGMagicNumber
@@ -126,7 +126,7 @@ challenges:
       challenge: CIMGMagicInt
       keep_source: True
 - id: cimg-magic-int
-  name: "Reading Endianness (binary)"
+  name: "Reading Endianness (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGMagicInt
@@ -142,7 +142,7 @@ challenges:
       challenge: CIMGVersion
       keep_source: True
 - id: cimg-version
-  name: "Version Information (binary)"
+  name: "Version Information (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGVersion
@@ -158,7 +158,7 @@ challenges:
       challenge: CIMGDimensions
       keep_source: True
 - id: cimg-dimensions
-  name: "Metadata and Data (binary)"
+  name: "Metadata and Data (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGDimensions
@@ -174,7 +174,7 @@ challenges:
       challenge: CIMGAscii
       keep_source: True
 - id: cimg-ascii
-  name: "Input Restrictions (binary)"
+  name: "Input Restrictions (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGAscii
@@ -190,7 +190,7 @@ challenges:
       challenge: CIMGDisplay
       keep_source: True
 - id: cimg-display
-  name: "Behold the cIMG! (binary)"
+  name: "Behold the cIMG! (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGDisplay
@@ -206,7 +206,7 @@ challenges:
       challenge: CIMGColor
       keep_source: True
 - id: cimg-color
-  name: "A Basic cIMG (binary)"
+  name: "A Basic cIMG (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGColor
@@ -217,7 +217,7 @@ challenges:
       challenge: CIMGFramebufferMini
       keep_source: True
 - id: cimg-framebuffer-mini
-  name: Internal State Mini
+  name: "Internal State Mini (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGFramebufferMini
@@ -228,7 +228,7 @@ challenges:
       challenge: CIMGFramebuffer
       keep_source: True
 - id: cimg-framebuffer
-  name: Internal State
+  name: "Internal State (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGFramebuffer
