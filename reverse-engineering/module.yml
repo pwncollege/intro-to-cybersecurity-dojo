@@ -242,63 +242,89 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: CIMGDirectives
+      attributes:
+        partial_source: True
 - id: cimg-patch
   name: The Patch Directive
   auxiliary:
     pwnshop:
       challenge: CIMGPatch
+      attributes:
+        partial_source: True
 - id: cimg-patch1337
   name: Optimizing for Space
   auxiliary:
     pwnshop:
       challenge: CIMGPatch1337
+      attributes:
+        partial_source: True
 - id: cimg-patch-oneline
   name: Tweaking Images
   auxiliary:
     pwnshop:
       challenge: CIMGPatchNoWin
+      attributes:
+        partial_source: True
 - id: cimg-sprite
   name: Storage and Retrieval
   auxiliary:
     pwnshop:
       challenge: CIMGSprite
+      attributes:
+        partial_source: True
 - id: cimg-sprite-parse
   name: Extracting Knowledge
   auxiliary:
     pwnshop:
       challenge: CIMGSpriteParse
+      attributes:
+        partial_source: True
 - id: cimg-sprite-tiled
   name: Advanced Sprites
   auxiliary:
     pwnshop:
       challenge: CIMGSpriteTiled
+      attributes:
+        partial_source: True
 - id: cimg-sprite-load
   name: Accessing Resources
   auxiliary:
     pwnshop:
       challenge: CIMGSpriteLoad
+      attributes:
+        partial_source: True
 - id: cimg-animate-unsafe
   name: Unsafe Animations
   auxiliary:
     pwnshop:
       challenge: CIMGAnimateUnsafe
+      attributes:
+        partial_source: True
 - id: cimg-animate
   name: Animations
   auxiliary:
     pwnshop:
       challenge: CIMGAnimate
+      attributes:
+        partial_source: True
 - id: cimg-quest-1
   name: "Interoperability: Patching Data"
   auxiliary:
     pwnshop:
       challenge: CIMGQuestUnpatchedSwitch
+      attributes:
+        partial_source: True
 - id: cimg-quest-2
   name: Patching Code
   auxiliary:
     pwnshop:
       challenge: CIMGQuestUnpatched
+      attributes:
+        partial_source: True
 - id: cimg-quest-3
   name: Patching Control Flow
   auxiliary:
     pwnshop:
       challenge: CIMGQuestUnpatchedSwitch
+      attributes:
+        partial_source: True
