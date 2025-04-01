@@ -172,6 +172,7 @@ challenges:
   auxiliary:
     pwnshop:
       challenge: CIMGAscii
+      keep_source: True
 - id: cimg-ascii
   name: "Input Restrictions (binary)"
   auxiliary:
