@@ -15,17 +15,17 @@ def main():
     else:
         file = sys.stdin.buffer
 
-    header = file.read1(20)
-    assert len(header) == 20, "ERROR: Failed to read header!"
+    header = file.read1(14)
+    assert len(header) == 14, "ERROR: Failed to read header!"
 
     assert header[:4] == b"cIMG", "ERROR: Invalid magic number!"
 
-    assert int.from_bytes(header[4:12], "little") == 1, "ERROR: Invalid version!"
+    assert int.from_bytes(header[4:8], "little") == 1, "ERROR: Invalid version!"
 
-    width = int.from_bytes(header[12:16], "little")
-    assert width == 75, "ERROR: Incorrect width!"
+    width = int.from_bytes(header[8:10], "little")
+    assert width == 79, "ERROR: Incorrect width!"
 
-    height = int.from_bytes(header[16:20], "little")
+    height = int.from_bytes(header[10:14], "little")
     assert height == 24, "ERROR: Incorrect height!"
 
     data = file.read1(width * height)
@@ -34,7 +34,7 @@ def main():
     pixels = [Pixel(character) for character in data]
 
     invalid_character = next((pixel.ascii for pixel in pixels if not (0x20 <= pixel.ascii <= 0x7E)), None)
-    assert invalid_character is None, f"ERROR: Invalid character {non_ascii:#04x} in data!"
+    assert invalid_character is None, f"ERROR: Invalid character {invalid_character:#04x} in data!"
 
     with open("/flag", "r") as f:
         flag = f.read()
