@@ -65,8 +65,8 @@ struct cimg_header
 {
     char magic_number[4];
     uint32_t version;
-    uint64_t width;
-    uint16_t height;
+    uint16_t width;
+    uint32_t height;
 } __attribute__((packed));
 
 typedef struct
@@ -143,13 +143,13 @@ int main(int argc, char **argv, char **envp)
         exit(-1);
     }
 
-    if (cimg.header.width != 80)
+    if (cimg.header.width != 59)
     {
         puts("ERROR: Incorrect width!");
         exit(-1);
     }
 
-    if (cimg.header.height != 21)
+    if (cimg.header.height != 24)
     {
         puts("ERROR: Incorrect height!");
         exit(-1);
@@ -185,7 +185,7 @@ int main(int argc, char **argv, char **envp)
     {
         if (data[i].ascii != ' ') num_nonspace++;
     }
-    if (num_nonspace != 1680) won = 0;
+    if (num_nonspace != 1416) won = 0;
 
     if (won) win();
 

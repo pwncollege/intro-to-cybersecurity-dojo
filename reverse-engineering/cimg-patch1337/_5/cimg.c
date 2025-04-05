@@ -69,10 +69,10 @@ char desired_output[] = "\x1b[38;2;255;255;255m.\x1b[0m\x1b[38;2;255;255;255m-\x
 struct cimg_header
 {
     char magic_number[4];
-    uint8_t version;
+    uint16_t version;
     uint8_t width;
     uint8_t height;
-    uint8_t remaining_directives;
+    uint32_t remaining_directives;
 } __attribute__((packed));
 
 typedef struct
@@ -198,11 +198,11 @@ int main(int argc, char **argv, char **envp)
 
         switch (directive_code)
         {
-        case 55037:
-            handle_55037(&cimg);
+        case 55369:
+            handle_55369(&cimg);
             break;
-        case 11959:
-            handle_11959(&cimg);
+        case 52965:
+            handle_52965(&cimg);
             break;
         default:
             fprintf(stderr, "ERROR: invalid directive_code %ux\n", directive_code);

@@ -65,8 +65,8 @@ struct cimg_header
 {
     char magic_number[4];
     uint32_t version;
-    uint8_t width;
-    uint16_t height;
+    uint16_t width;
+    uint8_t height;
 } __attribute__((packed));
 
 typedef struct

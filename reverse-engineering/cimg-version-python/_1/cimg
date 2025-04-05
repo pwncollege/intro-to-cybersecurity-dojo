@@ -15,12 +15,12 @@ def main():
     else:
         file = sys.stdin.buffer
 
-    header = file.read1(8)
-    assert len(header) == 8, "ERROR: Failed to read header!"
+    header = file.read1(12)
+    assert len(header) == 12, "ERROR: Failed to read header!"
 
-    assert header[:4] == b"{/mG", "ERROR: Invalid magic number!"
+    assert header[:4] == b"[M6E", "ERROR: Invalid magic number!"
 
-    assert int.from_bytes(header[4:8], "little") == 141, "ERROR: Invalid version!"
+    assert int.from_bytes(header[4:12], "little") == 231, "ERROR: Invalid version!"
 
     with open("/flag", "r") as f:
         flag = f.read()

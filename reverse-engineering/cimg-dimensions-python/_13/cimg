@@ -15,18 +15,18 @@ def main():
     else:
         file = sys.stdin.buffer
 
-    header = file.read1(15)
-    assert len(header) == 15, "ERROR: Failed to read header!"
+    header = file.read1(17)
+    assert len(header) == 17, "ERROR: Failed to read header!"
 
-    assert header[:4] == b"c0~R", "ERROR: Invalid magic number!"
+    assert header[:4] == b"Clmg", "ERROR: Invalid magic number!"
 
-    assert int.from_bytes(header[4:6], "little") == 1, "ERROR: Invalid version!"
+    assert int.from_bytes(header[4:5], "little") == 1, "ERROR: Invalid version!"
 
-    width = int.from_bytes(header[6:7], "little")
-    assert width == 72, "ERROR: Incorrect width!"
+    width = int.from_bytes(header[5:9], "little")
+    assert width == 71, "ERROR: Incorrect width!"
 
-    height = int.from_bytes(header[7:15], "little")
-    assert height == 14, "ERROR: Incorrect height!"
+    height = int.from_bytes(header[9:17], "little")
+    assert height == 21, "ERROR: Incorrect height!"
 
     data = file.read1(width * height)
     assert len(data) == width * height, "ERROR: Failed to read data!"

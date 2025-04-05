@@ -64,7 +64,7 @@ void read_exact(int fd, void *dst, int size, char *msg, int exitcode)
 struct cimg_header
 {
     char magic_number[4];
-    uint64_t version;
+    uint8_t version;
 } __attribute__((packed));
 
 typedef struct
@@ -102,13 +102,13 @@ int main(int argc, char **argv, char **envp)
 
     read_exact(0, &cimg.header, sizeof(cimg.header), "ERROR: Failed to read header!", -1);
 
-    if (cimg.header.magic_number[0] != '[' || cimg.header.magic_number[1] != 'N' || cimg.header.magic_number[2] != 'N' || cimg.header.magic_number[3] != 'R')
+    if (cimg.header.magic_number[0] != 'C' || cimg.header.magic_number[1] != '~' || cimg.header.magic_number[2] != 'N' || cimg.header.magic_number[3] != 'r')
     {
         puts("ERROR: Invalid magic number!");
         exit(-1);
     }
 
-    if (cimg.header.version != 63)
+    if (cimg.header.version != 109)
     {
         puts("ERROR: Unsupported version!");
         exit(-1);

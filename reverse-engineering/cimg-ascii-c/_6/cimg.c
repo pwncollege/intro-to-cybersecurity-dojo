@@ -64,9 +64,9 @@ void read_exact(int fd, void *dst, int size, char *msg, int exitcode)
 struct cimg_header
 {
     char magic_number[4];
-    uint64_t version;
-    uint32_t width;
-    uint64_t height;
+    uint16_t version;
+    uint16_t width;
+    uint16_t height;
 } __attribute__((packed));
 
 typedef struct
@@ -119,13 +119,13 @@ int main(int argc, char **argv, char **envp)
         exit(-1);
     }
 
-    if (cimg.header.width != 50)
+    if (cimg.header.width != 61)
     {
         puts("ERROR: Incorrect width!");
         exit(-1);
     }
 
-    if (cimg.header.height != 12)
+    if (cimg.header.height != 15)
     {
         puts("ERROR: Incorrect height!");
         exit(-1);

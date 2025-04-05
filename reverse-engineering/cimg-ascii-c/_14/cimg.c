@@ -119,13 +119,13 @@ int main(int argc, char **argv, char **envp)
         exit(-1);
     }
 
-    if (cimg.header.width != 54)
+    if (cimg.header.width != 50)
     {
         puts("ERROR: Incorrect width!");
         exit(-1);
     }
 
-    if (cimg.header.height != 22)
+    if (cimg.header.height != 11)
     {
         puts("ERROR: Incorrect height!");
         exit(-1);

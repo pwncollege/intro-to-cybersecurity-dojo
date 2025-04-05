@@ -64,9 +64,9 @@ void read_exact(int fd, void *dst, int size, char *msg, int exitcode)
 struct cimg_header
 {
     char magic_number[4];
-    uint64_t version;
-    uint64_t width;
-    uint64_t height;
+    uint16_t version;
+    uint32_t width;
+    uint8_t height;
 } __attribute__((packed));
 
 typedef struct

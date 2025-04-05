@@ -61,12 +61,12 @@ void read_exact(int fd, void *dst, int size, char *msg, int exitcode)
     }
 }
 
-char desired_output[] = "\x1b[38;2;062;245;111mc\x1b[0m\x1b[38;2;122;167;009mI\x1b[0m\x1b[38;2;044;132;145mM\x1b[0m\x1b[38;2;240;068;200mG\x1b[0m\x00";
+char desired_output[] = "\x1b[38;2;068;085;035mc\x1b[0m\x1b[38;2;039;038;165mI\x1b[0m\x1b[38;2;251;218;243mM\x1b[0m\x1b[38;2;084;073;252mG\x1b[0m\x00";
 
 struct cimg_header
 {
     char magic_number[4];
-    uint8_t version;
+    uint16_t version;
     uint8_t width;
     uint8_t height;
 } __attribute__((packed));

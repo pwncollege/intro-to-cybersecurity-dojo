@@ -18,7 +18,7 @@ def main():
     header = file.read1(4)
     assert len(header) == 4, "ERROR: Failed to read header!"
 
-    assert header[:4] == b"<mA6", "ERROR: Invalid magic number!"
+    assert header[:4] == b"[%Mg", "ERROR: Invalid magic number!"
 
     with open("/flag", "r") as f:
         flag = f.read()

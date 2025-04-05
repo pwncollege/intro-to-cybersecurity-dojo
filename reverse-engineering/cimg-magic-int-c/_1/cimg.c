@@ -101,7 +101,7 @@ int main(int argc, char **argv, char **envp)
 
     read_exact(0, &cimg.header, sizeof(cimg.header), "ERROR: Failed to read header!", -1);
 
-    if (cimg.header.magic_number != 1915055939)
+    if (cimg.header.magic_number != 1161186651)
     {
         puts("ERROR: Invalid magic number!");
         exit(-1);

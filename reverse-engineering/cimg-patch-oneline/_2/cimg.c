@@ -40,10 +40,10 @@ void read_exact(int fd, void *dst, int size, char *msg, int exitcode)
 struct cimg_header
 {
     char magic_number[4];
-    uint8_t version;
+    uint16_t version;
     uint8_t width;
     uint8_t height;
-    uint8_t remaining_directives;
+    uint32_t remaining_directives;
 } __attribute__((packed));
 
 typedef struct
@@ -169,11 +169,11 @@ int main(int argc, char **argv, char **envp)
 
         switch (directive_code)
         {
-        case 16071:
-            handle_16071(&cimg);
+        case 27292:
+            handle_27292(&cimg);
             break;
-        case 23945:
-            handle_23945(&cimg);
+        case 56914:
+            handle_56914(&cimg);
             break;
         default:
             fprintf(stderr, "ERROR: invalid directive_code %ux\n", directive_code);

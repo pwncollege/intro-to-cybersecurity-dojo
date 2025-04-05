@@ -101,7 +101,7 @@ int main(int argc, char **argv, char **envp)
 
     read_exact(0, &cimg.header, sizeof(cimg.header), "ERROR: Failed to read header!", -1);
 
-    if (cimg.header.magic_number[0] != '[' || cimg.header.magic_number[1] != '0' || cimg.header.magic_number[2] != '~' || cimg.header.magic_number[3] != 'R')
+    if (cimg.header.magic_number[0] != 'C' || cimg.header.magic_number[1] != 'M' || cimg.header.magic_number[2] != 'g' || cimg.header.magic_number[3] != 'e')
     {
         puts("ERROR: Invalid magic number!");
         exit(-1);
