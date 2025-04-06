@@ -109,7 +109,7 @@ def challenge_get():
             if post["author"] == username:
                 page += "<b>YOUR POST:</b> " + post["content"] + "<hr>\n"
             elif username == "admin":
-                page += "<b>NON-ADMIN POST HIDDEN FOR SAFETY</b>"
+                page += "<b>ADMIN POST HIDDEN FOR SAFETY</b>"
             elif post["published"]:
                 page += post["content"] + "<hr>\n"
             else:
