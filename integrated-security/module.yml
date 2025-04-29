@@ -27,3 +27,13 @@ challenges:
 - id: web-overflow-client
   name: The Watering Hole
   description: "Concepts used: Web Security + Binary Exploitation"
+- id: secure-chat-1
+  image: pwncollege/challenge-secure-chat-1
+- id: secure-chat-2
+  image: pwncollege/challenge-secure-chat-2
+- id: secure-chat-3
+  image: pwncollege/challenge-secure-chat-3
+- id: secure-chat-4
+  image: pwncollege/challenge-secure-chat-4
+- id: secure-chat-5
+  image: pwncollege/challenge-secure-chat-5
