@@ -12,7 +12,9 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 signature = b64decode(sys.argv[1])
-command = pow(int.from_bytes(signature, "little"), e, n).to_bytes(256, "little").rstrip(b"\x00")
+c = int.from_bytes(signature, "little")
+assert c < n, "Message too big!"
+command = pow(c, e, n).to_bytes(256, "little").rstrip(b"\x00")
 
 print(f"Received signed command: {command}")
 if command == b"flag":
