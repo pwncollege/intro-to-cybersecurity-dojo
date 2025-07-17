@@ -10,9 +10,9 @@ Can you uncover the flag?
 
 ----
 **NOTE:**
-Note, `/challenge/quest` uses `cimg` as a graphics engine, but it's built for a custom version of `cimg` that you do not have.
-You run it with `/challenge/quest NOFLAG | /challenge/cimg` to run it in "compatibility mode": no flag, but compatible with the standard `cimg`.
-If you want the flag, you'll need to modify the `cimg` to work with the `quest`, and run it via `/challenge/quest | /home/hacker/your-patched-cimg`.
+Note, `/challenge/quest.py` uses `cimg` as a graphics engine, but it's built for a custom version of `cimg` that you do not have.
+You run it with `/challenge/quest.py NOFLAG | /challenge/cimg` to run it in "compatibility mode": no flag, but compatible with the standard `cimg`.
+If you want the flag, you'll need to modify the `cimg` to work with the `quest`, and run it via `/challenge/quest.py | /home/hacker/your-patched-cimg`.
 
 ----
 **HINT:**
