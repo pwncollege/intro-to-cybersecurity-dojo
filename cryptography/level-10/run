@@ -9,7 +9,7 @@ prefix_length = 2
 null_byte_prefix = b'\0'
 
 challenge = get_random_bytes(32)
-challenge_base64 = base64.b64encode(challenge)
+challenge_base64 = base64.b64encode(challenge).decode()
 print(f"challenge (b64): {challenge_base64}")
 
 response_base64 = input("response (b64): ").strip()
