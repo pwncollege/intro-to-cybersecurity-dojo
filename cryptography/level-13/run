@@ -1,1 +1,119 @@
-../run
+#!/opt/pwn.college/python
+
+import base64
+import json
+import sys
+
+from Crypto.PublicKey import RSA
+from Crypto.Hash.SHA256 import SHA256Hash
+
+
+def show(name, value):
+    print(f"{name}: {value}")
+
+
+def show_hex(name, value):
+    show(name, hex(value))
+
+
+def show_b64(name, value):
+    show(f"{name} (b64)", base64.b64encode(value).decode())
+
+
+def input_(name):
+    try:
+        return input(f"{name}: ")
+    except (KeyboardInterrupt, EOFError):
+        print()
+        exit(0)
+
+
+def input_b64(name):
+    data = input_(f"{name} (b64)")
+    try:
+        return base64.b64decode(data)
+    except base64.binascii.Error:
+        print(f"Failed to decode base64 input: {data!r}", file=sys.stderr)
+        exit(1)
+
+
+def main():
+    flag = open("/flag", "rb").read()
+    root_key = RSA.generate(2048)
+
+    show_hex("root key d", root_key.d)
+
+    root_certificate = {
+        "name": "root",
+        "key": {
+            "e": root_key.e,
+            "n": root_key.n,
+        },
+        "signer": "root",
+    }
+
+    root_trusted_certificates = {
+        "root": root_certificate,
+    }
+
+    root_certificate_data = json.dumps(root_certificate).encode()
+    root_certificate_hash = SHA256Hash(root_certificate_data).digest()
+    root_certificate_signature = pow(
+        int.from_bytes(root_certificate_hash, "little"),
+        root_key.d,
+        root_key.n
+    ).to_bytes(256, "little")
+
+    show_b64("root certificate", root_certificate_data)
+    show_b64("root certificate signature", root_certificate_signature)
+
+    user_certificate_data = input_b64("user certificate")
+    user_certificate_signature = input_b64("user certificate signature")
+
+    try:
+        user_certificate = json.loads(user_certificate_data)
+    except json.JSONDecodeError:
+        print("Invalid user certificate", file=sys.stderr)
+        exit(1)
+
+    user_name = user_certificate.get("name")
+    if user_name in root_trusted_certificates:
+        print(f"Invalid user certificate name: `{user_name}`", file=sys.stderr)
+        exit(1)
+
+    user_key = user_certificate.get("key", {})
+    if not (isinstance(user_key.get("e"), int) and isinstance(user_key.get("n"), int)):
+        print(f"Invalid user certificate key: `{user_key}`", file=sys.stderr)
+        exit(1)
+
+    if not (user_key["e"] > 2):
+        print("Invalid user certificate key e value (e > 2)", file=sys.stderr)
+        exit(1)
+
+    if not (2**512 < user_key["n"] < 2**1024):
+        print("Invalid user certificate key n value (2**512 < n < 2**1024)", file=sys.stderr)
+        exit(1)
+
+    user_signer = user_certificate.get("signer")
+    if user_signer not in root_trusted_certificates:
+        print(f"Untrusted user certificate signer: `{user_signer}`", file=sys.stderr)
+        exit(1)
+
+    user_signer_key = root_trusted_certificates[user_signer]["key"]
+    user_certificate_hash = SHA256Hash(user_certificate_data).digest()
+    user_certificate_check = pow(
+        int.from_bytes(user_certificate_signature, "little"),
+        user_signer_key["e"],
+        user_signer_key["n"]
+    ).to_bytes(256, "little")[:len(user_certificate_hash)]
+
+    if user_certificate_check != user_certificate_hash:
+        print("Untrusted user certificate: invalid signature", file=sys.stderr)
+        exit(1)
+
+    ciphertext = pow(int.from_bytes(flag, "little"), user_key["e"], user_key["n"]).to_bytes(256, "little")
+    show_b64("secret ciphertext", ciphertext)
+
+
+if __name__ == "__main__":
+    main()
