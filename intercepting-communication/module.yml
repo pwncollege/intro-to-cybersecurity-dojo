@@ -1,5 +1,6 @@
 name: Intercepting Communication
 description: Learn various techniques to intercept and manipulate network communication, from connecting to remote hosts to performing man-in-the-middle attacks.
+privileged: true
 challenges:
 - id: level-1
   name: Connect
