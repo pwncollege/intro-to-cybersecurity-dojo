@@ -29,11 +29,16 @@ challenges:
   description: "Concepts used: Web Security + Binary Exploitation"
 - id: secure-chat-1
   image: pwncollege/challenge-secure-chat-1
+  privileged: true
 - id: secure-chat-2
   image: pwncollege/challenge-secure-chat-2
+  privileged: true
 - id: secure-chat-3
   image: pwncollege/challenge-secure-chat-3
+  privileged: true
 - id: secure-chat-4
   image: pwncollege/challenge-secure-chat-4
+  privileged: true
 - id: secure-chat-5
   image: pwncollege/challenge-secure-chat-5
+  privileged: true
