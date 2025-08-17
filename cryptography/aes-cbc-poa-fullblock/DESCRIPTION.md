@@ -10,7 +10,7 @@ What we would see after padding is:
 
 When encrypted, we'd end up with three blocks:
 
-| Ciphertext Block 1 | Ciphertext Block 1 | Ciphertext Block 2 |
+| Ciphertext Block 1 | Ciphertext Block 2 | Ciphertext Block 3 |
 |--------------------|--------------------|--------------------|
 | IV | Encrypted `AAAABBBBCCCCDDDD` | Encrypted Padding |
 
