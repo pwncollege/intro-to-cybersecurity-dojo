@@ -11,7 +11,7 @@ resources:
   slides: 16lg_XvODz-gebGMTsUDF4u2ueQwwGM6r6-hDfz1lW_E
 
 - type: header
-  name: Symmetric Cryptography
+  content: Symmetric Cryptography
 - name: "Cryptography: Symmetric Encryption"
   type: lecture
   video: CJrCzOR2qhk
@@ -76,7 +76,7 @@ resources:
   name: "AES-CBC-POA-Encrypt-2"
 
 - type: header
-  name: Asymmetric Cryptography
+  content: Asymmetric Cryptography
 - name: "Cryptography: Key Exchange"
   type: lecture
   video: YSipKal5SKM
@@ -103,7 +103,7 @@ resources:
   name: RSA Signatures
 
 - type: header
-  name: Cryptographic Hashes
+  content: Cryptographic Hashes
 - name: "Cryptography: Hashing"
   type: lecture
   video: BY5qBsmWEa8
@@ -115,7 +115,7 @@ resources:
   name: SHA 2
 
 - type: header
-  name: Trust
+  content: Trust
 - name: "Cryptography: Trust"
   type: lecture
   video: -QLq_8ZbUzw
