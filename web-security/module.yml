@@ -71,6 +71,7 @@ resources:
       variants: 16
 - id: cmdi-touch-blind
   name: CMDi 5
+  type: challenge
   auxiliary:
     pwnshop:
       challenge: CommandInjectionTouch
