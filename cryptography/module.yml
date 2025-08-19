@@ -2,7 +2,21 @@ name: Cryptography
 description: |
   Solve various cryptography challenges, starting from the fundamentals and diving toward advanced concepts!
   This module assumes that you know how to deal with [data encodings](/fundamentals/data-dealings).
-challenges:
+
+resources:
+- name: "Cryptography: Introduction"
+  type: lecture
+  video: YBdzIxeseuE
+  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+  slides: 16lg_XvODz-gebGMTsUDF4u2ueQwwGM6r6-hDfz1lW_E
+
+- type: header
+  name: Symmetric Cryptography
+- name: "Cryptography: Symmetric Encryption"
+  type: lecture
+  video: CJrCzOR2qhk
+  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
+  slides: 1RzVGK4JXM4Iia5IA8N_Hu0Rshd1VedOvo-0a54qkceU
 - id: xor
   name: XOR
 - id: hex
@@ -19,6 +33,10 @@ challenges:
   name: Many-time Pad
 - id: level-4
   name: AES
+- name: "Useful Resource"
+  type: markdown
+  content: |
+    - [Byte by byte EBC mode decryption](https://node-security.com/posts/cryptography-byte-by-byte-ecb-decryption/) (albeit in a slightly different context than we explore)
 - id: cpa
   name: AES-ECB-CPA
 - id: cpa-http-hex
@@ -41,6 +59,11 @@ challenges:
   name: AES-CBC Tampering
 - id: aes-cbc-corrupt-resize
   name: AES-CBC Resizing
+- name: "Useful Resources"
+  type: markdown
+  content: |
+    - [A deep dive into Padding Oracle Attacks](https://www.nccgroup.com/us/research-blog/cryptopals-exploiting-cbc-padding-oracles/)
+    - [Some POA practice](https://paddingoracle.github.io/)
 - id: aes-cbc-poa-singleblock
   name: "AES-CBC-POA-Partial-Block"
 - id: aes-cbc-poa-fullblock
@@ -49,41 +72,11 @@ challenges:
   name: "AES-CBC-POA-Multi-Block"
 - id: aes-cbc-poa-enc
   name: "AES-CBC-POA-Encrypt"
-#- id: aes-cbc-poa-enc-nodispatch
-#  name: "AES-CBC-POA-Encrypt-2"
-- id: level-6
-  name: DHKE
-- id: dhke-aes
-  name: "DHKE-to-AES"
-- id: level-7
-  name: RSA 1
-- id: level-8
-  name: RSA 2
-- id: rsa-sig
-  name: RSA Signatures
-- id: level-9
-  name: SHA 1
-- id: level-10
-  name: SHA 2
-- id: level-11
-  name: RSA 3
-- id: level-12
-  name: RSA 4
-- id: level-13
-  name: TLS 1
-- id: level-14
-  name: TLS 2
-resources:
-- name: "Cryptography: Introduction"
-  type: lecture
-  video: YBdzIxeseuE
-  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
-  slides: 16lg_XvODz-gebGMTsUDF4u2ueQwwGM6r6-hDfz1lW_E
-- name: "Cryptography: Symmetric Encryption"
-  type: lecture
-  video: CJrCzOR2qhk
-  playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
-  slides: 1RzVGK4JXM4Iia5IA8N_Hu0Rshd1VedOvo-0a54qkceU
+- id: aes-cbc-poa-enc-nodispatch
+  name: "AES-CBC-POA-Encrypt-2"
+
+- type: header
+  name: Asymmetric Cryptography
 - name: "Cryptography: Key Exchange"
   type: lecture
   video: YSipKal5SKM
@@ -94,19 +87,41 @@ resources:
   video: 661MFqOp0WA
   playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
   slides: 1oOF6fWzLX-g4CpMQ2VpPOD4k3TYtAxVvVuY8BPZF2oI
+- id: level-6
+  name: DHKE
+- id: dhke-aes
+  name: "DHKE-to-AES"
+- id: level-7
+  name: RSA 1
+- id: level-8
+  name: RSA 2
+- id: level-11
+  name: RSA 3
+- id: level-12
+  name: RSA 4
+- id: rsa-sig
+  name: RSA Signatures
+
+- type: header
+  name: Cryptographic Hashes
 - name: "Cryptography: Hashing"
   type: lecture
   video: BY5qBsmWEa8
   playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
   slides: 1_DJHHllHplxalW8DCgR-BPF9D_PJxoozxbLzrVYCe18
+- id: level-9
+  name: SHA 1
+- id: level-10
+  name: SHA 2
+
+- type: header
+  name: Trust
 - name: "Cryptography: Trust"
   type: lecture
   video: -QLq_8ZbUzw
   playlist: PL-ymxv0nOtqpBYQKnbivatYlfQ3Ygf63_
   slides: 1OER4qdFD4JjxaAhMr9axcIUk4-oNskl7LwRC7LXtqnU
-- name: "Useful Resources"
-  type: markdown
-  content: |
-    - [A deep dive into Padding Oracle Attacks](https://www.nccgroup.com/us/research-blog/cryptopals-exploiting-cbc-padding-oracles/)
-    - [Byte by byte EBC mode decryption](https://node-security.com/posts/cryptography-byte-by-byte-ecb-decryption/) (albeit in a slightly different context than we explore)
-    - [Some POA practice](https://paddingoracle.github.io/)
+- id: level-13
+  name: TLS 1
+- id: level-14
+  name: TLS 2
