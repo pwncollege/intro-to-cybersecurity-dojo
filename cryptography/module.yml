@@ -44,7 +44,7 @@ resources:
 - name: "Useful Resource"
   type: markdown
   content: |
-    - [Byte by byte EBC mode decryption](https://node-security.com/posts/cryptography-byte-by-byte-ecb-decryption/) (albeit in a slightly different context than we explore)
+    - [Byte by byte ECB mode decryption](https://node-security.com/posts/cryptography-byte-by-byte-ecb-decryption/) (albeit in a slightly different context than we explore)
 - id: cpa
   name: AES-ECB-CPA
   type: challenge
