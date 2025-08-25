@@ -90,7 +90,7 @@ resources:
       Keep in mind that the options for string include a minimum size that it will print.
     * Don't forget about pwntools! You will need to interact heavily with these programs. Do it right (with pwntools).
     * `rappel` is a nice tool to help you figure out what certain instructions do.
-    * Tools for reverse engineering actual binaries, included inthe dojo:
+    * Tools for reverse engineering actual binaries, included in the dojo:
        * IDA is the industry standard of reverse-engineering tools.
        * Ghidra is an open source direct competitor to IDA that is used and loved by many.
        * Binary Ninja is an alternative product that competes with IDA in the space.
