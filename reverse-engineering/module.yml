@@ -62,7 +62,7 @@ resources:
     There are many resources related to reverse engineering around the internet.
 
     - A good place to start is a series of walkthroughs of several hacking challenges by ASU's own Adam Doupe on his [YouTube channel](https://www.youtube.com/watch?v=qGt-0OOAFcM&list=PLK06XT3hFPziMAZj8QuoqC8iVaEbrlZWh).
-    - A comprehensive revese engineering [tutorial series](https://github.com/mytechnotalent/Reverse-Engineering).
+    - A comprehensive reverse engineering [tutorial series](https://github.com/mytechnotalent/Reverse-Engineering).
 - name: Useful Tools
   type: markdown
   content: |
