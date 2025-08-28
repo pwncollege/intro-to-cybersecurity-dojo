@@ -1,4 +1,6 @@
-For this challenge you will be attempting to connect to a remote host, you must first run /challenge/run in order to access the network. From your host at 10.0.0.1, connect to some unknown remote host on the 10.0.0.0/24 subnet, on port 31337.
+In this challengem you will be attempting to connect to a remote host.
+You must first run `/challenge/run` in order to access the network: `/challenge/run` will drop you into a shell on a host with network access.
+From your host at 10.0.0.1, connect to some unknown remote host on the 10.0.0.0/24 subnet, on port 31337.
 
 Fortunately, there are only 256 possible hosts on this subnet, so you can just try them all!
 
