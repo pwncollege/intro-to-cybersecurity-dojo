@@ -29,4 +29,6 @@ for i in $(seq 10); do
   echo $i
 done
 ```
-Important: Don't forget to run /challenge/run to access the network or else you will not find the remote host.
+
+----
+**Important:** Don't forget to run /challenge/run to access the network or else you will not find the remote host.
