@@ -1,3 +1,5 @@
+In this challengem you will be attempting to connect to a remote host.
+You must first run `/challenge/run` in order to access the network: `/challenge/run` will drop you into a shell on a host with network access.
 From your host at 10.0.0.1, connect to some unknown remote host on the 10.0.0.0/24 subnet, on port 31337.
 
 Fortunately, there are only 256 possible hosts on this subnet, so you can just try them all!
@@ -27,3 +29,6 @@ for i in $(seq 10); do
   echo $i
 done
 ```
+
+----
+**Important:** Don't forget to run /challenge/run to access the network or else you will not find the remote host.
