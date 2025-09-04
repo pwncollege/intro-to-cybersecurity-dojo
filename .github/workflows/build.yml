@@ -29,7 +29,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: "-"
-          file: ./${{ github.event.inputs.image }}/Dockerfile
+          context: ${{ github.event.inputs.image }}
           push: true
           tags: pwncollege/challenge-${{ github.event.inputs.image }}:latest
