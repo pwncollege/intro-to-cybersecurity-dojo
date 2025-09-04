@@ -8,5 +8,6 @@ RUN pip install --no-cache-dir \
     flask \
     psutil \
     requests \
-    git+https://github.com/pwncollege/dojjail#egg=dojjail \
-    git+https://github.com/secdev/scapy#egg=scapy
+    https://github.com/pwncollege/dojjail/archive/refs/heads/master.zip \
+    https://github.com/secdev/scapy/archive/refs/heads/master.zip
+
