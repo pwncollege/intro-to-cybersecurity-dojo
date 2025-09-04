@@ -1,4 +1,4 @@
-#!/usr/bin/exec-suid --real -- /usr/bin/python -I
+#!/usr/bin/exec-suid --real -- /usr/local/bin/python -I
 
 import os
 
