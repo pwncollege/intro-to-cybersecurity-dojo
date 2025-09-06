@@ -29,7 +29,6 @@ challenges:
   name: Firewall 2
 - id: firewall-3
   name: Firewall 3
-  privileged: true
 - id: dos-1
   name: Denial of Service 1
 - id: dos-2
