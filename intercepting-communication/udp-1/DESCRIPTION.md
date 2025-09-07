@@ -16,5 +16,5 @@ When using UDP sockets, there is no more `s.listen` and `s.accept` for socket `s
 A single server loop can, thus, handle multiple client interactions all coming together at the same time, but this also makes it easy to mix things up in an insecure way.
 
 In this challenge, you'll make your first UDP connection. 
-From your host at 10.0.0.1, connect to the remote host at 10.0.0.2 on port 31337, and send the message: `Hello, World!`.
+From your host at 10.0.0.1, connect to the remote host at 10.0.0.2 on port 31337, and send the message: `Hello, World!\n`.
 You can use Python or netcat, but we'd recommend the former, as it'll be more useful in future challenges.
