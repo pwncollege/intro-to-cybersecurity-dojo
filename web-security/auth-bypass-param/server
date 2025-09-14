@@ -24,9 +24,9 @@ class TemporaryDB:
 
 db = TemporaryDB()
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? as password""", [os.urandom(8)])
+db.execute("""CREATE TABLE users AS SELECT "admin" AS username, ? AS password""", [os.urandom(8)])
 # https://www.sqlite.org/lang_insert.html
-db.execute("""INSERT INTO users SELECT "guest" as username, "password" as password""")
+db.execute("""INSERT INTO users SELECT "guest" AS username, "password" AS password""")
 
 @app.route("/", methods=["POST"])
 def challenge_post():
