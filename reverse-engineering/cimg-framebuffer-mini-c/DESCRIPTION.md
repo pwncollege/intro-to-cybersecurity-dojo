@@ -8,10 +8,10 @@ This challenge processes and displays your input like before, and in the process
 To understand what your input should be, you might consider the following approach typical of a Reverse Engineering pipeline:
 
 1. Understand what the program expects its internal state to be to give you the flag.
-   You should do this using a combination of an graphical reversing tool (IDA, etc) to form hypotheses about what the program is doing to your input and a runtime debugger (gdb) to verify those hypotheses at runtime.
+   You should do this using a combination of a graphical reversing tool (IDA, etc) to form hypotheses about what the program is doing to your input and a runtime debugger (gdb) to verify those hypotheses at runtime.
    For example, at some specific assembly instruction, the program makes a decision about whether or not to give you the flag.
    Find this point in your graphical reversing tool, then verify your understanding at runtime with gdb.
-   Strive to understand what the data that it is checking agianst _means_, at least on a high level.
+   Strive to understand what the data that it is checking against _means_, at least on a high level.
    A check is typically done between some questionable data (in this case, some transformation of your image) and known-good data.
    What is the latter in this scenario?
 2. Understand how the program uses your input to generate the "questionable" data that it checks in its decision making process.
