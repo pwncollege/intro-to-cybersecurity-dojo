@@ -8,7 +8,7 @@ This challenge processes and displays your input like before, and in the process
 To understand what your input should be, you might consider the following approach typical of a Reverse Engineering pipeline:
 
 1. Understand what the program expects its internal state to be to give you the flag.
-   You should do this using a combination of an graphical reversing tool (IDA, etc) to form hypotheses about what the program is doing to your input and a runtime debugger (gdb) to verify those hypotheses at runtime.
+   You should do this using a combination of a graphical reversing tool (IDA, etc) to form hypotheses about what the program is doing to your input and a runtime debugger (gdb) to verify those hypotheses at runtime.
    For example, at some specific assembly instruction, the program makes a decision about whether or not to give you the flag.
    Find this point in your graphical reversing tool, then verify your understanding at runtime with gdb.
    Strive to understand what the data that it is checking agianst _means_, at least on a high level.
