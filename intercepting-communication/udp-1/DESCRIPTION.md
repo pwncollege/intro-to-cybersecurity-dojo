@@ -12,7 +12,7 @@ Without TCP's functionality, UDP lacks the concept of a "connection".
 Each packet is not intrinsically linked to any packet, and if this sort of link is desired, the network application itself has to do it.
 
 This makes writing UDP servers and clients a bit strange.
-When using UDP sockets, there is no more `s.listen` and `s.accept` for socket `s`: you simply `s.recvfrom` to get data (returning the bytes received and the address of the sender, as retrieved from the UDP packet) and `s.sendto` (taking the bytes to send an the address of the sender).
+When using UDP sockets, there is no more `s.listen` and `s.accept` for socket `s`: you simply `s.recvfrom` to get data (returning the bytes received and the address of the sender, as retrieved from the UDP packet) and `s.sendto` (taking the bytes to send and the address of the sender).
 A single server loop can, thus, handle multiple client interactions all coming together at the same time, but this also makes it easy to mix things up in an insecure way.
 
 In this challenge, you'll make your first UDP connection. 
