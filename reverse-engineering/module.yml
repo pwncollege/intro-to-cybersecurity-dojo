@@ -239,7 +239,7 @@ challenges:
       challenge: CIMGDirectives
       keep_source: True
 - id: cimg-operations
-  name: "File Formats: Directives"
+  name: "File Formats: Directives (x86)"
   auxiliary:
     pwnshop:
       challenge: CIMGDirectives
