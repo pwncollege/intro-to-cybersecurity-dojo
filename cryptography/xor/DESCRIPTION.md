@@ -5,7 +5,7 @@ A couple of terms to unpack here...
 **Bitwise.**
 Remember from [Dealing with Data](/fundamentals/data-dealings/) that computers think in binary!
 That is, they conceptualize numbers in [base 2](https://www.google.com/search?q=learn+number+bases), so something like `9` is expressed as `1001`.
-An XOR operates on one pair of bits at a time, resulting in in `1` if the bits are different (one is `1` and the other is `0`) or `0` if they are the same (both `1` or both `0`).
+An XOR operates on one pair of bits at a time, resulting in `1` if the bits are different (one is `1` and the other is `0`) or `0` if they are the same (both `1` or both `0`).
 It is then applied to every bit pair independently, and the results are concatenated.
 For example, decimal `9` (`1001`) XORed with decimal `5` (`0101`) results in `1100` (decimal 12).
 
