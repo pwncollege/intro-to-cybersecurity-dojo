@@ -1,5 +1,5 @@
 So, you now (hopefully!) understand the use of AES and the various hurdles, but there has been one thing that we have not considered.
-If person A (commonly refered to as [Alice](https://en.wikipedia.org/wiki/Alice_and_Bob)) wants to encrypt some data and send it to person B (commonly refered to as Bob) using AES, they must first agree on a key.
+If person A (commonly referred to as [Alice](https://en.wikipedia.org/wiki/Alice_and_Bob)) wants to encrypt some data and send it to person B (commonly referred to as Bob) using AES, they must first agree on a key.
 If Alice and Bob see each other in person, one might write the key down and hand it to the other.
 But this rarely happens --- typically, the key must be established remotely, with Alice and Bob on either end of a (not yet encrypted!) network connection.
 In these common cases, Alice and Bob must securely generate a key even if they are being eavesdropped upon (think: network sniffing)!
