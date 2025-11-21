@@ -1,4 +1,4 @@
-There are two dangers to UDP: first, it is often used in places where people are already cutting corners for performence's sake.
+There are two dangers to UDP: first, it is often used in places where people are already cutting corners for performance's sake.
 Second, it forces the programmer to keep track of sessions explicitly.
 This combination can cause security issues.
 

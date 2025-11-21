@@ -25,7 +25,7 @@ with open("my-file", "wb") as out_file:
 As you can see, characters that you can type normally can just be put in the Python bytestring to send to the file.
 What about others?
 As you may have previously seen in Python bytestrings, you can specify characters by their raw byte value using the `\x` "escape sequence".
-For example, \x41 creates a byte with a hexidecimal value of 0x41, which is an ASCII A.
+For example, \x41 creates a byte with a hexadecimal value of 0x41, which is an ASCII A.
 First, let's use this to write the above in a different way:
 
 ```python
