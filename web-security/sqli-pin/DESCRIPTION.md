@@ -5,7 +5,7 @@ Thus, your task is to get the application to actually authenticate you as admin!
 
 Luckily, as the name of the level suggests, this application is vulnerable to a _SQL injection_.
 A SQL injection, conceptually, is to SQL what a Command Injection is to the shell.
-In Command Injections, the application assembled a command string, and a gap between the developer's intent and the command shell's actual functionality enabled attackers to carry out actions unintended by the attacker.
+In Command Injections, the application assembled a command string, and a gap between the developer's intent and the command shell's actual functionality enabled attackers to carry out actions unintended by the developer.
 A SQL injection is the same: the developer builds the application to make SQL queries for certain goals, but because of the way these queries are assembled by the application logic, the resulting actions of the SQL query, when executed by the database, can be disastrous from a security perspective.
 
 Command injections don't have a clear solution: the shell is an ancient piece of technology, and the interfaces to the shell have ossified decades ago and are very hard to change.
