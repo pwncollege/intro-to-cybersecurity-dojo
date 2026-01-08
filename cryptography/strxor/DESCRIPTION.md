@@ -42,8 +42,8 @@ This is _further_ complicated by the fact that UTF-8 can't turn any arbitrary by
 For example, `b'\xb0'.decode()` raises an exception.
 You can fix this by abandoning the default UTF-8 and using a pre-Unicode non-encoding encoding like "[latin](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)"/ISO-8859-1, from the ancient days of computing, as so: `b'\xb0'.decode('latin')`.
 While ISO-8859-1 originally predated Unicode, its Python implementation converts to Unicode strings.
-However, keep in mind that this encoding is _different_ from UTF-8: `b"\xb0".encode('latin").decode() == b'\xc2\xb0'`.
-You must, instead, be consistent and decode and encode with the same encoding: `b"\xb0".encode('latin").decode(latin1) == b"\xb0"`.
+However, keep in mind that this encoding is _different_ from UTF-8: `b"\xb0".decode("latin").encode() == b"\xc2\xb0"`.
+You must, instead, be consistent and decode and encode with the same encoding: `b"\xb0".decode("latin").encode("latin") == b"\xb0"`.
 
 Anyways, all this sounds terrifying, but it's mostly a warning for the future.
 For _this_ level, we VERY carefully chose the characters so that you don't run into these issues.
