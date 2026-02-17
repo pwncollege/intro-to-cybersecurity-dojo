@@ -1,22 +1,10 @@
-You've used XSS to inject JavaScript to cause the victim to make HTTP requests.
-But what if there is no XSS?
-Can you just "inject" the HTTP requests directly?
+The web was designed to enable interconnectivity across sites. While this interconnectivity allows for conveniences like embedding images or linking to other sites, it also poses serious security risks. For example, malicious websites can cause victims' browsers to make sensitive requests on their behalf, such as sending a GET request to `http://challenge.localhost/publish`. Is that URL a picture of a cat which some other site would like to display, or a sensitive endpoint that should be carefully protected? Who knows!
 
-Shockingly, the answer is yes.
-The web was designed to enable interconnectivity across many different websites.
-Sites can embed images from other sites, link to other sites, and even _redirect_ to other sites.
-All of this flexibility represents some serious security risks, and there is almost nothing preventing a malicious website from simply directly causing a victim visitor to make potentially sensitive requests, such as (in our case) a `GET` request to `http://challenge.localhost/publish`!
+This style of attack, known as **Cross-Site Request Forgery (CSRF)**, takes advantage of the fact that browsers may automatically make requests to other sites on behalf of the user. Worse yet, browsers may even include cookies and other authentication tokens in these requests, *automatically authenticating the attacker*. 
 
-This style of _forging_ requests _across_ sites is called _Cross Site Request Forgery_, or CSRF for short.
+Modern web security practices include defenses against CSRF, such as:
+- [**Same-Origin Policy (SOP)**](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy): Controls interactions between different origins (e.g., `http://example.com` and `http://evil.com`); typically "writes" (e.g., form submissions) and "embedding" (e.g., `<img>`) is allowed, but "reads" are not. This means that you can send [simple requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests) to another site, but you cannot read the responses by default
+- [**SameSite Cookie Attribute**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#controlling_third-party_cookies_with_samesite): Allows servers to specify when cookies should be sent with cross-site requests.
+- [**CSRF Tokens**](https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/CSRF_prevention#anti-csrf_tokens): Unique tokens included in requests that attackers cannot forge, because SOP prevents them from reading the token.
 
-Note that I said _almost_ nothing prevents this.
-The [Same-origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) was created in the 1990s, when the web was still young, to (try to) mitigate this problem.
-SOP prevents a site at one Origin (say, `http://www.hacker.com` or, in our case, `http://hacker.localhost:1337`) from interacting in certain security-critical ways with sites at other Origins (say, `http://www.asu.edu` or, in our case, `http://challenge.localhost/`).
-SOP prevents some common CSRF vectors (e.g., when using JavaScript to make a requests across Origins, cookies will not be sent!), but there are plenty of SOP-avoiding ways to, e.g., make `GET` requests with cookies intact (such as full-on redirects).
-
-In this level, pwnpost has fixed its XSS issues (at least for the `admin` user).
-You'll need to use CSRF to publish the flag post!
-The `/challenge/victim` of this level will log into pwnpost (`http://challenge.localhost/`) and will then visit an evil site that you can set up (`http://hacker.localhost:1337/`).
-`hacker.localhost` points to your local workspace, but you will need to set up a web server to serve an HTTP request on port 1337 yourself.
-Again, this can be done with `nc` or with a python server (for example, by using http.server or simply adapting the challenge server code itself!).
-Because these sites will have different Origins, SOP protections will apply, so be careful about how you forge the request!
+Despite these defenses, they are not always implemented correctly. In this challenge, pwnpost has resolved its XSS issues for the admin user. Your task is to exploit CSRF to publish the flag post! The victim user will log into pwnpost (`http://challenge.localhost/`) and visit your malicious site (`http://hacker.localhost:1337`). You can easily serve your malicious site using a Python HTTP Server (e.g. `http.server`), or even using `nc` if you prefer. Since these sites have different Origins, be mindful of SOP limitations.
