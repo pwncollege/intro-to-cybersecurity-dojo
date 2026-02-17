@@ -66,7 +66,7 @@ The double quotes above must be escaped so that Python doesn't interpret them as
 ----
 **Writing integer values:**
 Of course, some bytes in a file format represent integers, typically stored in little-endian format.
-Writing these will require you to "pack" a typical integer (e.g., `5`) into its binary representation (this depends on the size of the variable. For example, a 32-bit/4-byte `1` would be `b"\x05\x00\x00\x00`).
+Writing these will require you to "pack" a typical integer (e.g., `5`) into its binary representation (this depends on the size of the variable. For example, a 32-bit/4-byte `5` would be `b"\x05\x00\x00\x00`).
 
 To convert between integers and raw bytes, check out the `struct` Python package.
 
