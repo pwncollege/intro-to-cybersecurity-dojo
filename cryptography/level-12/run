@@ -1,1 +1,61 @@
-../run
+#!/opt/pwn.college/python
+
+import base64
+import sys
+
+from Crypto.Random import get_random_bytes
+
+
+def show(name, value):
+    print(f"{name}: {value}")
+
+
+def show_hex(name, value):
+    show(name, hex(value))
+
+
+def show_b64(name, value):
+    show(f"{name} (b64)", base64.b64encode(value).decode())
+
+
+def input_(name):
+    try:
+        return input(f"{name}: ")
+    except (KeyboardInterrupt, EOFError):
+        print()
+        exit(0)
+
+
+def input_hex(name):
+    data = input_(name)
+    try:
+        return int(data, 16)
+    except Exception:
+        print(f"Failed to decode hex input: {data!r}", file=sys.stderr)
+        exit(1)
+
+
+def main():
+    flag = open("/flag", "rb").read()
+    e = input_hex("e")
+    n = input_hex("n")
+
+    if not (e > 2):
+        print("Invalid e value (e > 2)", file=sys.stderr)
+        exit(1)
+
+    if not (2**512 < n < 2**1024):
+        print("Invalid n value (2**512 < n < 2**1024)", file=sys.stderr)
+        exit(1)
+
+    challenge = int.from_bytes(get_random_bytes(64), "little")
+    show_hex("challenge", challenge)
+
+    response = input_hex("response")
+    if pow(response, e, n) == challenge:
+        ciphertext = pow(int.from_bytes(flag, "little"), e, n).to_bytes(256, "little")
+        show_b64("secret ciphertext", ciphertext)
+
+
+if __name__ == "__main__":
+    main()
