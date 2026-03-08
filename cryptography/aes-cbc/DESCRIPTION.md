@@ -11,7 +11,7 @@ That will stop you from carrying out the chosen-plaintext prefix attacks from th
 Moreover, every time you re-encrypt, even with the same key, a new (random) IV will be used, which will propagate changes to all of the blocks anyways, which means that even your sampling-based CPA attacks from the even earlier levels will not work, either.
 
 Sounds pretty good, right?
-The only relevant _disadvantage_ that CBC has over EBC is that encryption has to happen sequentially.
+The only relevant _disadvantage_ that CBC has over ECB is that encryption has to happen sequentially.
 With ECB, you could encrypt, say, only the last part of the message if that's all you have to send.
 With CBC, you must encrypt the message from the beginning.
 In practice, this does not tend to be a problem, and ECB should never be used over CBC.
