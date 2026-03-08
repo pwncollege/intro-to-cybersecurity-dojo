@@ -78,7 +78,7 @@ with open("my-file", "wb") as out_file:
   # the above is equivalent to
   out_file.write(b"\x39\x05\x00\x00")
 
-  # this packs the integer 1337 (0x539 in hex) two little-endian bytes
+  # this packs the unsiged short 1337 (0x539 in hex) two little-endian bytes
   out_file.write(struct.pack("<H", 1337))
 
   # the above is equivalent to
