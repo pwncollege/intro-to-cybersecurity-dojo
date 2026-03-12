@@ -27,7 +27,7 @@ Let's take it step by step:
    Eve is out of luck!
 
 Because `A` and `B` are public, they are termed _public keys_, with `a` and `b` being _private keys_.
-Furthermore, you may noticed in this level that the prime number `p` that we use is hardcoded and, in fact, there are recommended DHKE [for many bitsizes](https://datatracker.ietf.org/doc/html/rfc3526).
+Furthermore, you may notice in this level that the prime number `p` that we use is hardcoded and, in fact, there are recommended DHKE [for many bitsizes](https://datatracker.ietf.org/doc/html/rfc3526).
 The standardization of these primes allows Alice and Bob to just publish `A` and `B` (though, in practice, `p` is also transmitted to support the use of different `p`s in certain scenarios).
 
 
