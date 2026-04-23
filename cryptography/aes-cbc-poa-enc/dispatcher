@@ -4,7 +4,6 @@ import os
 
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
-from Crypto.Random import get_random_bytes
 
 key = open("/challenge/.key", "rb").read()
 cipher = AES.new(key=key, mode=AES.MODE_CBC)
