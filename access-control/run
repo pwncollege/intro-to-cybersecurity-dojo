@@ -228,7 +228,7 @@ def level3():
 
 def level4():
     """
-    In this challenge you will work understand how the SETUID bit for UNIX permissions works.
+    In this challenge you will understand how the SETUID bit for UNIX permissions works.
 
     What if /bin/cat had the SETUID bit set?
     """
@@ -243,7 +243,7 @@ def level4():
 
 def level5():
     """
-    In this challenge you will work understand how the SETUID bit for UNIX permissions works.
+    In this challenge you will understand how the SETUID bit for UNIX permissions works.
 
     What if /bin/cp had the SETUID bit set?
 
@@ -289,7 +289,7 @@ def level6():
 
 def level7():
     """
-    In this challenge you will work understand how UNIX permissions works with multiple users.
+    In this challenge you will understand how UNIX permissions work with multiple users.
 
     You'll also be given access to various user accounts, use su to switch between them.
     """
@@ -310,7 +310,7 @@ def level7():
 
 def level8():
     """
-    In this challenge you will work understand how UNIX permissions works with multiple users.
+    In this challenge you will understand how UNIX permissions work with multiple users.
 
     You'll also be given access to various user accounts, use su to switch between them.
     """
@@ -328,7 +328,7 @@ def level8():
 
 def level9():
     """
-    In this challenge you will work understand how UNIX permissions works with multiple users.
+    In this challenge you will understand how UNIX permissions work with multiple users.
 
     You'll also be given access to various user accounts, use su to switch between them.
     """
@@ -347,7 +347,7 @@ def level9():
 
 def level10():
     """
-    In this challenge you will work understand how UNIX permissions works with multiple users.
+    In this challenge you will understand how UNIX permissions work with multiple users.
 
     You'll also be given access to various user accounts, use su to switch between them.
 
@@ -375,7 +375,7 @@ def level10():
 
 def level11():
     """
-    In this challenge you will work understand how UNIX permissions for directories work with multiple users.
+    In this challenge you will understand how UNIX permissions for directories work with multiple users.
 
     You'll be given access to various user accounts, use su to switch between them.
     """
@@ -402,7 +402,7 @@ def level11():
 
 def level12():
     """
-    In this challenge you will work understand how UNIX permissions for directories work with multiple users.
+    In this challenge you will understand how UNIX permissions for directories work with multiple users.
 
     You'll be given access to various user accounts, use su to switch between them.
     """
