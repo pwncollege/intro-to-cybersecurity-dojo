@@ -12,7 +12,7 @@ flag = open("/flag").read()
 parent_process = psutil.Process(os.getppid())
 
 def drop_packets(dport):
-    subprocess.run(["/usr/sbin/iptables",
+    subprocess.run(["/usr/sbin/iptables-legacy",
                     "-A", "OUTPUT",
                     "-p", "tcp",
                     "--dport", str(dport),
