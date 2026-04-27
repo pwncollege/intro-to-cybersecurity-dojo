@@ -1,1 +1,51 @@
-../run
+#!/opt/pwn.college/python
+
+import sys
+
+from Crypto.Random import get_random_bytes
+from Crypto.PublicKey import RSA
+
+
+def show(name, value):
+    print(f"{name}: {value}")
+
+
+def show_hex(name, value):
+    show(name, hex(value))
+
+
+def input_(name):
+    try:
+        return input(f"{name}: ")
+    except (KeyboardInterrupt, EOFError):
+        print()
+        exit(0)
+
+
+def input_hex(name):
+    data = input_(name)
+    try:
+        return int(data, 16)
+    except Exception:
+        print(f"Failed to decode hex input: {data!r}", file=sys.stderr)
+        exit(1)
+
+
+def main():
+    flag = open("/flag", "r").read()
+    key = RSA.generate(2048)
+
+    show_hex("e", key.e)
+    show_hex("d", key.d)
+    show_hex("n", key.n)
+
+    challenge = int.from_bytes(get_random_bytes(256), "little") % key.n
+    show_hex("challenge", challenge)
+
+    response = input_hex("response")
+    if pow(response, key.e, key.n) == challenge:
+        show("flag", flag)
+
+
+if __name__ == "__main__":
+    main()
