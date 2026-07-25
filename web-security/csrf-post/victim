@@ -42,8 +42,8 @@ browser.find_element(By.NAME, "submit").submit()
 time.sleep(3)
 print("Logged in!")
 
-print("Visiting the attacker's website (http://hacker.localhost:1337/)...")
-browser.get("http://hacker.localhost:1337/")
+print("Visiting the attacker's website (http://hacker.internal:1337/)...")
+browser.get("http://hacker.internal:1337/")
 time.sleep(3)
 
 print("Visited! Go check if the attack worked!")
