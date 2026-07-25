@@ -132,42 +132,49 @@ resources:
 - id: xss-stored-html
   name: XSS 1
   type: challenge
+  privileged: true
   auxiliary:
     pwnshop:
       challenge: XSSStoredHTML
 - id: xss-stored-alert
   name: XSS 2
   type: challenge
+  privileged: true
   auxiliary:
     pwnshop:
       challenge: XSSStoredAlert
 - id: xss-reflected
   name: XSS 3
   type: challenge
+  privileged: true
   auxiliary:
     pwnshop:
       challenge: XSSReflected
 - id: xss-context
   name: XSS 4
   type: challenge
+  privileged: true
   auxiliary:
     pwnshop:
       challenge: XSSContext
 - id: xss-rf-get
   name: XSS 5
   type: challenge
+  privileged: true
   auxiliary:
     pwnshop:
       challenge: XSSPublishGet
 - id: xss-rf-post
   name: XSS 6
   type: challenge
+  privileged: true
   auxiliary:
     pwnshop:
       challenge: XSSPublishPost
 - id: xss-exfil-cookie
   name: XSS 7
   type: challenge
+  privileged: true
   auxiliary:
     pwnshop:
       challenge: XSSExfilCookie
@@ -182,18 +189,23 @@ resources:
 - id: csrf-get
   name: CSRF 1
   type: challenge
+  privileged: true
 - id: csrf-post
   name: CSRF 2
   type: challenge
+  privileged: true
 - id: csrf-reflected-alert
   name: CSRF 3
   type: challenge
+  privileged: true
 - id: csrf-xss-cookie
   name: CSRF 4
   type: challenge
+  privileged: true
 - id: csrf-xss-post
   name: CSRF 5
   type: challenge
+  privileged: true
 
 
 
