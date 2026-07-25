@@ -123,5 +123,5 @@ def challenge_get():
 
 
 app.secret_key = os.urandom(8)
-app.config["SERVER_NAME"] = f"challenge.localhost:80"
-app.run("challenge.localhost", 80)
+app.config["SERVER_NAME"] = f"challenge.internal:80"
+app.run("challenge.internal", 80)
