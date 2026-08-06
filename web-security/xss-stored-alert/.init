@@ -12,6 +12,7 @@ ip route add local 192.168.13.0/24 dev lo src 127.0.0.1
 
 # Reject packets sent to 192.168.13.37 at non-privileged ports
 iptables-legacy -A INPUT -p tcp -d 192.168.13.37 --dport 1024: -j REJECT
+iptables-legacy -A INPUT -p udp -d 192.168.13.37 --dport 1024: -j REJECT
 
 chmod 4555 /challenge/server
 chmod 4555 /challenge/victim
