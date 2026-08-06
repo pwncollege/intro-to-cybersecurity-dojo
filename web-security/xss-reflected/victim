@@ -37,8 +37,8 @@ if len(sys.argv) == 1:
 challenge_url = sys.argv[1]
 
 url_parsed = urllib.parse.urlparse(challenge_url)
-if url_parsed.hostname != "challenge.localhost":
-    print("Hostname should be 'challenge.localhost'.")
+if url_parsed.hostname != "challenge.internal":
+    print("Hostname should be 'challenge.internal'.")
     sys.exit(2)
 if url_parsed.port not in {None, 80}:
     print("Port should be 80.")

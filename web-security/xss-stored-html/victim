@@ -9,7 +9,7 @@ open_ports = {s.laddr.port for s in psutil.net_connections(kind="inet") if s.sta
 if 80 not in open_ports:
     print("Service doesn't seem to be running?")
     sys.exit(1)
-challenge_url = "http://challenge.localhost:80/"
+challenge_url = "http://challenge.internal:80/"
 flag = open("/flag").read().strip()
 
 print(f"Visiting {challenge_url}...")

@@ -30,7 +30,7 @@ if 80 not in open_ports:
     print("Service doesn't seem to be running?")
     sys.exit(1)
 
-challenge_url = "http://challenge.localhost:80/"
+challenge_url = "http://challenge.internal:80/"
 
 print(f"Visiting {challenge_url}")
 browser.get(challenge_url)
