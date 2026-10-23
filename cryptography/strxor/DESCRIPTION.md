@@ -42,8 +42,8 @@ For example, `b'\xb0'.decode()` raises an exception because by these bytes are n
 You can avoid this by specifying a different encoding, such as [ISO-8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1), also known as Latin-1. In Python, this encoding may be referred to as latin, latin1, or latin-1 -- these all mean the same thing. This older encoding maps _every_ byte to a character, so arbitrary sequences can be decoded without errors: `b'\xb0'.decode('latin')`.
 
 Even though Latin-1 pre-dates Unicode, decoding with it produces a standard Python Unicode string.
-However, keep in mind that Latin-1 encoding is _different_ from UTF-8: `b"\xb0".encode('latin").decode() == b'\xc2\xb0'`.
-You must, instead, be consistent and decode and encode with the same encoding: `b"\xb0".encode('latin").decode(latin1) == b"\xb0"`.
+However, keep in mind that Latin-1 encoding is _different_ from UTF-8: `b"\xb0".encode("latin").decode() == b'\xc2\xb0'`.
+You must, instead, be consistent and decode and encode with the same encoding: `b"\xb0".encode("latin").decode(latin1) == b"\xb0"`.
 
 Anyways, all this sounds terrifying, but it's mostly a warning for the future.
 For _this_ level, we VERY carefully chose the characters so that you don't run into these issues.
