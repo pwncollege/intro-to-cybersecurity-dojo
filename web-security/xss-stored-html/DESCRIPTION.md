@@ -33,9 +33,18 @@ In this level, all you have to do is inject a textbox.
 If our victim script sees three textboxes, we will give you the flag!
 
 ----
+**NOTE:**
+You might have noticed that the address of the server has changed: It is now hosted at `http://challenge.internal` rather than `http://challenge.localhost`. This seemingly minor change patches up a significant shortcoming of the design of the dojo. 
+
+[https://datatracker.ietf.org/doc/html/rfc6265#section-8.5](https://datatracker.ietf.org/doc/html/rfc6265#section-8.5) notes that "If a cookie is readable by a service running on one port, the cookie is also readable by a service running on another port of the same server". This means that a victim with cookies saved for `http://challenge.localhost` will foolishly send along cookies when visiting a service you control that exists on a different port.
+
+To address this, this challenge and the following ones have set up the network in a way to stop the cookie leak. All this means for you, though, is that the URLs have changed by a bit to accomodate for the redesign.
+
+----
 **DEBUGGING:**
 How do you debug these sorts of attacks?
 The most common thing to go wrong in this simple scenario is that the resulting post-injection HTML is invalid.
 Here, the View Source functionality of your browser can help.
 You can either try launching your attack against the web browser in the DOJO's GUI Desktop (e.g., set up the XSS, then visit with the DOJO's Firefox rather than with `/challenge/victim`), and View Source, or just use curl and read the result.
 The result, after you inject your payload, should still be valid (but newly-evil) HTML!
+

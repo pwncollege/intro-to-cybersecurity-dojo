@@ -29,7 +29,7 @@ open_ports = { s.laddr.port for s in psutil.net_connections(kind="inet") if s.st
 if 80 not in open_ports:
     print("Service doesn't seem to be running?")
     sys.exit(1)
-challenge_url = "http://challenge.localhost:80/"
+challenge_url = "http://challenge.internal:80/"
 flag = open("/flag").read().strip()
 
 print(f"Visiting {challenge_url}")
@@ -42,8 +42,8 @@ browser.find_element(By.NAME, "submit").submit()
 time.sleep(3)
 print("Logged in!")
 
-print("Visiting the attacker's website (http://hacker.localhost:1337/)...")
-browser.get("http://hacker.localhost:1337/")
+print("Visiting the attacker's website (http://hacker.internal:1337/)...")
+browser.get("http://hacker.internal:1337/")
 try:
     WebDriverWait(browser, 1).until(EC.alert_is_present())
 except TimeoutException:
