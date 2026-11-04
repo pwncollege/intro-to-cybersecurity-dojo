@@ -194,7 +194,7 @@ def game():
                 bomb_y = random.randrange(h)
             prev_hidden_x = hidden_x
             prev_hidden_y = hidden_y
-            while hidden_x == prev_hidden_x and hidden_y == prev_hidden_y:
+            while (hidden_x == prev_hidden_x and hidden_y == prev_hidden_y) or (hidden_x == bomb_x and hidden_y == bomb_y):
                 hidden_x = (bomb_x+random.randrange(w-1))%w
                 hidden_y = (bomb_y+random.randrange(h-1))%h
 
