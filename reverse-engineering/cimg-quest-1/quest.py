@@ -108,8 +108,6 @@ def game():
     x = random.randrange(w)
     y = random.randrange(h)
 
-    victory = False
-
     kb = InputEngine()
     screen = GraphicsEngine(w, h, cimg_ops=CIMG_NORMAL if "NOFLAG" in sys.argv else CIMG_1337)
     our_sprite = screen.create_sprite([ b"\\o/", b" ^ "])
@@ -143,11 +141,8 @@ def game():
     except PermissionError:
         flag = b"ERROR: /flag permission denied"
 
-    hidden_bytes = [ bytes([b]) for b in flag ][::-1]
-
     hidden_x = random.randrange(w)
     hidden_y = random.randrange(h)
-    revealed_bytes = [ ]
 
     bomb_x = random.randrange(w)
     bomb_y = random.randrange(h)
@@ -174,47 +169,27 @@ def game():
             break
 
         # uncover flag
-        if hidden_bytes and key == "l" and hidden_x in (x, x+1, x+2) and hidden_y in (y, y+1):
-            revealed_bytes.append([
-                hidden_x, hidden_y,
-                random.randrange(128, 256), random.randrange(128, 256), random.randrange(128, 256),
-                hidden_bytes.pop()
-            ])
-            bomb_x = random.randrange(w)
-            bomb_y = random.randrange(h)
-            while bomb_x in (x, x+1, x+2) and bomb_y in (y, y+1):
-                bomb_x = random.randrange(w)
-                bomb_y = random.randrange(h)
-            prev_hidden_x = hidden_x
-            prev_hidden_y = hidden_y
-            while hidden_x == prev_hidden_x and hidden_y == prev_hidden_y:
-                hidden_x = (bomb_x+random.randrange(w-1))%w
-                hidden_y = (bomb_y+random.randrange(h-1))%h
-
-        # render everyone
-        screen.blank()
-        correct_bytes = ''
-        for rx,ry,r,g,b,c in revealed_bytes:
-            screen.render_patch_monochrome([c], rx, ry, r=r, g=g, b=b)
-            correct_bytes += str(c.decode())
-        if hidden_bytes:
-            screen.render_patch_monochrome(
-                [b"?"], hidden_x, hidden_y,
-                r=random.randrange(256), g=random.randrange(256), b=random.randrange(256)
-            )
-        else:
+        if key == "l" and hidden_x in (x, x+1, x+2) and hidden_y in (y, y+1):
             try:
                 while True:
                     screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y)
                     screen.animate_text("!!! CONGRATULATIONS, YOU DID IT !!!", 10, hidden_y + 1)
-                    screen.animate_text(correct_bytes, 10, hidden_y + 2)
+                    screen.animate_text(flag.decode(), 10, hidden_y + 2)
                     screen.animate_text("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", 10, hidden_y + 1)
             except KeyboardInterrupt:
                 print(flag.decode(), file=sys.stderr)  # Print decoded flag to stderr
-                break
+                return
+
+        # render everyone
+        screen.blank()
+        screen.render_patch_monochrome(
+            [b"?"], hidden_x, hidden_y,
+            r=random.randrange(256), g=random.randrange(256), b=random.randrange(256)
+        )
 
         screen.render_patch_monochrome([b"B"], bomb_x, bomb_y)
         screen.render_sprite(our_sprite, x, y)
+
         screen.flush()
 
         key = kb.readchar()
