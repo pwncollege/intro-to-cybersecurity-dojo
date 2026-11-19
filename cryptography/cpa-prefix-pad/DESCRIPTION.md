@@ -15,7 +15,7 @@ During unpadding, PKCS7 looks at the value of the last byte of the block and rem
 Simple!
 
 But wait...
-What if exactly 16 bytes of plaintext are encrypted (e.g., no padding needed), but the plaintext byte has a value of `0x01`?
+What if exactly 16 bytes of plaintext are encrypted (e.g., no padding needed), but the last plaintext byte has a value of `0x01`?
 Left to its own devices, PKCS7 would chop off that byte during unpadding, leaving us with a corrupted plaintext.
 The solution to this is slightly silly: if the last block of the plaintext is exactly 16 bytes, we add a block of _all_ padding (e.g., 16 padding bytes, each with a value of `0x10`).
 PKCS7 removes the whole block during unpadding, and the sanctity of the plaintext is preserved at the expense of a bit more data.
