@@ -1,1 +1,21 @@
-../run
+#!/opt/pwn.college/python
+
+from Crypto.Random import get_random_bytes
+import base64
+import hashlib
+
+flag = open("/flag").read()
+prefix_length = 2
+null_byte_prefix = b'\0'
+
+challenge = get_random_bytes(32)
+challenge_base64 = base64.b64encode(challenge).decode()
+print(f"challenge (b64): {challenge_base64}")
+
+response_base64 = input("response (b64): ").strip()
+response = base64.b64decode(response_base64)
+
+proof_of_work_hash = hashlib.sha256(challenge+response).digest()
+
+if proof_of_work_hash[:prefix_length] == (null_byte_prefix * prefix_length):
+    print(f"flag: {flag}")
